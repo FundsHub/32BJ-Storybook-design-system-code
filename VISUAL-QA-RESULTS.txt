@@ -1,0 +1,23 @@
+32BJ Storybook V1.3.1 Final Rendered Visual QA
+September 16, 2026
+
+Checked against the current Figma component frames and rendered at desktop and 390px mobile.
+
+Corrections included:
+- Header logo now uses the white 32BJ mark shown in Figma, without the old Benefits strip.
+- Search uses the real 20px search icon rather than a text glyph.
+- Desktop hero now uses the exact approved 1104x189 Figma banner artwork.
+- Hero keeps a live-text desktop/mobile alternative as a separate mode.
+- Member Portal and Who We Are cards use variant-specific Figma crop positions.
+- Who We Are artwork removes the unrelated bag/arm that was visible in V1.3.0.
+- Card buttons return to the 166x40 Figma dimensions inside homepage cards.
+- Mobile cards stack copy and artwork so text is never covered and all people remain visible.
+- Footer social icon shapes now match the Figma Facebook, Bluesky, and Instagram artwork.
+- Footer QR remains a local production asset.
+
+Rendered QA result:
+- Desktop: no overflow detected at 1280px viewport.
+- Mobile: no horizontal overflow detected at 390px viewport.
+- TypeScript syntax transpile: passed for all changed TS/TSX files.
+
+Upload the loose files in this patch to the repository root.

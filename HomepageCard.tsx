@@ -22,7 +22,7 @@ export function HomepageCard({ type = 'member', imageUrl }: Props) {
           {member && <strong>Keeping You Connected</strong>}
           <p>{member
             ? 'Everything you need in one place to make the best use of all of your 32BJ Funds Benefits.'
-            : 'We serve working people and their families with benefits that support their health, security, and future.'}</p>
+            : 'We serve working people and their families with benefits that support their health, security, and future. Our team is proud to make a difference every day.'}</p>
         </div>
         <Button>{member ? 'Join Now' : 'Learn More'}</Button>
       </div>

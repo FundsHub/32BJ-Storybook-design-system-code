@@ -40,14 +40,15 @@ export function Header({ fund = 'health', mobile = false, open = false, searchOp
           {mobile ? (
             <div className="ds-header__mobile-actions">
               <button className="ds-header__search-toggle" type="button" aria-expanded={searchOpen} aria-controls="mobile-site-search">
-                <span aria-hidden>⌕</span><span className="sr-only">Search</span>
+                <img className="ds-header__search-icon" src={productionAssets.searchIcon} alt="" aria-hidden />
+                <span className="sr-only">Search</span>
               </button>
               <button className="ds-menu" type="button" aria-expanded={open} aria-controls="mobile-section-navigation">Menu</button>
             </div>
           ) : <Search />}
         </div>
 
-        {mobile && searchOpen && <div id="mobile-site-search" className="ds-header__mobile-search"><Search mobile /></div>}
+        {mobile && searchOpen && <div id="mobile-site-search" className="ds-header__mobile-search"><Search mobile id="mobile-site-search-input" /></div>}
 
         {(!mobile || open) && (
           <nav id={mobile ? 'mobile-section-navigation' : undefined} className="ds-header__section" aria-label={`${fund} section navigation`}>

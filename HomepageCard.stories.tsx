@@ -19,3 +19,5 @@ export const EqualHeightRow: Story = {
     </div>
   )
 };
+export const MobileMemberPortal: Story = { parameters: { viewport: { defaultViewport: 'mobile390' } } };
+export const MobileWhoWeAre: Story = { args: { type: 'who' }, parameters: { viewport: { defaultViewport: 'mobile390' } } };

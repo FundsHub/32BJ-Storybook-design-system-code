@@ -1,29 +1,31 @@
-32BJ Storybook V1.3.0 Production Assets Patch
+32BJ Storybook V1.3.1 Final Rendered Visual QA Patch
 
-Upload every file in this ZIP to the ROOT of:
+Upload every loose file in this ZIP to the ROOT of:
 FundsHub/32BJ-Storybook-design-system-code
 
-This patch replaces remaining visual placeholders with production/Figma artwork:
-- 32BJ logo
-- Don't Pay More hero artwork
-- Member Portal card artwork
-- Who We Are staff artwork
-- Footer social icons
-- Footer QR image
+This patch is meant to be applied on top of V1.3.0.
+Do not upload the ZIP itself.
 
-Code files:
-Header.tsx
-HeroBanner.tsx
-HomepageCard.tsx
-Footer.tsx
-productionAssets.ts
-phase20.css
+Updated code:
+- Header.tsx
+- Search.tsx
+- HeroBanner.tsx
+- HeroBanner.stories.tsx
+- HomepageCard.tsx
+- HomepageCard.stories.tsx
+- Footer.tsx
+- productionAssets.ts
+- phase20.css
 
-Image files:
-32bj-logo.png
-32bj-hero-visual.png
-32bj-member-portal.png
-32bj-who-we-are.png
-32bj-footer-qr.png
+Updated/new assets:
+- 32bj-logo.png
+- 32bj-search-icon.png
+- 32bj-hero-banner.png
+- 32bj-who-we-are.png
+- 32bj-facebook.png
+- 32bj-bluesky.png
+- 32bj-instagram.png
 
-The PNG files stay at repository root on purpose so the same GitHub upload method used for earlier patches works.
+Notes:
+- 32bj-hero-visual.png, 32bj-member-portal.png and 32bj-footer-qr.png from V1.3.0 remain in place and are still used.
+- VISUAL-QA-RESULTS.txt documents the rendered desktop/mobile checks.
