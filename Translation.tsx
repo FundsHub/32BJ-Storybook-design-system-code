@@ -1,0 +1,2 @@
+import { useState } from 'react'; import './components.css';
+export function Translation({mobile=false}:{mobile?:boolean}) { const [open,setOpen]=useState(false); return <div className={`ds-translation ${mobile?'ds-translation--mobile':''}`}><button aria-expanded={open} onClick={()=>setOpen(v=>!v)}>Language {open?'⌃':'⌄'}</button>{open&&<div className="ds-translation__panel"><a href="#">English</a><a href="#">Español</a><p>Automated translations are provided for convenience. Official plan documents and notices control if there is a conflict.</p></div>}</div>; }

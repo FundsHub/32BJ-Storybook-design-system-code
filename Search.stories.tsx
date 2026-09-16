@@ -1,0 +1,1 @@
+import type { Meta, StoryObj } from '@storybook/react'; import { Search } from '../components'; const meta:Meta<typeof Search>={title:'Components/Search',component:Search,tags:['autodocs']}; export default meta; type Story=StoryObj<typeof Search>; export const Desktop:Story={}; export const Mobile:Story={args:{mobile:true},parameters:{viewport:{defaultViewport:'mobile390'}}};

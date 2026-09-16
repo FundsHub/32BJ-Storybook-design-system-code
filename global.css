@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Rubik:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--32bj-page); color: var(--32bj-ink); font-family: 'Rubik', Arial, sans-serif; }
+button, input, select, textarea { font: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--32bj-focus); outline-offset: 2px; }
+.sb-section { display: grid; gap: 16px; max-width: 1200px; }
+.sb-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }

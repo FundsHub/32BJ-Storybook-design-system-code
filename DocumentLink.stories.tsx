@@ -1,0 +1,1 @@
+import type { Meta, StoryObj } from '@storybook/react'; import { DocumentLink } from '../components'; const meta:Meta<typeof DocumentLink>={title:'Components/Document Link',component:DocumentLink,tags:['autodocs'],args:{title:'Authorization to Release Health Information',meta:'PDF'}}; export default meta; type Story=StoryObj<typeof DocumentLink>; export const Default:Story={};
