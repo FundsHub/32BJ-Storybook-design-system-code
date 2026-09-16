@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { Footer, Header, NestedNavigation, Translation } from '../components';
+import type { Meta, StoryObj } from '@storybook/react'; import { Footer, Header, NestedNavigation, Translation } from './index';
 const meta:Meta={title:'Components/Navigation',tags:['autodocs']};export default meta;type Story=StoryObj;
 export const Headers:Story={render:()=> <div className="sb-section">{(['health','training','retirement','legal'] as const).map(f=><Header key={f} fund={f}/>)}</div>};
 export const MobileHeaders:Story={parameters:{viewport:{defaultViewport:'mobile390'}},render:()=> <div className="sb-section">{(['health','training','retirement','legal'] as const).map(f=><Header key={f} fund={f} mobile open/>)}</div>};

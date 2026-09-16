@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { HeroBanner, HomepageCard, MemberServices, NewsMemberAlert } from '../components';
+import type { Meta, StoryObj } from '@storybook/react'; import { HeroBanner, HomepageCard, MemberServices, NewsMemberAlert } from './index';
 const meta:Meta={title:'Components/Content',tags:['autodocs']};export default meta;type Story=StoryObj;
 export const Hero:Story={render:()=> <div className="sb-section"><HeroBanner/><HeroBanner mobile/></div>};
 export const HomepageCards:Story={render:()=> <div className="sb-row"><HomepageCard/><HomepageCard type="who"/></div>};

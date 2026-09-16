@@ -1,0 +1,9 @@
+32BJ Storybook flat GitHub version
+
+This version is intentionally FLAT because GitHub web upload kept stripping folders.
+
+Upload every file in this folder directly to the repository root.
+Choose Replace files when GitHub prompts for files that already exist.
+No src folder and no .storybook folder are required for this version.
+
+The package scripts tell Storybook to use the repository root as its config directory.

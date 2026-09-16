@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Accordion, AlertBar, Badge, Button, Callout, Checkbox, DocumentLink, FormFieldGroup, Input, RadioButton, ResourceLink, Search, Select, Textarea } from '../components';
+import { Accordion, AlertBar, Badge, Button, Callout, Checkbox, DocumentLink, FormFieldGroup, Input, RadioButton, ResourceLink, Search, Select, Textarea } from './index';
 const meta: Meta = { title:'Components/Core', tags:['autodocs'] }; export default meta; type Story=StoryObj;
 export const Buttons:Story={render:()=> <div className="sb-section">{(['health','training','retirement','legal'] as const).map(f=><div className="sb-row" data-fund={f} key={f}><Button fund={f}>{f} primary</Button><Button fund={f} variant="secondary">Secondary</Button></div>)}</div>};
 export const Inputs:Story={render:()=> <div className="sb-section"><Input label="Work site or location address" placeholder="Enter an address" helper="Use the address where you work."/><Input label="Email" defaultValue="member@example.org" state="filled"/><Input label="Member ID" error="Enter your member ID to continue." state="error"/><Select label="Topic"><option>Choose one</option><option>Benefits</option></Select><Textarea label="How can we help?" helper="Do not include sensitive medical information."/></div>};

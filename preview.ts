@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../src/styles/tokens.css';
-import '../src/styles/global.css';
+import './tokens.css';
+import './global.css';
 
 const preview: Preview = {
   parameters: {
