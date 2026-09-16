@@ -44,3 +44,7 @@ This starter gives the team a coded Storybook baseline for all 22 documented com
 5. 200% zoom/reflow
 6. complete Spanish/localization stress testing
 7. Code Connect only after component APIs stabilize
+
+## V1.1.1 implementation parity update
+
+This patch tightens the code-side implementation against the approved Figma V1.1 system. It adds full Button state coverage, all Input and Textarea states plus mobile stories, source-backed Badge and Document Link variants, functional Member Services actions, and the five approved Form Field Group compositions.

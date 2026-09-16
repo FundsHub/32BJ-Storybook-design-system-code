@@ -1,21 +1,32 @@
 :root {
   --32bj-blue: #0676d8;
   --32bj-health: #0077c8;
+  --32bj-health-hover: #005fb5;
   --32bj-training: #398532;
+  --32bj-training-hover: #2d6a28;
   --32bj-training-utility: #55964f;
   --32bj-retirement: #c94b1f;
+  --32bj-retirement-hover: #a83e1a;
   --32bj-legal: #ffbf0f;
+  --32bj-legal-hover: #d99e00;
   --32bj-legal-utility: #ffd256;
+  --32bj-legal-focus: #34006d;
   --32bj-alert: #d93025;
   --32bj-announcement: #ff605b;
   --32bj-focus: #ffcd00;
+  --32bj-error: #e14545;
+  --32bj-info: #57d2ff;
+  --32bj-info-surface: #eaf6ff;
   --32bj-ink: #222222;
-  --32bj-body: #4c565e;
-  --32bj-muted: #86868b;
+  --32bj-body: #374151;
+  --32bj-muted: #757575;
+  --32bj-muted-source: #86868b;
   --32bj-page: #f3f4f6;
   --32bj-card: #ffffff;
   --32bj-card-end: #e1e1e1;
   --32bj-border: #d1d5db;
+  --32bj-disabled-bg: #e5e7eb;
+  --32bj-neutral-50: #f9fafb;
   --32bj-radius-sm: 8px;
   --32bj-radius-md: 16px;
   --32bj-radius-card: 32px;
@@ -29,7 +40,7 @@
   --32bj-motion-fast: 180ms;
 }
 
-[data-fund='health'] { --fund: var(--32bj-health); --fund-utility: var(--32bj-announcement); --fund-on: #fff; --fund-link: var(--32bj-health); }
-[data-fund='training'] { --fund: var(--32bj-training); --fund-utility: var(--32bj-training-utility); --fund-on: #fff; --fund-link: var(--32bj-training); }
-[data-fund='retirement'] { --fund: var(--32bj-retirement); --fund-utility: var(--32bj-retirement); --fund-on: #fff; --fund-link: var(--32bj-retirement); }
-[data-fund='legal'] { --fund: var(--32bj-legal); --fund-utility: var(--32bj-legal-utility); --fund-on: #1a1a1a; --fund-link: var(--32bj-legal); }
+[data-fund='health'] { --fund: var(--32bj-health); --fund-hover: var(--32bj-health-hover); --fund-utility: var(--32bj-announcement); --fund-on: #fff; --fund-link: var(--32bj-health); --fund-focus: var(--32bj-focus); }
+[data-fund='training'] { --fund: var(--32bj-training); --fund-hover: var(--32bj-training-hover); --fund-utility: var(--32bj-training-utility); --fund-on: #fff; --fund-link: var(--32bj-training); --fund-focus: var(--32bj-focus); }
+[data-fund='retirement'] { --fund: var(--32bj-retirement); --fund-hover: var(--32bj-retirement-hover); --fund-utility: var(--32bj-retirement); --fund-on: #fff; --fund-link: var(--32bj-retirement); --fund-focus: var(--32bj-focus); }
+[data-fund='legal'] { --fund: var(--32bj-legal); --fund-hover: var(--32bj-legal-hover); --fund-utility: var(--32bj-legal-utility); --fund-on: #1a1a1a; --fund-link: var(--32bj-legal); --fund-focus: var(--32bj-legal-focus); }

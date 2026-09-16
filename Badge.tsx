@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import './components.css';
-export function Badge({ children, tone='neutral' }: { children: ReactNode; tone?: 'neutral'|'info' }) {
-  return <span className={`ds-badge ds-badge--${tone}`}>{children}</span>;
+
+export type BadgePattern = 'cleaning' | 'security';
+export function Badge({ children, pattern = 'cleaning' }: { children: ReactNode; pattern?: BadgePattern }) {
+  return <span className={`ds-badge ds-badge--${pattern}`}>{children}</span>;
 }
