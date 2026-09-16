@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import { productionAssets } from './productionAssets';
 import './components.css';
 import './phase20.css';
 
@@ -6,12 +7,12 @@ type CardType = 'member' | 'who';
 
 type Props = {
   type?: CardType;
-  imageLabel?: string;
+  imageUrl?: string;
 };
 
-export function HomepageCard({ type = 'member', imageLabel }: Props) {
+export function HomepageCard({ type = 'member', imageUrl }: Props) {
   const member = type === 'member';
-  const artLabel = imageLabel ?? (member ? 'Member portal' : 'Team');
+  const resolvedImage = imageUrl ?? (member ? productionAssets.memberPortal : productionAssets.whoWeAre);
 
   return (
     <article className={`ds-home-card ds-home-card--${type}`} data-figma-node="1632:438">
@@ -25,7 +26,9 @@ export function HomepageCard({ type = 'member', imageLabel }: Props) {
         </div>
         <Button>{member ? 'Join Now' : 'Learn More'}</Button>
       </div>
-      <div className="ds-home-card__art" data-fit={member ? 'cover' : 'contain'} aria-hidden>{artLabel}</div>
+      <div className="ds-home-card__art" aria-hidden>
+        <img src={resolvedImage} alt="" />
+      </div>
     </article>
   );
 }

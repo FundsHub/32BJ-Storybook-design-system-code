@@ -1,13 +1,13 @@
-/* Phase 20 QA revision: Header, alert, hero, cards, search, and footer parity */
+/* Phase 20 V1.3.0: production artwork pass */
 
-/* Header: match the Figma desktop proportions more closely. */
+/* Header */
 .ds-header{width:min(1200px,100%);font-family:'Roboto Slab',serif}
 .ds-header__utility{min-height:33px;padding:6px 24px;gap:16px}
 .ds-header__utility nav{gap:14px}
 .ds-header__utility a,.ds-header__language{font-size:13px;line-height:20px}
 .ds-header__brandrow{min-height:74px;padding:0 24px;gap:20px}
 .ds-logo{gap:16px;font-size:32px;line-height:1.15;font-weight:500}
-.ds-logo__mark{display:grid;place-items:center;width:60px;height:60px;flex:0 0 60px;border:0;border-radius:0;font-size:16px;font-weight:800;line-height:1;background:transparent}
+.ds-logo__image{width:60px;height:72px;flex:0 0 60px;object-fit:contain;display:block}
 .ds-header__section{min-height:38px;padding:8px 24px;gap:14px!important;align-items:center}
 .ds-header__section a{font-size:13px;line-height:20px;white-space:nowrap}
 .ds-header__language,.ds-menu,.ds-header__search-toggle{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
@@ -16,11 +16,11 @@
 .ds-header--mobile .ds-header__utility{padding:4px 16px}
 .ds-header--mobile .ds-header__brandrow{min-height:72px;padding:0 16px}
 .ds-header--mobile .ds-logo{font-size:19px;gap:10px}
-.ds-header--mobile .ds-logo__mark{width:44px;height:44px;flex-basis:44px}
+.ds-header--mobile .ds-logo__image{width:44px;height:54px;flex-basis:44px}
 .ds-header--mobile .ds-header__section{padding:0 16px 12px;gap:0!important}
 .ds-header--mobile .ds-header__section a{min-height:44px}
 
-/* Search: Figma uses a clean pill with icon + field, not a visible Go button. */
+/* Search */
 .ds-search{width:360px;height:37px;min-height:37px;border-radius:999px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 16px 0 10px;border:2px solid transparent;color:var(--32bj-blue)}
 .ds-search:focus-within{border-color:var(--32bj-focus);outline:0}
 .ds-search__icon{font-size:18px;line-height:1;flex:0 0 auto}
@@ -28,48 +28,52 @@
 .ds-search input::placeholder{color:var(--32bj-body);opacity:1}
 .ds-search--mobile{width:100%;height:44px;min-height:44px}
 
-/* Alert: keep the 55px Figma baseline while allowing wrapping to increase height. */
+/* Alert */
 .ds-alert{min-height:55px;background:var(--32bj-alert);color:#fff;display:flex;align-items:center;gap:16px;padding:10px 48px;font-size:18px;line-height:24px;font-weight:600}
 .ds-alert__icon{width:28px;height:25px;flex:0 0 28px;display:grid;place-items:center;background:#fff;color:var(--32bj-alert);font-size:17px;font-family:Arial,sans-serif;font-weight:800;line-height:1;clip-path:polygon(50% 0,100% 100%,0 100%);padding-top:7px}
 .ds-alert__message{max-width:1104px}
 .ds-alert a{color:inherit;font-weight:700;text-underline-offset:2px}
 .ds-alert a:focus-visible{outline:3px solid var(--32bj-focus);outline-offset:2px}
 
-/* Hero: retain the reduced-height recommendation while preserving live text. */
-.ds-hero{width:min(1104px,100%);min-height:168px;border-radius:18px;overflow:hidden;background:#eaf5ff;display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.4fr);align-items:stretch}
-.ds-hero__visual{min-height:168px;display:grid;place-items:center;background:var(--32bj-blue);color:#fff;font-family:'Roboto Slab';font-size:38px}
+/* Hero: production campaign artwork on the left, live copy on the right. */
+.ds-hero{width:min(1104px,100%);min-height:189px;border-radius:18px;overflow:hidden;background:#eaf5ff;display:grid;grid-template-columns:minmax(410px,.95fr) minmax(0,1.05fr);align-items:stretch}
+.ds-hero__visual{min-height:189px;overflow:hidden;background:#28c2ef;display:flex;align-items:stretch}
+.ds-hero__image{width:100%;height:100%;object-fit:cover;object-position:left center;display:block}
 .ds-hero__content{padding:22px 28px;display:flex;flex-direction:column;justify-content:center}
 .ds-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--32bj-blue);margin-bottom:4px}
 .ds-hero h2{font-family:'Roboto Slab';font-size:27px;line-height:1.23;margin:0 0 8px;color:var(--32bj-ink)}
 .ds-hero p{margin:0;color:var(--32bj-body);font-size:14px;line-height:1.55;max-width:62ch}
 .ds-hero--mobile{width:358px;min-height:0;grid-template-columns:1fr}
-.ds-hero--mobile .ds-hero__visual{min-height:104px}
+.ds-hero--mobile .ds-hero__visual{min-height:132px}
+.ds-hero--mobile .ds-hero__image{object-fit:cover;object-position:left center}
 .ds-hero--mobile .ds-hero__content{padding:18px}
 .ds-hero--mobile h2{font-size:22px}
 
-/* Cards: preserve equal height and baseline alignment from the Figma pair. */
+/* Cards */
 .ds-card-row{display:grid;grid-template-columns:repeat(2,minmax(0,427px));align-items:stretch;gap:24px}
 .ds-home-card{width:427px;min-height:262px;height:auto;border-radius:32px;background:linear-gradient(#fff,#e1e1e1);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(120px,.8fr);overflow:hidden;padding:21px 18px 24px 27px}
-.ds-home-card__copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.ds-home-card__copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0;position:relative;z-index:1}
 .ds-home-card__content{display:grid;gap:6px;margin-bottom:18px}
 .ds-home-card h3{font-family:'Roboto Slab';font-size:20px;line-height:25px;margin:0}
 .ds-home-card strong{color:var(--32bj-health);font-size:14px;line-height:20px}
 .ds-home-card p{font-size:14px;line-height:22px;color:var(--32bj-body);margin:0}
 .ds-home-card .ds-button{min-width:166px;width:166px;margin-top:auto;margin-bottom:0}
-.ds-home-card__art{display:grid;place-items:end center;min-width:0;color:#6b7280;font-weight:700;align-self:stretch}
-.ds-home-card__art[data-fit='contain']{background-size:contain;background-position:center bottom;background-repeat:no-repeat}
-.ds-home-card__art[data-fit='cover']{background-size:cover;background-position:center center;background-repeat:no-repeat}
+.ds-home-card__art{display:flex;align-items:flex-end;justify-content:center;min-width:0;overflow:visible;align-self:stretch}
+.ds-home-card__art img{display:block;max-width:none;object-fit:contain;object-position:center bottom}
+.ds-home-card--member .ds-home-card__art img{width:191px;height:263px;margin-bottom:-24px;margin-right:-10px}
+.ds-home-card--who .ds-home-card__art img{width:270px;height:auto;margin-bottom:-24px;margin-right:-42px}
 
-/* Footer: Figma is centered, with notices, social row, contact and legal links stacked. */
+/* Footer */
 .ds-footer{background:var(--fund);color:var(--fund-on);width:min(1200px,100%);min-height:267px;padding:25px 24px 16px;display:block;text-align:center;font-size:13px}
 .ds-footer__inner{width:min(1104px,100%);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px}
 .ds-footer__notices{display:grid!important;gap:10px!important;justify-items:start!important;text-align:left}
 .ds-footer__notices a{display:flex;align-items:center;gap:12px;font-weight:600}
 .ds-footer__notice-dot{width:16px;height:16px;border-radius:50%;background:currentColor;display:inline-block;flex:0 0 16px}
 .ds-footer__social{display:flex!important;gap:14px!important;justify-content:center!important;align-items:center;margin:10px 0 6px}
-.ds-footer__social-icon,.ds-footer__qr{width:42px;height:42px;display:grid;place-items:center;text-decoration:none;font-family:Arial,sans-serif;font-size:28px;font-weight:800;line-height:1}
-.ds-footer__social-icon--bluesky{font-size:14px;letter-spacing:-1px}
-.ds-footer__qr{background:#fff;color:var(--fund);font-size:12px;border:2px solid currentColor}
+.ds-footer__social-icon{width:45px;height:45px;display:grid;place-items:center;text-decoration:none;color:inherit}
+.ds-footer__social-icon svg{width:42px;height:42px;display:block;fill:currentColor}
+.ds-footer__qr{width:47px;height:47px;display:grid;place-items:center;background:#fff;text-decoration:none;overflow:hidden}
+.ds-footer__qr img{width:47px;height:47px;display:block;object-fit:cover}
 .ds-footer__contact{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:0}
 .ds-footer__links{display:flex!important;gap:10px!important;justify-content:center!important;align-items:center;flex-wrap:wrap}
 .ds-footer__separator{opacity:.9}
@@ -90,5 +94,6 @@
   .ds-alert__icon{width:24px;height:22px;flex-basis:24px;font-size:14px;padding-top:6px}
   .ds-card-row{grid-template-columns:1fr}
   .ds-home-card{width:min(358px,100%);grid-template-columns:minmax(0,1.15fr) minmax(110px,.85fr)}
+  .ds-home-card--who .ds-home-card__art img{width:235px;margin-right:-54px}
   .ds-footer{padding-inline:16px}
 }

@@ -1,16 +1,29 @@
-32BJ Storybook V1.2.0 MATCH patch
+32BJ Storybook V1.3.0 Production Assets Patch
 
-Upload every loose file in this folder to the ROOT of:
+Upload every file in this ZIP to the ROOT of:
 FundsHub/32BJ-Storybook-design-system-code
 
-GitHub will update files with matching names. Do not upload this ZIP itself.
+This patch replaces remaining visual placeholders with production/Figma artwork:
+- 32BJ logo
+- Don't Pay More hero artwork
+- Member Portal card artwork
+- Who We Are staff artwork
+- Footer social icons
+- Footer QR image
 
-This patch brings the remaining six areas into the MATCH pass:
-Header + navigation
-Alert Bar
-Hero + Banner
-Cards
-Search
-Footer
+Code files:
+Header.tsx
+HeroBanner.tsx
+HomepageCard.tsx
+Footer.tsx
+productionAssets.ts
+phase20.css
 
-It also adds phase20.css, which is imported by those six components and keeps this patch isolated from the existing component CSS.
+Image files:
+32bj-logo.png
+32bj-hero-visual.png
+32bj-member-portal.png
+32bj-who-we-are.png
+32bj-footer-qr.png
+
+The PNG files stay at repository root on purpose so the same GitHub upload method used for earlier patches works.

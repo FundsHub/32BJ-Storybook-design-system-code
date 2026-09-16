@@ -1,5 +1,6 @@
 import type { Fund } from './types';
 import { Search } from './Search';
+import { productionAssets } from './productionAssets';
 import './components.css';
 import './phase20.css';
 
@@ -32,7 +33,7 @@ export function Header({ fund = 'health', mobile = false, open = false, searchOp
       <div className="ds-header__brand">
         <div className="ds-header__brandrow">
           <a className="ds-logo" href="#" aria-label="32BJ Benefit Funds home">
-            <span className="ds-logo__mark" aria-hidden>32BJ</span>
+            <img className="ds-logo__image" src={productionAssets.logo} alt="" aria-hidden />
             <span>32BJ Benefit Funds</span>
           </a>
 
