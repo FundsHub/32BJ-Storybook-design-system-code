@@ -13,7 +13,7 @@ export function Search({ placeholder = 'Find What You Need', mobile = false, id 
       <label className="sr-only" htmlFor={id}>Search 32BJ Benefit Funds</label>
       <span className="ds-search__icon" aria-hidden>⌕</span>
       <input id={id} name="q" type="search" autoComplete="off" placeholder={placeholder} />
-      <button type="submit" className="ds-search__submit"><span className="sr-only">Submit search</span><span aria-hidden>Go</span></button>
+      <button type="submit" className="sr-only">Submit search</button>
     </form>
   );
 }

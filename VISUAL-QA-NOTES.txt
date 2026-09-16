@@ -1,0 +1,19 @@
+32BJ Storybook V1.2.1 Visual QA correction patch
+
+Compared against the current Figma homepage and component frames on September 16, 2026.
+
+Corrected in this patch:
+- Header desktop proportions returned closer to the Figma component heights and spacing.
+- Search no longer shows a visible Go button. It matches the Figma search pill more closely and still submits on Enter.
+- Alert bar returns to the 55px Figma baseline, uses a warning-style icon, and preserves the full SAR message with an accessible link.
+- Homepage card action width is brought back to the 166px design-system baseline.
+- Footer is centered and stacked like the Figma component instead of using the two-column Phase 20 layout.
+- Footer adds notice markers, social/QR visual placeholders, contact line, and the two privacy-practice links shown in the Figma component.
+
+Still asset-dependent:
+- The actual 32BJ logo art in Header.
+- The real hero/banner artwork.
+- The Member Portal and Who We Are card imagery.
+- Production social icons and QR graphic in Footer.
+
+Upload the loose files in this folder to the repository root. Do not upload this ZIP itself.
