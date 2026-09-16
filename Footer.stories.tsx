@@ -1,1 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { Footer } from './index'; const meta:Meta<typeof Footer>={title:'Components/Footer',component:Footer,tags:['autodocs'],args:{fund:'health'}}; export default meta; type Story=StoryObj<typeof Footer>; export const Health:Story={}; export const Training:Story={args:{fund:'training'}}; export const Retirement:Story={args:{fund:'retirement'}}; export const Legal:Story={args:{fund:'legal'}}; export const Mobile:Story={args:{mobile:true},parameters:{viewport:{defaultViewport:'mobile390'}}};
+import type { Meta, StoryObj } from '@storybook/react';
+import { Footer } from './index';
+
+const meta: Meta<typeof Footer> = {
+  title: 'Components/Footer',
+  component: Footer,
+  tags: ['autodocs'],
+  args: { fund: 'health' }
+};
+export default meta;
+type Story = StoryObj<typeof Footer>;
+
+export const Health: Story = {};
+export const Training: Story = { args: { fund: 'training' } };
+export const Retirement: Story = { args: { fund: 'retirement' } };
+export const Legal: Story = { args: { fund: 'legal' } };
+export const Mobile: Story = { args: { mobile: true }, parameters: { viewport: { defaultViewport: 'mobile390' } } };

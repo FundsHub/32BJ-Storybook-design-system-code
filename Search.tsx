@@ -1,4 +1,19 @@
 import './components.css';
-export function Search({ placeholder='Find What You Need', mobile=false }: {placeholder?:string;mobile?:boolean}) {
- return <label className={`ds-search ${mobile?'ds-search--mobile':''}`}><span className="sr-only">Search 32BJ Benefit Funds</span><span aria-hidden>⌕</span><input aria-label="Search 32BJ Benefit Funds" placeholder={placeholder}/></label>;
+import './phase20.css';
+
+type Props = {
+  placeholder?: string;
+  mobile?: boolean;
+  id?: string;
+};
+
+export function Search({ placeholder = 'Find What You Need', mobile = false, id = 'site-search' }: Props) {
+  return (
+    <form className={`ds-search ${mobile ? 'ds-search--mobile' : ''}`} role="search" action="#" method="get">
+      <label className="sr-only" htmlFor={id}>Search 32BJ Benefit Funds</label>
+      <span className="ds-search__icon" aria-hidden>⌕</span>
+      <input id={id} name="q" type="search" autoComplete="off" placeholder={placeholder} />
+      <button type="submit" className="ds-search__submit"><span className="sr-only">Submit search</span><span aria-hidden>Go</span></button>
+    </form>
+  );
 }

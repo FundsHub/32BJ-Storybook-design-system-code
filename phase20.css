@@ -1,0 +1,81 @@
+/* Phase 20: Header, alert, hero, cards, search, and footer parity */
+
+.ds-header{width:min(1200px,100%);font-family:'Roboto Slab',serif}
+.ds-header__utility{min-height:33px;padding:6px 43px;gap:20px}
+.ds-header__utility nav{gap:18px}
+.ds-header__utility a,.ds-header__language{font-size:12px;line-height:20px}
+.ds-header__brandrow{min-height:82px;padding:0 43px;gap:24px}
+.ds-logo{gap:14px;font-size:30px;line-height:1.15}
+.ds-logo__mark{width:58px;height:58px;flex:0 0 58px}
+.ds-header__section{min-height:42px;padding:8px 43px;gap:18px!important;align-items:center}
+.ds-header__section a{font-size:13px;line-height:20px;white-space:nowrap}
+.ds-header__language,.ds-menu,.ds-header__search-toggle{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.ds-header__mobile-actions{display:flex;align-items:center;gap:4px}
+.ds-header__mobile-search{padding:0 16px 16px}
+.ds-header--mobile .ds-header__utility{padding:4px 16px}
+.ds-header--mobile .ds-header__brandrow{min-height:72px;padding:0 16px}
+.ds-header--mobile .ds-logo{font-size:19px;gap:10px}
+.ds-header--mobile .ds-logo__mark{width:44px;height:44px;flex-basis:44px}
+.ds-header--mobile .ds-header__section{padding:0 16px 12px;gap:0!important}
+.ds-header--mobile .ds-header__section a{min-height:44px}
+
+.ds-search{width:360px;height:40px;min-height:40px;border-radius:999px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 6px 0 12px;border:2px solid transparent;color:var(--32bj-blue)}
+.ds-search:focus-within{border-color:var(--32bj-focus);outline:0}
+.ds-search__icon{font-size:18px;line-height:1}
+.ds-search input{border:0;outline:0;min-width:0;flex:1;background:transparent;color:var(--32bj-ink);font-size:14px}
+.ds-search input::placeholder{color:var(--32bj-body);opacity:1}
+.ds-search__submit{min-width:42px;height:32px;padding:0 10px;border:0;border-radius:999px;background:var(--32bj-blue);color:#fff;font:inherit;cursor:pointer}
+.ds-search__submit:focus-visible{outline:3px solid var(--32bj-focus);outline-offset:2px}
+.ds-search--mobile{width:100%;height:44px;min-height:44px}
+
+.ds-alert{min-height:0;background:var(--32bj-alert);color:#fff;display:flex;align-items:flex-start;justify-content:center;gap:12px;padding:8px 43px;font-size:14px;line-height:20px;font-weight:500}
+.ds-alert__icon{flex:0 0 auto;line-height:20px}
+.ds-alert__message{max-width:1104px}
+.ds-alert a{color:inherit;font-weight:700;text-underline-offset:2px}
+.ds-alert a:focus-visible{outline:3px solid var(--32bj-focus);outline-offset:2px}
+
+.ds-hero{width:min(1104px,100%);min-height:168px;border-radius:18px;overflow:hidden;background:#eaf5ff;display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.4fr);align-items:stretch}
+.ds-hero__visual{min-height:168px;display:grid;place-items:center;background:var(--32bj-blue);color:#fff;font-family:'Roboto Slab';font-size:38px}
+.ds-hero__content{padding:22px 28px;display:flex;flex-direction:column;justify-content:center}
+.ds-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--32bj-blue);margin-bottom:4px}
+.ds-hero h2{font-family:'Roboto Slab';font-size:27px;line-height:1.23;margin:0 0 8px;color:var(--32bj-ink)}
+.ds-hero p{margin:0;color:var(--32bj-body);font-size:14px;line-height:1.55;max-width:62ch}
+.ds-hero--mobile{width:358px;min-height:0;grid-template-columns:1fr}
+.ds-hero--mobile .ds-hero__visual{min-height:104px}
+.ds-hero--mobile .ds-hero__content{padding:18px}
+.ds-hero--mobile h2{font-size:22px}
+
+.ds-card-row{display:grid;grid-template-columns:repeat(2,minmax(0,427px));align-items:stretch;gap:24px}
+.ds-home-card{width:427px;min-height:262px;height:auto;border-radius:32px;background:linear-gradient(#fff,#e1e1e1);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(120px,.8fr);overflow:hidden;padding:21px 18px 24px 27px}
+.ds-home-card__copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.ds-home-card__content{display:grid;gap:6px;margin-bottom:18px}
+.ds-home-card h3{font-family:'Roboto Slab';font-size:20px;line-height:25px;margin:0}
+.ds-home-card strong{color:var(--32bj-health);font-size:14px;line-height:20px}
+.ds-home-card p{font-size:14px;line-height:22px;color:var(--32bj-body);margin:0}
+.ds-home-card .ds-button{margin-top:auto;margin-bottom:0}
+.ds-home-card__art{display:grid;place-items:end center;min-width:0;color:#6b7280;font-weight:700;align-self:stretch}
+.ds-home-card__art[data-fit='contain']{background-size:contain;background-position:center bottom;background-repeat:no-repeat}
+.ds-home-card__art[data-fit='cover']{background-size:cover;background-position:center center;background-repeat:no-repeat}
+
+.ds-footer{background:var(--fund);color:var(--fund-on);width:min(1200px,100%);min-height:267px;padding:26px 43px 18px;display:block;text-align:left;font-size:13px}
+.ds-footer__inner{width:min(1104px,100%);margin:0 auto;display:grid;grid-template-columns:1.35fr 1fr;gap:20px 44px;align-items:start}
+.ds-footer__notices{display:grid!important;gap:8px!important;justify-content:start!important}
+.ds-footer__contact{display:grid;gap:4px;justify-self:end;text-align:right}
+.ds-footer__contact p{margin:0}
+.ds-footer__links{display:flex!important;gap:18px!important;justify-content:start!important;align-items:center}
+.ds-footer__social{display:flex!important;gap:16px!important;justify-content:end!important;align-items:center}
+.ds-footer a{color:inherit;text-underline-offset:2px}
+.ds-footer a:focus-visible{outline:3px solid var(--32bj-focus);outline-offset:3px}
+.ds-footer--mobile{width:390px;padding:24px 16px;text-align:left}
+.ds-footer--mobile .ds-footer__inner{grid-template-columns:1fr;gap:18px}
+.ds-footer--mobile .ds-footer__contact{justify-self:start;text-align:left}
+.ds-footer--mobile .ds-footer__links,.ds-footer--mobile .ds-footer__social{display:grid!important;justify-content:start!important;gap:10px!important}
+
+@media (max-width:760px){
+  .ds-header__utility{padding-inline:16px}
+  .ds-header__brandrow,.ds-header__section{padding-inline:16px}
+  .ds-alert{padding:10px 16px;font-size:14px;line-height:20px}
+  .ds-card-row{grid-template-columns:1fr}
+  .ds-home-card{width:min(358px,100%);grid-template-columns:minmax(0,1.15fr) minmax(110px,.85fr)}
+  .ds-footer{padding-inline:16px}
+}
