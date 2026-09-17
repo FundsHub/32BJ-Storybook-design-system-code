@@ -1,31 +1,569 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { AlertBar } from './AlertBar';
+import { Header } from './Header';
+import { HeroBanner } from './HeroBanner';
 
 <Meta title="Design System/Welcome" />
 
-# 32BJ Public Site Design System
+<style>{`
+  .ds-welcome {
+    margin: -32px;
+    background: #f3f4f6;
+    color: #222;
+    font-family: 'Rubik', Arial, sans-serif;
+  }
 
-**V1.1 — Responsive + Functional Coverage**
+  .ds-welcome * {
+    box-sizing: border-box;
+  }
 
-This Storybook starter is aligned to the approved 32BJ Figma system and covers the 22 documented component areas.
+  .ds-welcome-hero {
+    background: #0676d8;
+    color: white;
+    padding: 64px 72px 72px;
+  }
 
-## Fund themes
+  .ds-welcome-eyebrow {
+    margin: 0 0 18px;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
-- Health — `#0077C8`
-- Training — `#398532`
-- Retirement / Pension — `#C94B1F`
-- Legal — `#FFBF0F`
+  .ds-welcome-hero h1 {
+    margin: 0 0 20px;
+    color: white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 52px;
+    line-height: 1.15;
+  }
 
-## Implementation rules
+  .ds-welcome-hero p {
+    max-width: 980px;
+    margin: 0;
+    color: white;
+    font-size: 22px;
+    line-height: 32px;
+  }
 
-- Keep global alerts separate from page-level callouts.
-- Preserve source-backed Fund navigation and nested IA.
-- Use 44px minimum touch targets on mobile.
-- Treat 390px as a review viewport, not a hard device breakpoint.
-- Keep Legal dark text on yellow surfaces.
-- Keep body text neutral on light surfaces except approved Fund accent roles.
-- Open Accordion content must grow with its content.
-- Placeholder text is never the only accessible label.
+  .ds-welcome-status {
+    display: inline-flex;
+    margin-top: 42px;
+    min-height: 48px;
+    align-items: center;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: #d93025;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+  }
 
-## Figma
+  .ds-welcome-main {
+    max-width: 1440px;
+    padding: 50px 72px 70px;
+  }
 
-Source file key: `4CxWI3IClvdbfm8p2goxOY`
+  .ds-welcome-metrics,
+  .ds-welcome-foundations,
+  .ds-welcome-categories,
+  .ds-welcome-patterns,
+  .ds-welcome-audiences,
+  .ds-welcome-governance-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .ds-welcome-metrics,
+  .ds-welcome-foundations,
+  .ds-welcome-governance-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ds-welcome-categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ds-welcome-patterns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ds-welcome-audiences {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ds-welcome-card {
+    background: white;
+    border: 1px solid #d1d5db;
+    border-radius: 16px;
+    padding: 22px 24px;
+  }
+
+  .ds-welcome-metric {
+    min-height: 170px;
+  }
+
+  .ds-welcome-metric strong {
+    display: block;
+    margin-bottom: 12px;
+    color: #0676d8;
+    font-family: 'Roboto Slab', serif;
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .ds-welcome-card h3 {
+    margin: 0 0 10px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+  }
+
+  .ds-welcome-card p {
+    margin: 0;
+    color: #374151;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .ds-welcome-section {
+    margin-top: 60px;
+  }
+
+  .ds-welcome-section h2 {
+    margin: 0 0 8px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  .ds-welcome-section-intro {
+    max-width: 1100px;
+    margin: 0 0 28px;
+    color: #374151;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .ds-welcome-preview {
+    overflow: hidden;
+    padding: 44px 48px 54px;
+    border: 1px solid #d1d5db;
+    border-radius: 20px;
+    background: white;
+  }
+
+  .ds-welcome-preview > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ds-welcome-preview .ds-alert,
+  .ds-welcome-preview .ds-header {
+    width: 100%;
+  }
+
+  .ds-welcome-preview .ds-hero {
+    margin-top: 36px;
+  }
+
+  .ds-welcome-preview-note {
+    margin-top: 26px;
+    color: #374151;
+    font-size: 14px;
+  }
+
+  .ds-welcome-pattern {
+    min-height: 100px;
+  }
+
+  .ds-welcome-pattern h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .ds-welcome-pattern p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .ds-welcome-audience {
+    min-height: 240px;
+  }
+
+  .ds-welcome-governance {
+    padding: 32px 36px 52px;
+    border-radius: 20px;
+    background: white;
+  }
+
+  .ds-welcome-governance > p {
+    margin: 0 0 34px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .ds-welcome-governance-grid .ds-welcome-card {
+    border: 0;
+    background: #f9fafb;
+  }
+
+  .ds-welcome-close {
+    margin-top: 72px;
+  }
+
+  .ds-welcome-close h2 {
+    margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 28px;
+  }
+
+  .ds-welcome-close p {
+    max-width: 1100px;
+    color: #374151;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .ds-welcome {
+      margin: -20px;
+    }
+
+    .ds-welcome-hero,
+    .ds-welcome-main {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .ds-welcome-hero h1 {
+      font-size: 40px;
+    }
+
+    .ds-welcome-hero p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    .ds-welcome-metrics,
+    .ds-welcome-foundations,
+    .ds-welcome-categories,
+    .ds-welcome-patterns,
+    .ds-welcome-audiences,
+    .ds-welcome-governance-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ds-welcome-preview {
+      padding: 24px 16px;
+      overflow-x: auto;
+    }
+  }
+`}</style>
+
+<div className="ds-welcome">
+
+  <section className="ds-welcome-hero">
+    <p className="ds-welcome-eyebrow">32BJ BENEFIT FUNDS</p>
+
+    <h1>Design System</h1>
+
+    <p>
+      A shared foundation for consistent, accessible, maintainable digital
+      experiences across 32BJ Benefit Funds.
+    </p>
+
+    <div className="ds-welcome-status">
+      V1.1 RESPONSIVE + FUNCTIONAL COVERAGE
+    </div>
+  </section>
+
+  <main className="ds-welcome-main">
+
+    <section className="ds-welcome-metrics">
+      <div className="ds-welcome-card ds-welcome-metric">
+        <strong>4</strong>
+        <span>Foundations</span>
+      </div>
+
+      <div className="ds-welcome-card ds-welcome-metric">
+        <strong>22</strong>
+        <span>Component areas</span>
+      </div>
+
+      <div className="ds-welcome-card ds-welcome-metric">
+        <strong>12</strong>
+        <span>Pattern families · desktop + responsive</span>
+      </div>
+
+      <div className="ds-welcome-card ds-welcome-metric">
+        <strong>4</strong>
+        <span>Fund areas mapped</span>
+      </div>
+    </section>
+
+    <section className="ds-welcome-section">
+      <h2>1. Foundations</h2>
+
+      <p className="ds-welcome-section-intro">
+        The system starts with the shared rules that keep every page visually
+        and behaviorally consistent.
+      </p>
+
+      <div className="ds-welcome-foundations">
+        <div className="ds-welcome-card">
+          <h3>Color</h3>
+          <p>
+            Semantic color tokens, Fund-safe surfaces, text, borders, focus,
+            and status.
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Typography</h3>
+          <p>
+            Roboto Slab for hierarchy and Rubik for UI, body copy, labels, and
+            controls.
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Layout</h3>
+          <p>
+            Approved spacing, radii, desktop structures, 390px responsive
+            review patterns, and reusable composition rules.
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Motion + Accessibility</h3>
+          <p>
+            Reduced-motion guidance, visible focus, contrast, labels, and
+            keyboard behavior.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section className="ds-welcome-section">
+      <h2>2. Components</h2>
+
+      <p className="ds-welcome-section-intro">
+        Reusable building blocks now cover global chrome, nested navigation,
+        alerts, editorial content, actions, forms, member support, translation,
+        and responsive behavior.
+      </p>
+
+      <div className="ds-welcome-preview">
+        <AlertBar />
+
+        <Header fund="health" />
+
+        <HeroBanner />
+
+        <p className="ds-welcome-preview-note">
+          Live system components. Changes to the masters flow through the
+          overview automatically.
+        </p>
+      </div>
+
+      <div className="ds-welcome-categories" style={{ marginTop: '40px' }}>
+        <div className="ds-welcome-card">
+          <h3>Global structure</h3>
+          <p>
+            Header + Navigation, Nested Navigation, Alert Bar, Hero + Banner,
+            Search, Footer, Translation
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Content + actions</h3>
+          <p>
+            Button, Badge, Accordion, Document Link, Resource Link, Cards,
+            News + Member Alert, Callout, Member Services
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Forms</h3>
+          <p>
+            Input, Select, Checkbox, Radio Button, Textarea
+          </p>
+        </div>
+
+        <div className="ds-welcome-card">
+          <h3>Composed form patterns</h3>
+          <p>
+            Single Field, Radio Pair, Consent, Long Question, Submission
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section className="ds-welcome-section">
+      <h2>3. Page Patterns</h2>
+
+      <p className="ds-welcome-section-intro">
+        The 12 pattern families show how components assemble into real 32BJ
+        pages, with desktop and 390px responsive coverage across Health,
+        Training, Retirement/Pension, and Legal.
+      </p>
+
+      <div className="ds-welcome-patterns">
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Fund Landing Page</h3>
+          <p>Fund landing structure with intro, service navigation, supporting content, and global chrome.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Content + Detail Page</h3>
+          <p>Plan, service, and informational detail pages with related navigation and resources.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Form Page</h3>
+          <p>Complete form flow using live field groups, validation, consent, and submit patterns.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Homepage</h3>
+          <p>Global homepage composition with Header, reduced Hero, cards, editorial content, and Footer.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Benefit Collection</h3>
+          <p>Large benefit and partner-card collections such as Health Other Benefits.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Resource + Forms Index</h3>
+          <p>Grouped forms, documents, claims, warnings, and downloadable resources.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Course Catalog</h3>
+          <p>Long Training course lists with clear hierarchy and scan-friendly grouping.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Locations Directory</h3>
+          <p>Regional and state-based training locations, contacts, and office information.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Retirement Journey + Plan Index</h3>
+          <p>Retirement journey choices, pension plan index, and benefits support module.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>FAQ + Accordion Index</h3>
+          <p>Long FAQ collections using the live 32BJ Accordion component.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Service Hub Landing</h3>
+          <p>Legal service landing with service cards, optional news rail, and media features.</p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-pattern">
+          <h3>Glossary Index</h3>
+          <p>Popular terms plus alphabetical/category glossary accordions for Legal content.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section className="ds-welcome-section">
+      <h2>4. How to Use This System</h2>
+
+      <div className="ds-welcome-audiences">
+
+        <div className="ds-welcome-card ds-welcome-audience">
+          <h3>Designers</h3>
+          <p>
+            Start with Foundations. Use components rather than redrawing. Use
+            the desktop and responsive Page Patterns as the approved
+            composition baseline.
+          </p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-audience">
+          <h3>Developers</h3>
+          <p>
+            Treat Figma as the visual and interaction specification. Mirror
+            component names and states in Storybook or production code.
+          </p>
+        </div>
+
+        <div className="ds-welcome-card ds-welcome-audience">
+          <h3>Stakeholders</h3>
+          <p>
+            Use this Overview and the Page Patterns to understand how the
+            system creates consistency without reviewing every working
+            component page.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section className="ds-welcome-section">
+      <h2>5. Governance + Next Steps</h2>
+
+      <div className="ds-welcome-governance">
+
+        <p>
+          The design system is the shared source for approved visual patterns.
+          Changes should be made at the component or token level first, then
+          reviewed in page patterns before production release.
+        </p>
+
+        <div className="ds-welcome-governance-grid">
+
+          <div className="ds-welcome-card">
+            <h3>Maintain</h3>
+            <p>
+              Review component changes for accessibility, responsive behavior,
+              content fit, and cross-page impact.
+            </p>
+          </div>
+
+          <div className="ds-welcome-card">
+            <h3>Document</h3>
+            <p>
+              Keep Figma guidance and Storybook/web documentation aligned.
+            </p>
+          </div>
+
+          <div className="ds-welcome-card">
+            <h3>Publish</h3>
+            <p>
+              Release approved updates intentionally rather than allowing
+              one-off page drift.
+            </p>
+          </div>
+
+          <div className="ds-welcome-card">
+            <h3>Evolve</h3>
+            <p>
+              Extend breakpoints and responsive behaviors from the approved
+              mobile baseline instead of creating page-specific exceptions.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section className="ds-welcome-close">
+      <h2>Built for consistency. Designed to evolve.</h2>
+
+      <p>
+        Figma is the design source for V1.1 desktop and responsive behavior.
+        Next implementation work is Storybook alignment, production build
+        parity, accessibility verification, and Code Connect once coded
+        component targets are stable.
+      </p>
+    </section>
+
+  </main>
+</div>
