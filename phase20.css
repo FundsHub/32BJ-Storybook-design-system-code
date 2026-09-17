@@ -144,7 +144,7 @@
   .ds-home-card h3,.ds-home-card--who .ds-home-card p,.ds-home-card--member .ds-home-card p{width:100%}
   .ds-home-card .ds-button{margin-top:18px}
   .ds-home-card__art{position:relative;left:auto!important;right:auto!important;top:auto!important;width:calc(100% + 48px)!important;height:180px!important;margin:0 -24px;overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-end}
-  .ds-home-card--member .ds-home-card__art img{width:150px;height:auto;margin:0 18px -28px 0}
+  .ds-home-card--member .ds-home-card__art img{width:150px;height:auto;margin:0 18px 0 0}
   .ds-home-card--who{grid-template-rows:auto 263px}
   .ds-home-card--who .ds-home-card__art{height:263px!important;justify-content:flex-end}
   .ds-home-card--who .ds-home-card__art img{width:220px;height:auto;margin:0 0 0 0}
