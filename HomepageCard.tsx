@@ -32,3 +32,26 @@ export function HomepageCard({ type = 'member', imageUrl }: Props) {
     </article>
   );
 }
+type Props = {
+  type?: CardType;
+  imageUrl?: string;
+  mobile?: boolean;
+};
+
+export function HomepageCard({
+  type = 'member',
+  imageUrl,
+  mobile = false
+}: Props) {
+  const member = type === 'member';
+  const resolvedImage =
+    imageUrl ??
+    (member ? productionAssets.memberPortal : productionAssets.whoWeAre);
+
+  return (
+    <article
+      className={`ds-home-card ds-home-card--${type} ${
+        mobile ? 'ds-home-card--mobile' : ''
+      }`}
+      data-figma-node="1632:438"
+    >
