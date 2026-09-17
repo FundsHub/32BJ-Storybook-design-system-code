@@ -4,11 +4,10 @@
   "version": "1.3.2",
   "type": "module",
   "scripts": {
- "scripts": {
-  "storybook": "storybook dev -p 6006",
-  "build-storybook": "storybook build",
-  "typecheck": "tsc --noEmit"
-},
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.0.7",
