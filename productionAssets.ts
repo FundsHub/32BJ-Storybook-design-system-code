@@ -1,6 +1,5 @@
 export const productionAssets = {
-  logo: new URL('./32bj-logo.png', import.meta.url).href,
-  searchIcon: new URL('./32bj-search-icon.png', import.meta.url).href,
+logo: new URL('./32bj-benefit-funds-logo.svg', import.meta.url).href,  searchIcon: new URL('./32bj-search-icon.png', import.meta.url).href,
   heroBanner: new URL('./32bj-hero-banner.png', import.meta.url).href,
   heroVisual: new URL('./32bj-hero-visual.png', import.meta.url).href,
   memberPortal: new URL('./32bj-member-portal.png', import.meta.url).href,
