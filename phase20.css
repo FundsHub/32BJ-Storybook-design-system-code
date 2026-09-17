@@ -10,8 +10,12 @@
 .ds-header__utility a,.ds-header__language{font-size:13px;line-height:20px}
 .ds-header__brandrow{min-height:74px;padding:0 24px;gap:20px}
 .ds-logo{gap:16px;font-size:32px;line-height:1.15;font-weight:500}
-.ds-logo__image{width:60px;height:72px;flex:0 0 60px;object-fit:contain;display:block}
-.ds-header__section{min-height:38px;padding:8px 24px;gap:14px!important;align-items:center}
+.ds-logo__image{
+  width:auto;
+  height:58px;
+  flex:0 0 auto;
+  display:block
+}.ds-header__section{min-height:38px;padding:8px 24px;gap:14px!important;align-items:center}
 .ds-header__section a{font-size:13px;line-height:20px;white-space:nowrap}
 .ds-header__language{
   min-height:20px;
