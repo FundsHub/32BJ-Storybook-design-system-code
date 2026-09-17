@@ -10,8 +10,24 @@
 .ds-logo__image{width:60px;height:72px;flex:0 0 60px;object-fit:contain;display:block}
 .ds-header__section{min-height:38px;padding:8px 24px;gap:14px!important;align-items:center}
 .ds-header__section a{font-size:13px;line-height:20px;white-space:nowrap}
-.ds-header__language,.ds-menu,.ds-header__search-toggle{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
-.ds-header__mobile-actions{display:flex;align-items:center;gap:4px}
+.ds-header__language{
+  min-height:20px;
+  min-width:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer
+}
+
+.ds-menu,
+.ds-header__search-toggle{
+  min-height:44px;
+  min-width:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer
+}.ds-header__mobile-actions{display:flex;align-items:center;gap:4px}
 .ds-header__mobile-search{padding:0 16px 16px}
 .ds-header__search-icon{width:20px;height:20px;display:block;filter:brightness(0) invert(1)}
 .ds-header--mobile .ds-header__utility{padding:4px 16px}
