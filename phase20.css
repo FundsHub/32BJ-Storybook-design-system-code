@@ -2,8 +2,11 @@
 
 /* Header */
 .ds-header{width:min(1200px,100%);font-family:'Roboto Slab',serif}
-.ds-header__utility{min-height:33px;padding:6px 24px;gap:16px}
-.ds-header__utility nav{gap:14px}
+.ds-header__utility{
+  min-height:33px;
+  padding:0 24px;
+  gap:16px
+}.ds-header__utility nav{gap:14px}
 .ds-header__utility a,.ds-header__language{font-size:13px;line-height:20px}
 .ds-header__brandrow{min-height:74px;padding:0 24px;gap:20px}
 .ds-logo{gap:16px;font-size:32px;line-height:1.15;font-weight:500}
