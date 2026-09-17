@@ -150,28 +150,3 @@
   .ds-home-card--who .ds-home-card__art img{width:220px;height:auto;margin:0 0 0 0}
   .ds-footer{padding-inline:16px}
 }
-.ds-home-card--mobile{
-  width:358px;
-  height:auto;
-  min-height:360px;
-  padding:21px 18px 24px 22px;
-}
-
-.ds-home-card--mobile .ds-home-card__copy{
-  width:210px;
-  height:auto;
-  min-height:260px;
-}
-
-.ds-home-card--mobile.ds-home-card--member .ds-home-card__art{
-  left:210px;
-  top:18px;
-  width:140px;
-  height:auto;
-}
-
-.ds-home-card--mobile.ds-home-card--member .ds-home-card__art img{
-  width:140px;
-  height:auto;
-  max-width:100%;
-}
