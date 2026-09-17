@@ -7,6 +7,5 @@ export const productionAssets = {
   whoWeAre: new URL('./32bj-who-we-are.png', import.meta.url).href,
   facebook: new URL('./32bj-facebook.png', import.meta.url).href,
   bluesky: new URL('./32bj-bluesky.png', import.meta.url).href,
-  instagram: new URL('./32bj-instagram.png', import.meta.url).href,
-  footerQr: new URL('./32bj-footer-qr.png', import.meta.url).href
+instagram: new URL('./32bj-instagram.svg', import.meta.url).href,  footerQr: new URL('./32bj-footer-qr.png', import.meta.url).href
 } as const;
