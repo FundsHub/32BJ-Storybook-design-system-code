@@ -1,177 +1,55 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { AlertBar } from './AlertBar';
 import { Header } from './Header';
 import { HeroBanner } from './HeroBanner';
 
 <Meta title="Design System/Welcome" />
 
-export const WELCOME_MOTION_VERSION = 'V3-load-parallax-hover';
-
-export const WelcomeMotion = ({ children }) => {
+export const WelcomeParallax = ({ children }) => {
   const rootRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const root = rootRef.current;
-    if (!root) return;
-
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const cards = Array.from(root.querySelectorAll('.ds-welcome-card'));
-    const sectionLayers = Array.from(
-      root.querySelectorAll('.ds-welcome-metrics, .ds-welcome-section, .ds-welcome-close')
-    );
-    const settleTimers = new Set();
-    let forceMotion = false;
     let frameId = 0;
-    let loadFrameOne = 0;
-    let loadFrameTwo = 0;
-    let loadTimer = 0;
-    let cardObserver = null;
-
-    try {
-      forceMotion = new URLSearchParams(window.parent.location.search).get('motion') === 'on';
-    } catch {
-      forceMotion = new URLSearchParams(window.location.search).get('motion') === 'on';
-    }
-
-    if (forceMotion) root.classList.add('ds-welcome-force-motion');
-
-    const motionDisabled = () => reduceMotion.matches && !forceMotion;
-    const clamp = (value, minimum, maximum) => Math.min(Math.max(value, minimum), maximum);
 
     const updateParallax = () => {
       frameId = 0;
 
-      if (motionDisabled()) {
-        root.style.removeProperty('--ds-parallax-far');
-        root.style.removeProperty('--ds-parallax-mid');
-        root.style.removeProperty('--ds-parallax-accent');
-        sectionLayers.forEach((section) => section.style.removeProperty('--ds-section-shift'));
+      if (!root || reduceMotion.matches) {
+        root?.style.removeProperty('--ds-parallax-far');
+        root?.style.removeProperty('--ds-parallax-mid');
+        root?.style.removeProperty('--ds-parallax-near');
+        root?.style.removeProperty('--ds-parallax-accent');
         return;
       }
 
-      const distance = clamp(window.scrollY, 0, 620);
-      root.style.setProperty('--ds-parallax-far', `${distance * 0.07}px`);
-      root.style.setProperty('--ds-parallax-mid', `${distance * 0.12}px`);
-      root.style.setProperty('--ds-parallax-accent', `${distance * -0.055}px`);
-
-      const viewportCenter = window.innerHeight / 2;
-      sectionLayers.forEach((section, index) => {
-        const bounds = section.getBoundingClientRect();
-        const sectionCenter = bounds.top + bounds.height / 2;
-        const depth = index % 2 === 0 ? 0.065 : 0.045;
-        const shift = clamp((viewportCenter - sectionCenter) * depth, -46, 46);
-        section.style.setProperty('--ds-section-shift', `${shift}px`);
-      });
+      const distance = Math.min(Math.max(window.scrollY, 0), 520);
+      root.style.setProperty('--ds-parallax-far', `${distance * 0.05}px`);
+      root.style.setProperty('--ds-parallax-mid', `${distance * 0.1}px`);
+      root.style.setProperty('--ds-parallax-near', `${distance * 0.16}px`);
+      root.style.setProperty('--ds-parallax-accent', `${distance * -0.07}px`);
     };
 
     const requestUpdate = () => {
       if (!frameId) frameId = window.requestAnimationFrame(updateParallax);
     };
 
-    const configureCardReveals = () => {
-      cardObserver?.disconnect();
-      settleTimers.forEach((timer) => window.clearTimeout(timer));
-      settleTimers.clear();
-
-      if (motionDisabled() || !('IntersectionObserver' in window)) {
-        root.classList.remove('ds-welcome-motion-ready');
-        root.classList.add('ds-welcome-loaded');
-        cards.forEach((card) => {
-          card.removeAttribute('data-reveal');
-          card.style.removeProperty('--ds-card-delay');
-        });
-        return;
-      }
-
-      cards.forEach((card) => {
-        const parent = card.parentElement;
-        const siblings = parent
-          ? Array.from(parent.children).filter((item) => item.classList.contains('ds-welcome-card'))
-          : cards;
-        const itemIndex = Math.max(siblings.indexOf(card), 0);
-        const columns = parent?.classList.contains('ds-welcome-categories')
-          ? 2
-          : parent?.classList.contains('ds-welcome-patterns') ||
-              parent?.classList.contains('ds-welcome-audiences')
-            ? 3
-            : 4;
-
-        card.setAttribute('data-reveal', 'pending');
-        card.style.setProperty('--ds-card-delay', `${(itemIndex % columns) * 120}ms`);
-      });
-
-      root.classList.add('ds-welcome-motion-ready');
-      cardObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const card = entry.target;
-            const delay = Number.parseInt(card.style.getPropertyValue('--ds-card-delay'), 10) || 0;
-            card.setAttribute('data-reveal', 'visible');
-            cardObserver?.unobserve(entry.target);
-
-            const timer = window.setTimeout(() => {
-              card.setAttribute('data-reveal', 'settled');
-              card.style.removeProperty('--ds-card-delay');
-              settleTimers.delete(timer);
-            }, 880 + delay);
-            settleTimers.add(timer);
-          });
-        },
-        { rootMargin: '0px 0px -14% 0px', threshold: 0.18 }
-      );
-
-      cards.forEach((card) => cardObserver.observe(card));
-    };
-
-    const startLoadAnimation = () => {
-      if (loadFrameOne) window.cancelAnimationFrame(loadFrameOne);
-      if (loadFrameTwo) window.cancelAnimationFrame(loadFrameTwo);
-      if (loadTimer) window.clearTimeout(loadTimer);
-
-      root.classList.remove('ds-welcome-loaded');
-      if (motionDisabled()) {
-        root.classList.add('ds-welcome-loaded');
-        return;
-      }
-
-      loadFrameOne = window.requestAnimationFrame(() => {
-        loadFrameTwo = window.requestAnimationFrame(() => {
-          loadTimer = window.setTimeout(() => {
-            root.classList.add('ds-welcome-loaded');
-          }, 220);
-        });
-      });
-    };
-
-    const handleMotionChange = () => {
-      configureCardReveals();
-      startLoadAnimation();
-      requestUpdate();
-    };
-
-    configureCardReveals();
-    startLoadAnimation();
     updateParallax();
     window.addEventListener('scroll', requestUpdate, { passive: true });
     window.addEventListener('resize', requestUpdate);
-    reduceMotion.addEventListener('change', handleMotionChange);
+    reduceMotion.addEventListener('change', requestUpdate);
 
     return () => {
       if (frameId) window.cancelAnimationFrame(frameId);
-      if (loadFrameOne) window.cancelAnimationFrame(loadFrameOne);
-      if (loadFrameTwo) window.cancelAnimationFrame(loadFrameTwo);
-      if (loadTimer) window.clearTimeout(loadTimer);
-      cardObserver?.disconnect();
-      settleTimers.forEach((timer) => window.clearTimeout(timer));
       window.removeEventListener('scroll', requestUpdate);
       window.removeEventListener('resize', requestUpdate);
-      reduceMotion.removeEventListener('change', handleMotionChange);
+      reduceMotion.removeEventListener('change', requestUpdate);
     };
   }, []);
 
-  return <div className="ds-welcome-motion-root" ref={rootRef}>{children}</div>;
+  return <div ref={rootRef}>{children}</div>;
 };
 
 <style>{`
@@ -193,20 +71,6 @@ export const WelcomeMotion = ({ children }) => {
     background: #0676d8;
     color: white;
     padding: 64px 72px 72px;
-    transform-origin: center top;
-    transition:
-      opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .ds-welcome-motion-ready:not(.ds-welcome-loaded) .ds-welcome-hero {
-    opacity: 0;
-    transform: translate3d(0, 36px, 0) scale(0.985);
-  }
-
-  .ds-welcome-loaded .ds-welcome-hero {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
   }
 
   .ds-welcome-hero::before,
@@ -217,82 +81,36 @@ export const WelcomeMotion = ({ children }) => {
     content: '';
     pointer-events: none;
     will-change: transform;
-    transition:
-      opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .ds-welcome-hero::before {
-    top: -190px;
-    right: -70px;
-    width: 420px;
-    height: 420px;
-    background: rgba(255, 255, 255, 0.055);
+    top: -240px;
+    right: -110px;
+    width: 520px;
+    height: 520px;
+    background: rgba(255, 255, 255, 0.08);
     transform: translate3d(0, var(--ds-parallax-accent, 0), 0);
   }
 
   .ds-welcome-hero::after {
-    right: 280px;
-    bottom: -220px;
-    width: 320px;
-    height: 320px;
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    right: 240px;
+    bottom: -230px;
+    width: 340px;
+    height: 340px;
+    border: 2px solid rgba(255, 255, 255, 0.13);
     transform: translate3d(0, var(--ds-parallax-far, 0), 0);
   }
 
-  .ds-welcome-hero-content {
+  .ds-welcome-hero > * {
     position: relative;
-    z-index: 1;
-    transform: translate3d(0, var(--ds-parallax-mid, 0), 0);
     will-change: transform;
-  }
-
-  .ds-welcome-hero-content > * {
-    transition:
-      opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .ds-welcome-motion-ready:not(.ds-welcome-loaded) .ds-welcome-hero::before {
-    opacity: 0;
-    transform: translate3d(0, -90px, 0) scale(0.72);
-  }
-
-  .ds-welcome-motion-ready:not(.ds-welcome-loaded) .ds-welcome-hero::after {
-    opacity: 0;
-    transform: translate3d(0, 90px, 0) scale(0.72);
-  }
-
-  .ds-welcome-motion-ready:not(.ds-welcome-loaded) .ds-welcome-hero-content > * {
-    opacity: 0;
-    transform: translate3d(0, 48px, 0);
-  }
-
-  .ds-welcome-loaded .ds-welcome-hero-content > * {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-
-  .ds-welcome-loaded .ds-welcome-eyebrow {
-    transition-delay: 180ms;
-  }
-
-  .ds-welcome-loaded .ds-welcome-hero h1 {
-    transition-delay: 300ms;
-  }
-
-  .ds-welcome-loaded .ds-welcome-hero-description {
-    transition-delay: 440ms;
-  }
-
-  .ds-welcome-loaded .ds-welcome-status {
-    transition-delay: 600ms;
   }
 
   .ds-welcome-eyebrow {
     margin: 0 0 18px;
     font-size: 14px;
     font-weight: 600;
+    transform: translate3d(0, var(--ds-parallax-near, 0), 0);
   }
 
   .ds-welcome-hero h1 {
@@ -301,6 +119,7 @@ export const WelcomeMotion = ({ children }) => {
     font-family: 'Roboto Slab', serif;
     font-size: 52px;
     line-height: 1.15;
+    transform: translate3d(0, var(--ds-parallax-mid, 0), 0);
   }
 
   .ds-welcome-hero p {
@@ -309,6 +128,7 @@ export const WelcomeMotion = ({ children }) => {
     color: white;
     font-size: 22px;
     line-height: 32px;
+    transform: translate3d(0, var(--ds-parallax-far, 0), 0);
   }
 
   .ds-welcome-status {
@@ -322,6 +142,7 @@ export const WelcomeMotion = ({ children }) => {
     color: white;
     font-size: 14px;
     font-weight: 600;
+    transform: translate3d(0, var(--ds-parallax-accent, 0), 0);
   }
 
   .ds-welcome-main {
@@ -362,50 +183,6 @@ export const WelcomeMotion = ({ children }) => {
     border: 1px solid #d1d5db;
     border-radius: 16px;
     padding: 22px 24px;
-    box-shadow: 0 1px 2px rgba(6, 40, 73, 0.04);
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-card {
-    transition:
-      opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 760ms cubic-bezier(0.22, 1, 0.36, 1),
-      border-color 220ms ease,
-      box-shadow 220ms ease;
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-card[data-reveal='pending'] {
-    opacity: 0;
-    transform: translate3d(0, 52px, 0) scale(0.955);
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-card[data-reveal='visible'],
-  .ds-welcome-motion-ready .ds-welcome-card[data-reveal='settled'] {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-card[data-reveal='visible'] {
-    transition-delay: var(--ds-card-delay, 0ms);
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-card[data-reveal='settled'] {
-    transition-delay: 0ms;
-  }
-
-  .ds-welcome-motion-ready .ds-welcome-metrics,
-  .ds-welcome-motion-ready .ds-welcome-section,
-  .ds-welcome-motion-ready .ds-welcome-close {
-    transform: translate3d(0, var(--ds-section-shift, 0), 0);
-    will-change: transform;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .ds-welcome-motion-ready .ds-welcome-card[data-reveal='settled']:hover {
-      z-index: 2;
-      border-color: #55a9ec;
-      box-shadow: 0 20px 42px rgba(6, 74, 129, 0.2);
-      transform: translate3d(0, -10px, 0) scale(1.025);
-    }
   }
 
   .ds-welcome-metric {
@@ -577,45 +354,30 @@ export const WelcomeMotion = ({ children }) => {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-hero::before,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-hero::after,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-hero,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-hero-content,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-hero-content > *,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-metrics,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-section,
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-close {
-      opacity: 1;
+    .ds-welcome-hero::before,
+    .ds-welcome-hero::after,
+    .ds-welcome-hero > * {
       transform: none;
       will-change: auto;
-      transition: none;
-    }
-
-    .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-card {
-      opacity: 1;
-      transform: none;
-      transition: none;
     }
   }
 `}</style>
 
-<WelcomeMotion>
+<WelcomeParallax>
 <div className="ds-welcome">
 
   <section className="ds-welcome-hero">
-    <div className="ds-welcome-hero-content">
-      <p className="ds-welcome-eyebrow">32BJ BENEFIT FUNDS</p>
+    <p className="ds-welcome-eyebrow">32BJ BENEFIT FUNDS</p>
 
-      <h1>Design System</h1>
+    <h1>Design System</h1>
 
-      <p className="ds-welcome-hero-description">
-        A shared foundation for consistent, accessible, maintainable digital
-        experiences across 32BJ Benefit Funds.
-      </p>
+    <p>
+      A shared foundation for consistent, accessible, maintainable digital
+      experiences across 32BJ Benefit Funds.
+    </p>
 
-      <div className="ds-welcome-status">
-        V1.1 RESPONSIVE + FUNCTIONAL COVERAGE
-      </div>
+    <div className="ds-welcome-status">
+      V1.1 RESPONSIVE + FUNCTIONAL COVERAGE
     </div>
   </section>
 
@@ -910,4 +672,4 @@ export const WelcomeMotion = ({ children }) => {
 
   </main>
 </div>
-</WelcomeMotion>
+</WelcomeParallax>
