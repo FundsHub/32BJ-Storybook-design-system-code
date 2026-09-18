@@ -1,9 +1,56 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { useEffect, useRef } from 'react';
 import { AlertBar } from './AlertBar';
 import { Header } from './Header';
 import { HeroBanner } from './HeroBanner';
 
 <Meta title="Design System/Welcome" />
+
+export const WelcomeParallax = ({ children }) => {
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frameId = 0;
+
+    const updateParallax = () => {
+      frameId = 0;
+
+      if (!root || reduceMotion.matches) {
+        root?.style.removeProperty('--ds-parallax-far');
+        root?.style.removeProperty('--ds-parallax-mid');
+        root?.style.removeProperty('--ds-parallax-near');
+        root?.style.removeProperty('--ds-parallax-accent');
+        return;
+      }
+
+      const distance = Math.min(Math.max(window.scrollY, 0), 520);
+      root.style.setProperty('--ds-parallax-far', `${distance * 0.05}px`);
+      root.style.setProperty('--ds-parallax-mid', `${distance * 0.1}px`);
+      root.style.setProperty('--ds-parallax-near', `${distance * 0.16}px`);
+      root.style.setProperty('--ds-parallax-accent', `${distance * -0.07}px`);
+    };
+
+    const requestUpdate = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(updateParallax);
+    };
+
+    updateParallax();
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    reduceMotion.addEventListener('change', requestUpdate);
+
+    return () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+      reduceMotion.removeEventListener('change', requestUpdate);
+    };
+  }, []);
+
+  return <div ref={rootRef}>{children}</div>;
+};
 
 <style>{`
   .ds-welcome {
@@ -18,15 +65,52 @@ import { HeroBanner } from './HeroBanner';
   }
 
   .ds-welcome-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     background: #0676d8;
     color: white;
     padding: 64px 72px 72px;
+  }
+
+  .ds-welcome-hero::before,
+  .ds-welcome-hero::after {
+    position: absolute;
+    z-index: -1;
+    border-radius: 999px;
+    content: '';
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .ds-welcome-hero::before {
+    top: -240px;
+    right: -110px;
+    width: 520px;
+    height: 520px;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translate3d(0, var(--ds-parallax-accent, 0), 0);
+  }
+
+  .ds-welcome-hero::after {
+    right: 240px;
+    bottom: -230px;
+    width: 340px;
+    height: 340px;
+    border: 2px solid rgba(255, 255, 255, 0.13);
+    transform: translate3d(0, var(--ds-parallax-far, 0), 0);
+  }
+
+  .ds-welcome-hero > * {
+    position: relative;
+    will-change: transform;
   }
 
   .ds-welcome-eyebrow {
     margin: 0 0 18px;
     font-size: 14px;
     font-weight: 600;
+    transform: translate3d(0, var(--ds-parallax-near, 0), 0);
   }
 
   .ds-welcome-hero h1 {
@@ -35,6 +119,7 @@ import { HeroBanner } from './HeroBanner';
     font-family: 'Roboto Slab', serif;
     font-size: 52px;
     line-height: 1.15;
+    transform: translate3d(0, var(--ds-parallax-mid, 0), 0);
   }
 
   .ds-welcome-hero p {
@@ -43,6 +128,7 @@ import { HeroBanner } from './HeroBanner';
     color: white;
     font-size: 22px;
     line-height: 32px;
+    transform: translate3d(0, var(--ds-parallax-far, 0), 0);
   }
 
   .ds-welcome-status {
@@ -56,6 +142,7 @@ import { HeroBanner } from './HeroBanner';
     color: white;
     font-size: 14px;
     font-weight: 600;
+    transform: translate3d(0, var(--ds-parallax-accent, 0), 0);
   }
 
   .ds-welcome-main {
@@ -243,6 +330,14 @@ import { HeroBanner } from './HeroBanner';
       line-height: 28px;
     }
 
+    .ds-welcome-hero::before {
+      right: -260px;
+    }
+
+    .ds-welcome-hero::after {
+      right: 24px;
+    }
+
     .ds-welcome-metrics,
     .ds-welcome-foundations,
     .ds-welcome-categories,
@@ -257,8 +352,18 @@ import { HeroBanner } from './HeroBanner';
       overflow-x: auto;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-welcome-hero::before,
+    .ds-welcome-hero::after,
+    .ds-welcome-hero > * {
+      transform: none;
+      will-change: auto;
+    }
+  }
 `}</style>
 
+<WelcomeParallax>
 <div className="ds-welcome">
 
   <section className="ds-welcome-hero">
@@ -567,3 +672,4 @@ import { HeroBanner } from './HeroBanner';
 
   </main>
 </div>
+</WelcomeParallax>
