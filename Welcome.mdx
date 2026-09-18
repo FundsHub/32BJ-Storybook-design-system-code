@@ -6,7 +6,7 @@ import { HeroBanner } from './HeroBanner';
 
 <Meta title="Design System/Welcome" />
 
-export const WELCOME_MOTION_VERSION = 'V3-load-parallax-hover';
+export const WELCOME_MOTION_VERSION = 'V4-load-parallax-hover-drift-squircle';
 
 export const WelcomeMotion = ({ children }) => {
   const rootRef = useRef(null);
@@ -216,10 +216,36 @@ export const WelcomeMotion = ({ children }) => {
     border-radius: 999px;
     content: '';
     pointer-events: none;
-    will-change: transform;
+    will-change: transform, translate, scale;
     transition:
       opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
       transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes ds-welcome-circle-drift-large {
+    0%,
+    100% {
+      translate: 0 -8px;
+      scale: 1;
+    }
+
+    50% {
+      translate: -18px 14px;
+      scale: 1.035;
+    }
+  }
+
+  @keyframes ds-welcome-circle-drift-ring {
+    0%,
+    100% {
+      translate: 0 10px;
+      scale: 1;
+    }
+
+    50% {
+      translate: 20px -12px;
+      scale: 0.965;
+    }
   }
 
   .ds-welcome-hero::before {
@@ -229,6 +255,7 @@ export const WelcomeMotion = ({ children }) => {
     height: 420px;
     background: rgba(255, 255, 255, 0.055);
     transform: translate3d(0, var(--ds-parallax-accent, 0), 0);
+    animation: ds-welcome-circle-drift-large 22s ease-in-out infinite;
   }
 
   .ds-welcome-hero::after {
@@ -238,6 +265,7 @@ export const WelcomeMotion = ({ children }) => {
     height: 320px;
     border: 2px solid rgba(255, 255, 255, 0.08);
     transform: translate3d(0, var(--ds-parallax-far, 0), 0);
+    animation: ds-welcome-circle-drift-ring 28s ease-in-out infinite;
   }
 
   .ds-welcome-hero-content {
@@ -319,7 +347,7 @@ export const WelcomeMotion = ({ children }) => {
     padding: 0 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 999px;
-    background: #a84841;
+    background: #2b78b7;
     color: white;
     font-size: 12px;
     font-weight: 600;
@@ -362,7 +390,8 @@ export const WelcomeMotion = ({ children }) => {
   .ds-welcome-card {
     background: white;
     border: 1px solid #d1d5db;
-    border-radius: 16px;
+    border-radius: 32px;
+    corner-shape: squircle;
     padding: 22px 24px;
     box-shadow: 0 1px 2px rgba(6, 40, 73, 0.04);
   }
@@ -587,7 +616,10 @@ export const WelcomeMotion = ({ children }) => {
     .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-metrics,
     .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-section,
     .ds-welcome-motion-root:not(.ds-welcome-force-motion) .ds-welcome-close {
+      animation: none;
       opacity: 1;
+      scale: none;
+      translate: none;
       transform: none;
       will-change: auto;
       transition: none;
