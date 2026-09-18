@@ -6,7 +6,7 @@ import { HeroBanner } from './HeroBanner';
 
 <Meta title="Design System/Welcome" />
 
-export const WELCOME_MOTION_VERSION = 'V4-load-parallax-hover-drift-squircle';
+export const WELCOME_MOTION_VERSION = 'V5-load-parallax-soft-hover-drift-squircle';
 
 export const WelcomeMotion = ({ children }) => {
   const rootRef = useRef(null);
@@ -433,9 +433,9 @@ export const WelcomeMotion = ({ children }) => {
   @media (hover: hover) and (pointer: fine) {
     .ds-welcome-motion-ready .ds-welcome-card[data-reveal='settled']:hover {
       z-index: 2;
-      border-color: #55a9ec;
-      box-shadow: 0 20px 42px rgba(6, 74, 129, 0.2);
-      transform: translate3d(0, -10px, 0) scale(1.025);
+      border-color: #79b9ea;
+      box-shadow: 0 12px 28px rgba(6, 74, 129, 0.14);
+      transform: translate3d(0, -6px, 0) scale(1.012);
     }
   }
 
