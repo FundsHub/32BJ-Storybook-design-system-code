@@ -289,9 +289,9 @@ export const WelcomeMotion = ({ children }) => {
   .ds-welcome-status {
     display: inline-flex;
     margin-top: 24px;
-    min-height: 22px;
+    min-height: 20px;
     align-items: center;
-    padding: 2px 9px;
+    padding: 1px 8px;
     border: 0;
     border-radius: 999px;
     background: #2b78b7;
@@ -300,6 +300,13 @@ export const WelcomeMotion = ({ children }) => {
     line-height: 14px;
     font-weight: 600;
     letter-spacing: 0.025em;
+  }
+
+  .ds-welcome-status > p {
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
   }
 
   .ds-welcome-main {
