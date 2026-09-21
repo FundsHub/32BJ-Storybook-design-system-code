@@ -1,0 +1,134 @@
+.ds-carousel {
+  width: min(100%, var(--32bj-container-content));
+  display: grid;
+  gap: 12px;
+  color: var(--32bj-ink);
+}
+
+.ds-carousel__frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--32bj-radius-card);
+  background: var(--32bj-neutral-50);
+}
+
+.ds-carousel__image-link {
+  display: block;
+}
+
+.ds-carousel__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ds-carousel__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+  background: rgba(0,0,0,.32);
+  color: #fff;
+  cursor: pointer;
+}
+
+.ds-carousel__arrow:hover {
+  background: rgba(0,0,0,.48);
+}
+
+.ds-carousel__arrow:focus-visible,
+.ds-carousel__dots button:focus-visible,
+.ds-carousel__pause:focus-visible {
+  outline: 3px solid var(--32bj-focus);
+  outline-offset: 3px;
+}
+
+.ds-carousel__arrow span {
+  font-size: 30px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.ds-carousel__arrow--prev {
+  left: 16px;
+}
+
+.ds-carousel__arrow--next {
+  right: 16px;
+}
+
+.ds-carousel__footer {
+  min-height: 28px;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+
+.ds-carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ds-carousel__dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid var(--32bj-blue-800);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ds-carousel__dots button[aria-current='true'] {
+  background: var(--32bj-blue-800);
+}
+
+.ds-carousel__pause {
+  min-height: 28px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--32bj-blue-800);
+  font-size: var(--32bj-type-xs);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .ds-carousel {
+    gap: 10px;
+  }
+
+  .ds-carousel__frame {
+    border-radius: var(--32bj-radius-2xl);
+  }
+
+  .ds-carousel__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ds-carousel__arrow--prev {
+    left: 12px;
+  }
+
+  .ds-carousel__arrow--next {
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-carousel {
+    scroll-behavior: auto;
+  }
+}
