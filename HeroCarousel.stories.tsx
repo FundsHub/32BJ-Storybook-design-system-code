@@ -36,9 +36,20 @@ export default meta;
 
 type Story = StoryObj<typeof HeroCarousel>;
 
-export const Desktop: Story = {};
+export const Desktop: Story = {
+  render: (args) => (
+    <div style={{ width: '1104px', maxWidth: '100%' }}>
+      <HeroCarousel {...args} />
+    </div>
+  )
+};
 
 export const Mobile: Story = {
+  render: (args) => (
+    <div style={{ width: '390px', maxWidth: '100%' }}>
+      <HeroCarousel {...args} />
+    </div>
+  ),
   parameters: {
     viewport: {
       defaultViewport: 'mobile390'
