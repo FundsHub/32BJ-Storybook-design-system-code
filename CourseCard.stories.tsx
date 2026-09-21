@@ -34,7 +34,10 @@ const meta: Meta<typeof CourseCard> = {
   title: 'Patterns/Course Catalog',
   component: CourseCard,
   tags: ['autodocs'],
-  args: englishCourse,
+  args: {
+    ...englishCourse,
+    mobile: false
+  },
   parameters: {
     viewport: {
       defaultViewport: 'desktop1200'
@@ -49,16 +52,25 @@ type Story = StoryObj<typeof CourseCard>;
 export const Open: Story = {};
 
 export const Waitlist: Story = {
-  args: buildingCourse
+  args: {
+    ...buildingCourse,
+    mobile: false
+  }
 };
 
 export const Closed: Story = {
-  args: oshaCourse
+  args: {
+    ...oshaCourse,
+    mobile: false
+  }
 };
 
 export const DesktopCatalog: Story = {
   render: () => (
-    <section className="ds-course-catalog" aria-labelledby="course-catalog-title">
+    <section
+      className="ds-course-catalog ds-course-catalog--desktop"
+      aria-labelledby="course-catalog-title"
+    >
       <header className="ds-course-catalog__intro">
         <p className="ds-course-catalog__eyebrow">Training Fund</p>
         <h1 id="course-catalog-title">Upcoming courses</h1>
@@ -66,12 +78,17 @@ export const DesktopCatalog: Story = {
       </header>
 
       <div className="ds-course-catalog__grid">
-        <CourseCard {...englishCourse} />
-        <CourseCard {...buildingCourse} />
-        <CourseCard {...oshaCourse} />
+        <CourseCard {...englishCourse} mobile={false} />
+        <CourseCard {...buildingCourse} mobile={false} />
+        <CourseCard {...oshaCourse} mobile={false} />
       </div>
     </section>
-  )
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'desktop1200'
+    }
+  }
 };
 
 export const MobileCatalog: Story = {

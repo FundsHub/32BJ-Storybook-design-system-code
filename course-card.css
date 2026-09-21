@@ -1,6 +1,4 @@
-/* Course Catalog pattern
-   Figma pattern reference: 1709:123
-   Long Training course lists with clear hierarchy and scan-friendly grouping. */
+/* Course Catalog pattern */
 
 .ds-course-card {
   width: 100%;
@@ -182,6 +180,43 @@
   gap: var(--32bj-space-20);
 }
 
+/* Explicit desktop mode for Storybook desktop stories */
+.ds-course-card--desktop {
+  min-height: 338px;
+  padding: var(--32bj-space-24);
+}
+
+.ds-course-card--desktop .ds-course-card__topline {
+  display: flex;
+  justify-items: initial;
+}
+
+.ds-course-card--desktop h2 {
+  margin-top: var(--32bj-space-20);
+  font-size: var(--32bj-type-2xl);
+  line-height: 1.25;
+}
+
+.ds-course-card--desktop .ds-course-card__details > div {
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: var(--32bj-space-12);
+}
+
+.ds-course-card--desktop .ds-course-card__action {
+  width: fit-content;
+  min-width: 180px;
+}
+
+.ds-course-catalog--desktop {
+  width: min(1104px, 100%);
+}
+
+.ds-course-catalog--desktop .ds-course-catalog__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--32bj-space-20);
+}
+
+/* Explicit mobile mode for Storybook mobile stories */
 .ds-course-catalog--mobile {
   width: 358px;
   max-width: 100%;
@@ -219,35 +254,40 @@
   min-width: 0;
 }
 
+/* Responsive production behavior only when no explicit story mode is set */
 @media (max-width: 720px) {
-  .ds-course-catalog__grid {
+  .ds-course-catalog:not(.ds-course-catalog--desktop):not(.ds-course-catalog--mobile)
+    .ds-course-catalog__grid {
     grid-template-columns: 1fr;
     gap: var(--32bj-space-16);
   }
 
-  .ds-course-card {
+  .ds-course-card:not(.ds-course-card--desktop):not(.ds-course-card--mobile) {
     min-height: 0;
     padding: var(--32bj-space-20);
   }
 
-  .ds-course-card__topline {
+  .ds-course-card:not(.ds-course-card--desktop):not(.ds-course-card--mobile)
+    .ds-course-card__topline {
     display: grid;
     justify-items: start;
     gap: var(--32bj-space-8);
   }
 
-  .ds-course-card h2 {
+  .ds-course-card:not(.ds-course-card--desktop):not(.ds-course-card--mobile) h2 {
     margin-top: var(--32bj-space-16);
     font-size: var(--32bj-type-xl);
     line-height: 1.3;
   }
 
-  .ds-course-card__details > div {
+  .ds-course-card:not(.ds-course-card--desktop):not(.ds-course-card--mobile)
+    .ds-course-card__details > div {
     grid-template-columns: 76px minmax(0, 1fr);
     gap: var(--32bj-space-10);
   }
 
-  .ds-course-card__action {
+  .ds-course-card:not(.ds-course-card--desktop):not(.ds-course-card--mobile)
+    .ds-course-card__action {
     width: 100%;
     min-width: 0;
   }

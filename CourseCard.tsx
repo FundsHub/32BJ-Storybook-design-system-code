@@ -29,13 +29,20 @@ export function CourseCard({
   location,
   status = 'open',
   href = '#course',
-  mobile = false
+  mobile
 }: CourseCardProps) {
   const actionLabel = status === 'waitlist' ? 'Join the waitlist' : 'View course';
 
+  const modeClass =
+    mobile === true
+      ? ' ds-course-card--mobile'
+      : mobile === false
+        ? ' ds-course-card--desktop'
+        : '';
+
   return (
     <article
-      className={`ds-course-card${mobile ? ' ds-course-card--mobile' : ''}`}
+      className={`ds-course-card${modeClass}`}
       data-fund="training"
       data-status={status}
     >
