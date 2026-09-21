@@ -29,3 +29,4 @@ export * from './VideoFeature';
 export * from './LocationCard';
 export * from './CourseCard';
 export * from './ProfileCard';
+export * from './BenefitCollection';

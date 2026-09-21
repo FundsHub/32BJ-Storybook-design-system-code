@@ -1,0 +1,203 @@
+/* Benefit Collection pattern
+   Figma pattern reference: 1709:117
+   Large benefit and partner-card collections such as Health Other Benefits. */
+
+.ds-benefit-collection {
+  width: min(1104px, 100%);
+  display: grid;
+  gap: var(--32bj-space-32);
+  color: var(--32bj-body);
+}
+
+.ds-benefit-collection__intro {
+  max-width: 760px;
+  display: grid;
+  gap: var(--32bj-space-8);
+}
+
+.ds-benefit-collection__eyebrow,
+.ds-benefit-card__eyebrow {
+  margin: 0;
+  color: var(--32bj-health);
+  font-size: var(--32bj-type-xs);
+  font-weight: var(--32bj-weight-bold);
+  line-height: 18px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ds-benefit-collection__intro h1 {
+  margin: 0;
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-3xl);
+  font-weight: var(--32bj-weight-bold);
+  line-height: 1.2;
+  color: var(--32bj-ink);
+}
+
+.ds-benefit-collection__intro > p:last-child {
+  margin: 0;
+  font-size: var(--32bj-type-base);
+  line-height: 1.55;
+  color: var(--32bj-body);
+}
+
+.ds-benefit-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: var(--32bj-space-20);
+}
+
+.ds-benefit-card {
+  position: relative;
+  min-width: 0;
+  min-height: 252px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--32bj-space-24);
+  padding: var(--32bj-space-24);
+  overflow: hidden;
+  border: 1px solid var(--32bj-border);
+  border-radius: var(--32bj-radius-2xl);
+  background: #fff;
+  color: var(--32bj-body);
+}
+
+.ds-benefit-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--32bj-health);
+}
+
+.ds-benefit-card--partner {
+  background: var(--32bj-info-surface);
+  border-color: color-mix(in srgb, var(--32bj-health) 24%, var(--32bj-border));
+}
+
+.ds-benefit-card--partner::before {
+  width: 6px;
+}
+
+.ds-benefit-card__body {
+  display: grid;
+  align-content: start;
+  gap: var(--32bj-space-10);
+}
+
+.ds-benefit-card h2 {
+  margin: 0;
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-xl);
+  font-weight: var(--32bj-weight-bold);
+  line-height: 1.35;
+  color: var(--32bj-ink);
+}
+
+.ds-benefit-card__description {
+  margin: 0;
+  font-size: var(--32bj-type-sm);
+  line-height: 1.55;
+  color: var(--32bj-body);
+}
+
+.ds-benefit-card__action {
+  width: fit-content;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--32bj-space-8);
+  color: var(--32bj-health);
+  font-size: var(--32bj-type-sm);
+  font-weight: var(--32bj-weight-semibold);
+  line-height: 20px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ds-benefit-card__action:hover {
+  color: var(--32bj-health-hover);
+}
+
+.ds-benefit-card__action:focus-visible {
+  outline: 3px solid var(--32bj-focus);
+  outline-offset: 3px;
+  border-radius: var(--32bj-radius-base);
+}
+
+/* Explicit desktop mode for Storybook desktop examples. */
+.ds-benefit-collection--desktop {
+  width: min(1104px, 100%);
+}
+
+.ds-benefit-collection--desktop .ds-benefit-collection__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ds-benefit-card--desktop {
+  min-height: 252px;
+  padding: var(--32bj-space-24);
+}
+
+/* Explicit mobile mode so Docs previews do not depend on iframe width. */
+.ds-benefit-collection--mobile {
+  width: 358px;
+  max-width: 100%;
+  gap: var(--32bj-space-24);
+}
+
+.ds-benefit-collection--mobile .ds-benefit-collection__intro h1 {
+  font-size: 26px;
+}
+
+.ds-benefit-collection--mobile .ds-benefit-collection__grid {
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: var(--32bj-space-16);
+}
+
+.ds-benefit-card--mobile {
+  min-height: 0;
+  padding: var(--32bj-space-20);
+  gap: var(--32bj-space-20);
+}
+
+.ds-benefit-card--mobile h2 {
+  font-size: var(--32bj-type-xl);
+}
+
+.ds-benefit-card--mobile .ds-benefit-card__action {
+  width: 100%;
+  min-height: var(--32bj-control-md);
+  justify-content: space-between;
+}
+
+/* Responsive production behavior when no explicit Storybook mode is set. */
+@media (max-width: 820px) {
+  .ds-benefit-collection:not(.ds-benefit-collection--desktop):not(.ds-benefit-collection--mobile)
+    .ds-benefit-collection__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .ds-benefit-collection:not(.ds-benefit-collection--desktop):not(.ds-benefit-collection--mobile) {
+    gap: var(--32bj-space-24);
+  }
+
+  .ds-benefit-collection:not(.ds-benefit-collection--desktop):not(.ds-benefit-collection--mobile)
+    .ds-benefit-collection__grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: var(--32bj-space-16);
+  }
+
+  .ds-benefit-card:not(.ds-benefit-card--desktop):not(.ds-benefit-card--mobile) {
+    min-height: 0;
+    padding: var(--32bj-space-20);
+  }
+}
