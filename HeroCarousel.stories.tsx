@@ -4,19 +4,19 @@ import { productionAssets } from './productionAssets';
 
 const slides: HeroSlide[] = [
   {
-    id: 'banner-1',
+    id: 'no-bills',
     imageUrl: productionAssets.heroBanner,
-    alt: '32BJ Benefit Funds featured banner'
+    alt: 'Don’t pay more than you should'
   },
   {
-    id: 'banner-2',
+    id: 'no-bills-2',
     imageUrl: productionAssets.heroBanner,
-    alt: '32BJ Benefit Funds featured banner'
+    alt: 'Don’t pay more than you should'
   },
   {
-    id: 'banner-3',
+    id: 'no-bills-3',
     imageUrl: productionAssets.heroBanner,
-    alt: '32BJ Benefit Funds featured banner'
+    alt: 'Don’t pay more than you should'
   }
 ];
 
@@ -36,14 +36,7 @@ export default meta;
 
 type Story = StoryObj<typeof HeroCarousel>;
 
-export const Controlled: Story = {};
-
-export const AutoAdvanceWithPause: Story = {
-  args: {
-    autoPlay: true,
-    interval: 6000
-  }
-};
+export const Desktop: Story = {};
 
 export const Mobile: Story = {
   parameters: {

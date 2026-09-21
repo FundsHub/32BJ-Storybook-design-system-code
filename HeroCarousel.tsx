@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { productionAssets } from './productionAssets';
 import './hero-carousel.css';
 
@@ -11,38 +11,15 @@ export type HeroSlide = {
 
 type Props = {
   slides: HeroSlide[];
-  autoPlay?: boolean;
-  interval?: number;
   ariaLabel?: string;
 };
 
 export function HeroCarousel({
   slides,
-  autoPlay = false,
-  interval = 7000,
   ariaLabel = 'Featured information'
 }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const count = slides.length;
-
-  useEffect(() => {
-    if (
-      !autoPlay ||
-      paused ||
-      count < 2 ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
-      return;
-    }
-
-    const timer = window.setInterval(
-      () => setActiveIndex((current) => (current + 1) % count),
-      interval
-    );
-
-    return () => window.clearInterval(timer);
-  }, [autoPlay, count, interval, paused]);
 
   if (!count) return null;
 
@@ -95,32 +72,6 @@ export function HeroCarousel({
           </>
         )}
       </div>
-
-      {count > 1 && (
-        <div className="ds-carousel__footer">
-          <div className="ds-carousel__dots" aria-label="Choose a slide">
-            {slides.map((item, index) => (
-              <button
-                type="button"
-                key={item.id}
-                aria-label={`Show slide ${index + 1}`}
-                aria-current={index === activeIndex ? 'true' : undefined}
-                onClick={() => goTo(index)}
-              />
-            ))}
-          </div>
-
-          {autoPlay && (
-            <button
-              className="ds-carousel__pause"
-              type="button"
-              onClick={() => setPaused((value) => !value)}
-            >
-              {paused ? 'Resume' : 'Pause'}
-            </button>
-          )}
-        </div>
-      )}
     </section>
   );
 }
