@@ -1,0 +1,148 @@
+/* Page Patterns only. No global resets or carousel/header/navigation rules. */
+.ds-page-patterns {
+  box-sizing: border-box;
+  width: 1104px;
+  max-width: 100%;
+  min-width: 0;
+  container: page-patterns / inline-size;
+  color: var(--32bj-body, #374151);
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+  font-size: var(--32bj-type-base, 16px);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.ds-page-patterns[data-size='mobile'] { width: 390px; }
+
+.ds-page-patterns .ds-page-patterns__surface {
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--32bj-space-24, 24px);
+  min-width: 0;
+  padding: var(--32bj-space-32, 32px);
+  background: var(--32bj-page, #f3f4f6);
+}
+
+.ds-page-patterns .ds-page-patterns__intro {
+  display: grid;
+  gap: var(--32bj-space-8, 8px);
+  min-width: 0;
+  max-width: 760px;
+  scroll-margin-top: 24px;
+}
+
+.ds-page-patterns .ds-page-patterns__eyebrow {
+  margin: 0;
+  color: var(--32bj-blue-800, #005fb5);
+  font-size: var(--32bj-type-xs, 12px);
+  font-weight: var(--32bj-weight-semibold, 600);
+  letter-spacing: .08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.ds-page-patterns h1,
+.ds-page-patterns h2 {
+  margin: 0;
+  color: var(--32bj-ink, #222);
+  font-family: var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  font-weight: var(--32bj-weight-bold, 700);
+}
+
+.ds-page-patterns h1 { font-size: 30px; line-height: 1.25; }
+.ds-page-patterns h2 { font-size: 22px; line-height: 1.35; }
+.ds-page-patterns .ds-page-patterns__lede { margin: 0; max-width: 66ch; font-size: 16px; line-height: 1.6; }
+
+/* Figma 1685:155: 12 cards, three columns at desktop widths. */
+.ds-page-patterns .ds-page-patterns__inventory {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--32bj-space-20, 20px);
+}
+
+.ds-page-patterns .ds-page-patterns__inventory-card {
+  box-sizing: border-box;
+  display: grid;
+  align-content: start;
+  gap: var(--32bj-space-10, 10px);
+  min-width: 0;
+  min-height: 100px;
+  padding: var(--32bj-space-20, 20px);
+  border: 1px solid var(--32bj-border, #d1d5db);
+  border-radius: var(--32bj-radius-2xl, 16px);
+  background: var(--32bj-card, #fff);
+}
+
+.ds-page-patterns .ds-page-patterns__inventory-card h2 { font-size: 16px; line-height: 22px; }
+.ds-page-patterns .ds-page-patterns__inventory-card p { margin: 0; font-size: 12px; line-height: 18px; }
+
+.ds-page-patterns .ds-page-patterns__note {
+  margin: 0;
+  padding: var(--32bj-space-12, 12px) var(--32bj-space-16, 16px);
+  border-left: 3px solid var(--32bj-blue-800, #005fb5);
+  border-radius: 0 var(--32bj-radius-lg, 8px) var(--32bj-radius-lg, 8px) 0;
+  background: var(--32bj-info-surface, #eaf6ff);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ds-page-patterns .ds-page-patterns__detail {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--32bj-space-32, 32px);
+  align-items: start;
+  min-width: 0;
+}
+
+.ds-page-patterns .ds-page-patterns__navigation { min-width: 0; }
+.ds-page-patterns .ds-page-patterns__navigation .ds-toc {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--32bj-space-20, 20px);
+}
+.ds-page-patterns .ds-toc h2 { font-size: 18px; line-height: 1.4; }
+.ds-page-patterns .ds-toc ol { margin-bottom: 0; }
+.ds-page-patterns .ds-toc a {
+  min-height: var(--32bj-control-md, 44px);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--32bj-blue-800, #005fb5);
+}
+
+.ds-page-patterns .ds-page-patterns__article { display: grid; gap: 28px; min-width: 0; }
+.ds-page-patterns .ds-page-patterns__section { display: grid; gap: 12px; min-width: 0; scroll-margin-top: 24px; }
+.ds-page-patterns .ds-page-patterns__section p { margin: 0; max-width: 66ch; font-size: 16px; line-height: 1.65; }
+.ds-page-patterns .ds-page-patterns__back { display: inline-flex; justify-self: start; align-items: center; min-height: 44px; color: var(--32bj-blue-800, #005fb5); font-weight: 500; }
+.ds-page-patterns .ds-page-patterns__accordions { min-width: 0; }
+.ds-page-patterns .ds-page-patterns__accordions .ds-accordion { box-sizing: border-box; width: 100%; max-width: 100%; }
+.ds-page-patterns .ds-page-patterns__accordions .ds-accordion button { color: var(--32bj-blue-800, #005fb5); }
+.ds-page-patterns a:focus-visible,
+.ds-page-patterns button:focus-visible,
+.ds-page-patterns .ds-page-patterns__section:focus-visible {
+  outline: 3px solid var(--32bj-blue-800, #005fb5);
+  outline-offset: 3px;
+}
+
+/* Explicit mobile mode also applies when Docs itself has a desktop viewport. */
+.ds-page-patterns[data-size='mobile'] .ds-page-patterns__surface { padding: 16px; gap: 20px; }
+.ds-page-patterns[data-size='mobile'] .ds-page-patterns__inventory,
+.ds-page-patterns[data-size='mobile'] .ds-page-patterns__detail { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.ds-page-patterns[data-size='mobile'] h1 { font-size: 26px; }
+.ds-page-patterns[data-size='mobile'] .ds-page-patterns__section > h2 { font-size: 20px; }
+.ds-page-patterns[data-size='mobile'] .ds-page-patterns__inventory-card p { font-size: 14px; line-height: 21px; }
+
+/* Respond to each example's available space, not the outer Docs window. */
+@container page-patterns (max-width: 850px) {
+  .ds-page-patterns .ds-page-patterns__inventory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container page-patterns (max-width: 700px) {
+  .ds-page-patterns .ds-page-patterns__surface { padding: 16px; gap: 20px; }
+  .ds-page-patterns .ds-page-patterns__detail { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .ds-page-patterns h1 { font-size: 26px; }
+}
+@container page-patterns (max-width: 520px) {
+  .ds-page-patterns .ds-page-patterns__inventory { grid-template-columns: minmax(0, 1fr); }
+  .ds-page-patterns .ds-page-patterns__inventory-card p { font-size: 14px; line-height: 21px; }
+}

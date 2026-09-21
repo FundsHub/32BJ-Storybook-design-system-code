@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import './components.css';
 
 export type TableOfContentsItem = {
@@ -11,11 +12,18 @@ type Props = {
 };
 
 export function TableOfContents({ items, title = 'On this page' }: Props) {
+  // Several examples can share a Docs page. Each navigation needs its own label.
+  const titleId = useId();
+
   return (
-    <nav className="ds-toc" aria-labelledby="table-of-contents-title">
-      <h2 id="table-of-contents-title">{title}</h2>
+    <nav className="ds-toc" aria-labelledby={titleId}>
+      <h2 id={titleId}>{title}</h2>
       <ol>
-        {items.map((item) => <li key={item.id}><a href={`#${item.id}`}>{item.label}</a></li>)}
+        {items.map((item) => (
+          <li key={item.id}>
+            <a href={`#${item.id}`}>{item.label}</a>
+          </li>
+        ))}
       </ol>
     </nav>
   );
