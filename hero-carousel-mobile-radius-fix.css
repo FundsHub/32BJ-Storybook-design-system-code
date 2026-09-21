@@ -1,0 +1,118 @@
+/* Hero Carousel: Figma 1374:8800
+   Single full-width 1104 x 189 banner with overlaid previous/next controls.
+   Higher-specificity selectors intentionally neutralize legacy .ds-carousel
+   layout rules that still exist in components.css. */
+
+section.ds-carousel {
+  position: relative;
+  isolation: auto;
+  width: min(1104px, 100%);
+  min-height: 0;
+  display: block;
+  grid-template-columns: none;
+  grid-template-rows: none;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.ds-carousel__frame {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 32px;
+  background: transparent;
+}
+
+.ds-carousel__image-link {
+  display: block;
+  width: 100%;
+}
+
+.ds-carousel__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1104 / 189;
+  object-fit: cover;
+}
+
+.ds-carousel__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .38);
+  color: #fff;
+  cursor: pointer;
+}
+
+.ds-carousel__arrow:hover {
+  background: rgba(255, 255, 255, .55);
+}
+
+.ds-carousel__arrow:focus-visible {
+  outline: 3px solid var(--32bj-focus);
+  outline-offset: 3px;
+}
+
+.ds-carousel__arrow span {
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  transform: translateY(-1px);
+}
+
+.ds-carousel__arrow--prev {
+  left: 10px;
+}
+
+.ds-carousel__arrow--next {
+  right: 10px;
+}
+
+@media (max-width: 720px) {
+  section.ds-carousel {
+    min-height: 0;
+    display: block;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    background: transparent;
+  }
+
+  .ds-carousel__frame {
+    border-radius: 11px;
+  }
+
+  .ds-carousel__arrow {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+  }
+
+  .ds-carousel__arrow span {
+    font-size: 18px;
+  }
+
+  .ds-carousel__arrow--prev {
+    left: 6px;
+  }
+
+  .ds-carousel__arrow--next {
+    right: 6px;
+  }
+}
