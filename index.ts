@@ -21,3 +21,6 @@ export * from './HomepageCard';
 export * from './Footer';
 export * from './MemberServices';
 export * from './FormFieldGroup';
+export * from './ResponsiveTable';
+export * from './BenefitFinderResults';
+export * from './TableOfContents';
