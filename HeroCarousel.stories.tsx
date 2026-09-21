@@ -51,12 +51,15 @@ type Story = StoryObj<typeof HeroCarousel>;
 export const Desktop: Story = {
   render: (args) => (
     <div style={{ width: '1104px', maxWidth: '100%' }}>
-      <HeroCarousel {...args} />
+      <HeroCarousel {...args} mobile={false} />
     </div>
   )
 };
 
 export const Mobile: Story = {
+  args: {
+    mobile: true
+  },
   render: (args) => (
     <div style={{ width: '390px', maxWidth: '100%' }}>
       <HeroCarousel {...args} />

@@ -15,11 +15,13 @@ export type HeroSlide = {
 type Props = {
   slides: HeroSlide[];
   ariaLabel?: string;
+  mobile?: boolean;
 };
 
 export function HeroCarousel({
   slides,
-  ariaLabel = 'Featured information'
+  ariaLabel = 'Featured information',
+  mobile = false
 }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const count = slides.length;
@@ -31,7 +33,7 @@ export function HeroCarousel({
 
   return (
     <section
-      className="ds-carousel"
+      className={`ds-carousel${mobile ? ' ds-carousel--mobile' : ''}`}
       role="region"
       aria-roledescription="carousel"
       aria-label={ariaLabel}
