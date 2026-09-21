@@ -1,34 +1,28 @@
-/* Hero Carousel: Figma 1374:8800
-   Single full-width 1104 x 189 banner with overlaid previous/next controls.
-   Higher-specificity selectors intentionally neutralize legacy .ds-carousel
-   layout rules that still exist in components.css. */
-
+/* Desktop Hero Carousel: Figma 1374:8800 */
 section.ds-carousel {
   position: relative;
-  isolation: auto;
   width: min(1104px, 100%);
   min-height: 0;
   display: block;
-  grid-template-columns: none;
-  grid-template-rows: none;
   overflow: visible;
-  border-radius: 0;
   background: transparent;
   color: inherit;
+}
+
+.ds-carousel__desktop {
+  display: block;
+}
+
+.ds-carousel__mobile {
+  display: none;
 }
 
 .ds-carousel__frame {
   position: relative;
   width: 100%;
-  min-height: 0;
   overflow: hidden;
   border-radius: 32px;
   background: transparent;
-}
-
-.ds-carousel__image-link {
-  display: block;
-  width: 100%;
 }
 
 .ds-carousel__image {
@@ -72,7 +66,6 @@ section.ds-carousel {
   font-size: 24px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0;
   transform: translateY(-1px);
 }
 
@@ -84,24 +77,106 @@ section.ds-carousel {
   right: 10px;
 }
 
+/* Mobile Hero: Figma 1715:132 */
 @media (max-width: 720px) {
   section.ds-carousel {
-    min-height: 0;
+    width: 100%;
+  }
+
+  .ds-carousel__desktop {
+    display: none;
+  }
+
+  .ds-carousel__mobile {
+    position: relative;
     display: block;
-    grid-template-columns: none;
-    grid-template-rows: none;
-    background: transparent;
+    width: min(358px, calc(100vw - 32px));
+    height: 316px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #2ac8f3;
+    color: #08141f;
   }
 
-  .ds-carousel__frame {
-    border-radius: 20px;
+  .ds-carousel__mobile-graphic {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 88px;
+    height: 88px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #f14428;
   }
 
-  .ds-carousel__arrow--prev {
-    left: 8px;
+  .ds-carousel__mobile-dollar {
+    position: absolute;
+    left: 28px;
+    top: 4px;
+    font-family: var(--32bj-font-heading);
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
   }
 
-  .ds-carousel__arrow--next {
-    right: 8px;
+  .ds-carousel__mobile-slash {
+    position: absolute;
+    left: 49px;
+    top: -8px;
+    width: 10px;
+    height: 100px;
+    border-radius: 5px;
+    background: #0d0d0d;
+    transform: rotate(-42deg);
+    transform-origin: center;
+  }
+
+  .ds-carousel__mobile-title {
+    position: absolute;
+    left: 120px;
+    top: 22px;
+    width: 220px;
+    margin: 0;
+    font-family: var(--32bj-font-heading);
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 31px;
+    color: #050d14;
+  }
+
+  .ds-carousel__mobile-body {
+    position: absolute;
+    left: 20px;
+    top: 142px;
+    width: 318px;
+    height: 116px;
+    margin: 0;
+    font-family: var(--32bj-font-body);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #08141f;
+  }
+
+  .ds-carousel__mobile-link {
+    position: absolute;
+    left: 20px;
+    top: 278px;
+    width: 318px;
+    min-height: 22px;
+    font-family: var(--32bj-font-body);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #fff;
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  .ds-carousel__mobile-link:focus-visible {
+    outline: 3px solid var(--32bj-focus);
+    outline-offset: 3px;
   }
 }

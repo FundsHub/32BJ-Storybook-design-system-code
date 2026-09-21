@@ -6,17 +6,29 @@ const slides: HeroSlide[] = [
   {
     id: 'no-bills',
     imageUrl: productionAssets.heroBanner,
-    alt: 'Don’t pay more than you should'
+    alt: "Don't pay more than you should",
+    mobileTitle: "DON'T PAY MORE THAN YOU SHOULD",
+    mobileBody:
+      'When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay. But these hospitals may bill you for more money than you owe.',
+    mobileLinkLabel: "Don't pay more than you should. Here's how."
   },
   {
     id: 'no-bills-2',
     imageUrl: productionAssets.heroBanner,
-    alt: 'Don’t pay more than you should'
+    alt: "Don't pay more than you should",
+    mobileTitle: "DON'T PAY MORE THAN YOU SHOULD",
+    mobileBody:
+      'When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay. But these hospitals may bill you for more money than you owe.',
+    mobileLinkLabel: "Don't pay more than you should. Here's how."
   },
   {
     id: 'no-bills-3',
     imageUrl: productionAssets.heroBanner,
-    alt: 'Don’t pay more than you should'
+    alt: "Don't pay more than you should",
+    mobileTitle: "DON'T PAY MORE THAN YOU SHOULD",
+    mobileBody:
+      'When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay. But these hospitals may bill you for more money than you owe.',
+    mobileLinkLabel: "Don't pay more than you should. Here's how."
   }
 ];
 
