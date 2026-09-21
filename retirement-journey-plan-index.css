@@ -1,0 +1,256 @@
+/* Retirement Journey + Plan Index pattern
+   Figma pattern family: 1709:129 */
+
+.ds-retirement-index {
+  width: min(1104px, 100%);
+  display: grid;
+  gap: var(--32bj-space-48);
+  color: var(--32bj-body);
+}
+
+.ds-retirement-index__intro,
+.ds-retirement-index__section-heading {
+  display: grid;
+  gap: var(--32bj-space-8);
+}
+
+.ds-retirement-index__intro {
+  max-width: 780px;
+}
+
+.ds-retirement-index__eyebrow,
+.ds-retirement-journey-card__eyebrow {
+  margin: 0;
+  color: var(--32bj-retirement);
+  font-size: var(--32bj-type-xs);
+  font-weight: var(--32bj-weight-bold);
+  line-height: 18px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ds-retirement-index__intro h1 {
+  margin: 0;
+  color: var(--32bj-ink);
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-4xl);
+  line-height: 1.18;
+}
+
+.ds-retirement-index__intro > p:last-child,
+.ds-retirement-index__section-heading p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ds-retirement-index__section {
+  display: grid;
+  gap: var(--32bj-space-20);
+}
+
+.ds-retirement-index__section-heading {
+  max-width: 760px;
+}
+
+.ds-retirement-index__section-heading h2 {
+  margin: 0;
+  color: var(--32bj-ink);
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-2xl);
+  line-height: 1.3;
+}
+
+.ds-retirement-index__journeys {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--32bj-space-20);
+}
+
+.ds-retirement-journey-card {
+  min-height: 286px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--32bj-space-24);
+  padding: var(--32bj-space-24);
+  border: 1px solid var(--32bj-border);
+  border-top: 5px solid var(--32bj-retirement);
+  border-radius: var(--32bj-radius-2xl);
+  background: #fff;
+}
+
+.ds-retirement-journey-card__copy {
+  display: grid;
+  gap: var(--32bj-space-10);
+}
+
+.ds-retirement-journey-card h2 {
+  margin: 0;
+  color: var(--32bj-ink);
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-xl);
+  line-height: 1.3;
+}
+
+.ds-retirement-journey-card__copy > p:last-child {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ds-retirement-journey-card__action {
+  min-height: var(--32bj-control-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--32bj-space-12);
+  margin-top: auto;
+  color: var(--32bj-retirement);
+  font-weight: var(--32bj-weight-semibold);
+  text-decoration: none;
+}
+
+.ds-retirement-journey-card__action:hover {
+  color: var(--32bj-retirement-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ds-retirement-journey-card__action:focus-visible,
+.ds-retirement-plan-card:focus-visible {
+  outline: 3px solid var(--32bj-focus);
+  outline-offset: 3px;
+}
+
+.ds-retirement-index__plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--32bj-space-16);
+}
+
+.ds-retirement-plan-card {
+  min-height: 126px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--32bj-space-20);
+  padding: var(--32bj-space-20);
+  border: 1px solid var(--32bj-border);
+  border-radius: var(--32bj-radius-xl);
+  background: #fff;
+  color: var(--32bj-body);
+  text-decoration: none;
+}
+
+.ds-retirement-plan-card > span:first-child {
+  min-width: 0;
+  display: grid;
+  gap: var(--32bj-space-6);
+}
+
+.ds-retirement-plan-card strong {
+  color: var(--32bj-ink);
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-lg);
+  line-height: 1.35;
+}
+
+.ds-retirement-plan-card small {
+  color: var(--32bj-body);
+  font-size: var(--32bj-type-sm);
+  line-height: 1.45;
+}
+
+.ds-retirement-plan-card__arrow {
+  flex: 0 0 auto;
+  color: var(--32bj-retirement);
+  font-size: var(--32bj-type-xl);
+  font-weight: var(--32bj-weight-bold);
+}
+
+.ds-retirement-plan-card:hover {
+  border-color: var(--32bj-retirement);
+}
+
+.ds-retirement-index__support .ds-member-services {
+  width: 100%;
+  max-width: 100%;
+  border-color: color-mix(in srgb, var(--32bj-retirement) 28%, var(--32bj-border));
+}
+
+.ds-retirement-index__support .ds-member-services h2 {
+  color: var(--32bj-ink);
+}
+
+.ds-retirement-index__support .ds-member-services__phone {
+  color: var(--32bj-retirement);
+}
+
+/* Explicit desktop mode keeps Storybook desktop stories desktop. */
+.ds-retirement-index--desktop {
+  width: min(1104px, 100%);
+}
+
+.ds-retirement-index--desktop .ds-retirement-index__journeys,
+.ds-retirement-index--desktop .ds-retirement-index__plans {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ds-retirement-journey-card--desktop {
+  min-height: 286px;
+  padding: var(--32bj-space-24);
+}
+
+.ds-retirement-plan-card--desktop {
+  min-height: 126px;
+  padding: var(--32bj-space-20);
+}
+
+/* Explicit mobile mode for inline Storybook Docs and mobile canvas. */
+.ds-retirement-index--mobile {
+  width: 358px;
+  max-width: 100%;
+  gap: var(--32bj-space-32);
+}
+
+.ds-retirement-index--mobile .ds-retirement-index__intro h1 {
+  font-size: var(--32bj-type-3xl);
+}
+
+.ds-retirement-index--mobile .ds-retirement-index__journeys,
+.ds-retirement-index--mobile .ds-retirement-index__plans {
+  grid-template-columns: 1fr;
+  gap: var(--32bj-space-16);
+}
+
+.ds-retirement-journey-card--mobile {
+  min-height: 0;
+  padding: var(--32bj-space-20);
+}
+
+.ds-retirement-plan-card--mobile {
+  min-height: 0;
+  padding: var(--32bj-space-16);
+}
+
+.ds-retirement-index--mobile .ds-retirement-index__support .ds-member-services {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .ds-retirement-index:not(.ds-retirement-index--desktop):not(.ds-retirement-index--mobile) {
+    gap: var(--32bj-space-32);
+  }
+
+  .ds-retirement-index:not(.ds-retirement-index--desktop):not(.ds-retirement-index--mobile)
+    .ds-retirement-index__journeys,
+  .ds-retirement-index:not(.ds-retirement-index--desktop):not(.ds-retirement-index--mobile)
+    .ds-retirement-index__plans {
+    grid-template-columns: 1fr;
+    gap: var(--32bj-space-16);
+  }
+
+  .ds-retirement-index:not(.ds-retirement-index--desktop):not(.ds-retirement-index--mobile)
+    .ds-retirement-journey-card {
+    min-height: 0;
+    padding: var(--32bj-space-20);
+  }
+}

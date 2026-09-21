@@ -31,3 +31,4 @@ export * from './CourseCard';
 export * from './ProfileCard';
 export * from './BenefitCollection';
 export * from './ResourceFormsIndex';
+export * from './RetirementJourneyPlanIndex';
