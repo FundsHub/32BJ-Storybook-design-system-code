@@ -1,6 +1,7 @@
 import type { Fund } from './types';
 import { ResponsiveTable, type ResponsiveTableColumn } from './ResponsiveTable';
 import './components.css';
+import './benefit-finder.css';
 
 export type BenefitWorkSite = {
   id: string;
@@ -24,6 +25,7 @@ type Props = {
   summary?: BenefitSummary[];
   onBack?: () => void;
   onStartOver?: () => void;
+  mobile?: boolean;
 };
 
 const defaultWorkSites: BenefitWorkSite[] = [
@@ -56,10 +58,23 @@ export function BenefitFinderResults({
   workSites = defaultWorkSites,
   summary = defaultSummary,
   onBack,
-  onStartOver
+  onStartOver,
+  mobile
 }: Props) {
+  const modeClass =
+    mobile === true
+      ? ' ds-benefit-results--mobile'
+      : mobile === false
+        ? ' ds-benefit-results--desktop'
+        : '';
+
   return (
-    <section className="ds-benefit-results" data-fund={fund} aria-labelledby="benefit-results-title" aria-busy={state === 'loading'}>
+    <section
+      className={`ds-benefit-results${modeClass}`}
+      data-fund={fund}
+      aria-labelledby="benefit-results-title"
+      aria-busy={state === 'loading'}
+    >
       <div className="ds-benefit-results__heading">
         <p className="ds-benefit-results__eyebrow">Benefit Plan Finder</p>
         <h2 id="benefit-results-title">Your results</h2>

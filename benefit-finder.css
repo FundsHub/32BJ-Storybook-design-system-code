@@ -1,0 +1,135 @@
+/* Benefit Finder isolated layout */
+
+.ds-finder-journey {
+  width: min(756px, 100%);
+  display: grid;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid var(--32bj-border);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--32bj-body);
+}
+
+.ds-finder-journey__header {
+  display: grid;
+  gap: 8px;
+}
+
+.ds-finder-journey__header h1 {
+  margin: 0;
+  font-family: var(--32bj-font-heading);
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--32bj-ink);
+}
+
+.ds-finder-journey__header > p:last-child {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ds-finder-journey__fields {
+  display: grid;
+  gap: 20px;
+}
+
+.ds-finder-journey .ds-field,
+.ds-finder-journey .ds-field-group {
+  width: 100%;
+  max-width: none;
+}
+
+.ds-finder-journey .ds-field-group {
+  padding: 0;
+  border: 0;
+}
+
+.ds-finder-journey__work-type .ds-field-group__content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ds-finder-journey__work-type .ds-choice {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--32bj-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ds-finder-journey > .ds-button {
+  justify-self: start;
+}
+
+.ds-benefit-results--desktop {
+  width: min(1104px, 100%);
+  padding: 32px;
+  gap: 32px;
+}
+
+.ds-benefit-results--desktop .ds-benefit-results__actions {
+  flex-direction: row;
+  align-items: center;
+}
+
+.ds-benefit-results--desktop .ds-benefit-results__actions .ds-button,
+.ds-benefit-results--desktop .ds-benefit-results__actions .ds-text-action {
+  width: auto;
+}
+
+.ds-finder-journey--mobile {
+  width: 358px;
+  max-width: 100%;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 16px;
+}
+
+.ds-finder-journey--mobile .ds-finder-journey__header h1 {
+  font-size: 26px;
+}
+
+.ds-finder-journey--mobile .ds-finder-journey__work-type .ds-field-group__content {
+  grid-template-columns: 1fr;
+}
+
+.ds-finder-journey--mobile > .ds-button {
+  width: 100%;
+}
+
+.ds-benefit-results--mobile {
+  width: 358px;
+  max-width: 100%;
+  padding: 20px;
+  gap: 24px;
+}
+
+.ds-benefit-results--mobile .ds-benefit-results__actions {
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+
+.ds-benefit-results--mobile .ds-benefit-results__actions .ds-button,
+.ds-benefit-results--mobile .ds-benefit-results__actions .ds-text-action {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .ds-finder-journey:not(.ds-finder-journey--desktop) {
+    width: 358px;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .ds-finder-journey:not(.ds-finder-journey--desktop)
+    .ds-finder-journey__work-type
+    .ds-field-group__content {
+    grid-template-columns: 1fr;
+  }
+
+  .ds-finder-journey:not(.ds-finder-journey--desktop) > .ds-button {
+    width: 100%;
+  }
+}
