@@ -30,3 +30,4 @@ export * from './LocationCard';
 export * from './CourseCard';
 export * from './ProfileCard';
 export * from './BenefitCollection';
+export * from './ResourceFormsIndex';

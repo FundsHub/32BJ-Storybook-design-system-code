@@ -1,0 +1,156 @@
+/* Resource + Forms Index pattern
+   Figma pattern reference: 1709:120 */
+
+.ds-resource-index {
+  width: min(1104px, 100%);
+  display: grid;
+  gap: 32px;
+  color: var(--32bj-body);
+}
+
+.ds-resource-index__intro {
+  max-width: 760px;
+  display: grid;
+  gap: 8px;
+}
+
+.ds-resource-index__eyebrow {
+  margin: 0;
+  color: var(--fund-link, var(--32bj-health));
+  font-size: var(--32bj-type-xs);
+  font-weight: var(--32bj-weight-bold);
+  line-height: 18px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ds-resource-index__intro h1 {
+  margin: 0;
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-3xl);
+  line-height: 1.2;
+  color: var(--32bj-ink);
+}
+
+.ds-resource-index__intro > p:last-child {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.ds-resource-index > .ds-callout {
+  width: min(760px, 100%);
+  max-width: none;
+}
+
+.ds-resource-index__section {
+  display: grid;
+  gap: 18px;
+}
+
+.ds-resource-index__section-heading {
+  max-width: 760px;
+  display: grid;
+  gap: 6px;
+}
+
+.ds-resource-index__section-heading h2 {
+  margin: 0;
+  font-family: var(--32bj-font-heading);
+  font-size: var(--32bj-type-2xl);
+  line-height: 1.25;
+  color: var(--32bj-ink);
+}
+
+.ds-resource-index__section-heading p {
+  margin: 0;
+  font-size: var(--32bj-type-sm);
+  line-height: 1.55;
+}
+
+.ds-resource-index__forms {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.ds-resource-index__forms .ds-document-link {
+  width: 100%;
+  height: 136px;
+  min-width: 0;
+}
+
+.ds-resource-index__resources {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 12px;
+}
+
+.ds-resource-index__resources .ds-resource {
+  width: 100%;
+  max-width: none;
+}
+
+/* Explicit desktop mode keeps Storybook docs from inheriting mobile layout. */
+.ds-resource-index--desktop .ds-resource-index__forms {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ds-resource-index--desktop .ds-resource-index__forms .ds-document-link {
+  width: 100%;
+}
+
+/* Explicit mobile mode for Storybook mobile stories. */
+.ds-resource-index--mobile {
+  width: 358px;
+  max-width: 100%;
+  gap: 24px;
+}
+
+.ds-resource-index--mobile .ds-resource-index__intro h1 {
+  font-size: 26px;
+}
+
+.ds-resource-index--mobile .ds-resource-index__forms {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.ds-resource-index--mobile .ds-resource-index__forms .ds-document-link {
+  width: 100%;
+  height: auto;
+  min-height: 126px;
+  border-radius: 24px;
+}
+
+.ds-resource-index--mobile .ds-resource-index__resources {
+  width: 100%;
+}
+
+.ds-resource-index--mobile .ds-resource-index__resources .ds-resource {
+  width: 100%;
+  min-height: 64px;
+}
+
+@media (max-width: 720px) {
+  .ds-resource-index:not(.ds-resource-index--desktop):not(.ds-resource-index--mobile) {
+    width: 358px;
+    max-width: 100%;
+    gap: 24px;
+  }
+
+  .ds-resource-index:not(.ds-resource-index--desktop):not(.ds-resource-index--mobile)
+    .ds-resource-index__forms {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ds-resource-index:not(.ds-resource-index--desktop):not(.ds-resource-index--mobile)
+    .ds-resource-index__forms
+    .ds-document-link {
+    width: 100%;
+    height: auto;
+    min-height: 126px;
+    border-radius: 24px;
+  }
+}
