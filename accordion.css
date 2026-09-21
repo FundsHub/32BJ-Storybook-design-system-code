@@ -1,0 +1,95 @@
+.ds-accordion {
+  width: min(100%, 780px);
+  max-width: 780px;
+  border-top: 1px solid var(--32bj-border);
+  border-bottom: 1px solid var(--32bj-border);
+  background: #fff;
+}
+
+.ds-accordion + .ds-accordion {
+  border-top: 0;
+}
+
+.ds-accordion button {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  background: #fff;
+  color: var(--fund-link);
+  font-family: var(--32bj-font-body);
+  font-size: var(--32bj-type-base);
+  font-weight: var(--32bj-weight-semibold);
+  line-height: 1.35;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--32bj-space-16);
+  text-align: left;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.ds-accordion button:hover {
+  background: var(--32bj-neutral-50);
+}
+
+.ds-accordion button:focus-visible {
+  outline: 3px solid var(--fund-focus, var(--32bj-focus));
+  outline-offset: -3px;
+}
+
+.ds-accordion[data-fund='legal'] button {
+  color: var(--32bj-ink);
+}
+
+.ds-accordion__question {
+  min-width: 0;
+  flex: 1;
+}
+
+.ds-accordion__chevron {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: grid;
+  place-items: center;
+  color: var(--fund-link);
+  transition: transform var(--32bj-motion-fast) var(--32bj-ease-standard);
+}
+
+.ds-accordion[data-fund='legal'] .ds-accordion__chevron {
+  color: var(--32bj-legal-hover);
+}
+
+.ds-accordion__chevron svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.ds-accordion[data-open='true'] .ds-accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.ds-accordion__answer {
+  padding: 2px 16px 18px;
+  color: var(--32bj-body);
+  font-size: var(--32bj-type-base);
+  line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+  .ds-accordion button {
+    padding: 10px 12px;
+  }
+
+  .ds-accordion__answer {
+    padding: 2px 12px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-accordion__chevron {
+    transition: none;
+  }
+}
