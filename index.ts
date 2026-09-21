@@ -24,3 +24,8 @@ export * from './FormFieldGroup';
 export * from './ResponsiveTable';
 export * from './BenefitFinderResults';
 export * from './TableOfContents';
+export * from './HeroCarousel';
+export * from './VideoFeature';
+export * from './LocationCard';
+export * from './CourseCard';
+export * from './ProfileCard';
