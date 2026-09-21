@@ -1,30 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { HeroCarousel, type HeroSlide } from './index';
+import { productionAssets } from './productionAssets';
 
 const slides: HeroSlide[] = [
   {
-    id: 'portal',
-    eyebrow: 'Member tools',
-    title: 'Your benefits, in one place',
-    summary: 'Use the Member Portal to review coverage, find forms, and manage your benefit information.',
-    actionLabel: 'Visit the Member Portal',
-    tone: 'blue'
+    id: 'banner-1',
+    imageUrl: productionAssets.heroBanner,
+    alt: '32BJ Benefit Funds featured banner'
   },
   {
-    id: 'finder',
-    eyebrow: 'Find your plan',
-    title: 'Start with where you work',
-    summary: 'Answer a few questions to find the benefit plans available at your worksite.',
-    actionLabel: 'Use the Benefit Plan Finder',
-    tone: 'navy'
+    id: 'banner-2',
+    imageUrl: productionAssets.heroBanner,
+    alt: '32BJ Benefit Funds featured banner'
   },
   {
-    id: 'training',
-    eyebrow: 'Training Fund',
-    title: 'Build skills for what comes next',
-    summary: 'Explore courses, certifications, and career programs available to eligible members.',
-    actionLabel: 'Browse courses',
-    tone: 'teal'
+    id: 'banner-3',
+    imageUrl: productionAssets.heroBanner,
+    alt: '32BJ Benefit Funds featured banner'
   }
 ];
 
