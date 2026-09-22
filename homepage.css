@@ -1,168 +1,1176 @@
-/* 32BJ Benefit Funds homepage. Figma source: 1110:6811. */
+/* 32BJ Benefit Funds homepage
+   Figma source of truth: 1373:8715, 1192 x 1812 desktop frame. */
+
+.ds-homepage,
+.ds-homepage * {
+  box-sizing: border-box;
+}
+
 .ds-homepage {
   width: min(1192px, 100%);
-  min-width: 0;
   margin: 0 auto;
   overflow: hidden;
-  background: #f4f4f6;
-  color: #222;
+  background: #f5f5f7;
+  color: #1d1d1f;
   font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
 }
 
-.ds-homepage, .ds-homepage *, .ds-homepage *::before, .ds-homepage *::after { box-sizing: border-box; }
-.ds-homepage a:focus-visible, .ds-homepage button:focus-visible, .ds-homepage input:focus-visible { outline: 3px solid #ffcd00; outline-offset: 3px; }
-.ds-homepage h2, .ds-homepage h3, .ds-homepage p { margin-top: 0; }
+.ds-homepage a {
+  color: inherit;
+}
 
-.ds-homepage-alert {
-  min-height: 47px;
+.ds-homepage h2,
+.ds-homepage h3,
+.ds-homepage p,
+.ds-homepage ul {
+  margin: 0;
+}
+
+.ds-homepage a:focus-visible,
+.ds-homepage button:focus-visible,
+.ds-homepage input:focus-visible {
+  outline: 3px solid var(--32bj-focus, #ffd256);
+  outline-offset: 3px;
+}
+
+.ds-homepage__main {
+  width: 100%;
+}
+
+/* Header, Figma section 1373:8716 */
+.ds-homepage-header {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+  color: #fff;
+  font-family: var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+}
+
+.ds-homepage-header__utility {
+  position: relative;
+  width: 100%;
+  height: 33px;
+  background: #d93025;
+}
+
+.ds-homepage-header__language {
+  position: absolute;
+  top: 7px;
+  right: 33px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+.ds-homepage-header__language span {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  transform: rotate(90deg);
+}
+
+.ds-homepage-header__blue {
+  position: relative;
+  width: 100%;
+  height: 112px;
+  background: #0676d8;
+}
+
+.ds-homepage-header__brand-row {
+  position: relative;
+  width: 100%;
+  height: 112px;
+}
+
+.ds-homepage-header__brand {
+  position: absolute;
+  left: 45px;
+  top: 14px;
+  height: 79px;
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ds-homepage-header__brand img {
+  width: 60px;
+  height: 72px;
+  margin-top: 7px;
+  display: block;
+  object-fit: contain;
+}
+
+.ds-homepage-header__brand span {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 60px;
+}
+
+.ds-homepage-header__search {
+  height: 37px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 13px;
+  gap: 15px;
+  padding: 0 13px;
+  border-radius: 25px;
+  background: #fff;
+  color: #0676d8;
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+}
+
+.ds-homepage-header__search--desktop {
+  position: absolute;
+  left: 726px;
+  top: 24px;
+  width: 360px;
+}
+
+.ds-homepage-header__search img {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: block;
+  object-fit: contain;
+}
+
+.ds-homepage-header__search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0676d8;
+  font: 400 14px/20px var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+}
+
+.ds-homepage-header__search input::placeholder {
+  color: #0676d8;
+  opacity: 1;
+}
+
+.ds-homepage-header__nav {
+  position: absolute;
+  left: 124px;
+  top: 74px;
+  height: 38px;
+  display: flex;
+  align-items: flex-start;
+  gap: 35px;
+  color: #fff;
+}
+
+.ds-homepage-header__nav[hidden] {
+  display: flex;
+}
+
+.ds-homepage-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: none;
+}
+
+.ds-homepage-header__nav a:nth-child(6) {
+  margin-right: 15px;
+}
+
+.ds-homepage-header__mobile-actions,
+.ds-homepage-header__mobile-search {
+  display: none;
+}
+
+/* Hero, Figma section 1373:8717 */
+.ds-homepage-hero-section {
   position: relative;
-  padding: 7px 150px 7px 42px;
-  background: #e52e28;
+  width: 100%;
+  height: 227px;
+  padding-top: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ds-homepage-hero-section > .ds-carousel {
+  width: 1104px;
+  max-width: calc(100% - 86px);
+}
+
+/* Primary cards, Figma section 1373:8718 */
+.ds-homepage-primary {
+  position: relative;
+  width: 100%;
+  height: 275px;
+}
+
+.ds-homepage-primary > .ds-home-card {
+  position: absolute;
+  top: 0;
+  margin: 0;
+}
+
+.ds-homepage-primary > .ds-home-card:nth-of-type(1) {
+  left: 43px;
+}
+
+.ds-homepage-primary > .ds-home-card:nth-of-type(2) {
+  left: 499px;
+  top: 2px;
+}
+
+.ds-homepage-primary .ds-home-card--member .ds-home-card__content {
+  position: relative;
+}
+
+.ds-homepage-primary .ds-home-card--member h3 {
+  margin-bottom: 21px;
+}
+
+.ds-homepage-primary .ds-home-card--member strong {
+  display: block;
+  line-height: 20px;
+  margin-bottom: 11px;
+}
+
+.ds-homepage-primary .ds-home-card--who h3 {
+  margin-bottom: 5px;
+}
+
+.ds-homepage-benefits-card {
+  position: absolute;
+  left: 946px;
+  top: 1px;
+  width: 201px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #fff 0%, #e1e1e1 100%);
+}
+
+.ds-homepage-benefits-card h2 {
+  position: absolute;
+  left: 23px;
+  top: 20px;
+  width: 174px;
+  font: 800 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  letter-spacing: .02em;
+}
+
+.ds-homepage-benefits-card > p {
+  position: absolute;
+  left: 22px;
+  top: 73px;
+  width: 157px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ds-homepage-benefits-card__links {
+  position: absolute;
+  left: 19px;
+  top: 138px;
+  width: 163px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 3px;
+  row-gap: 5px;
+}
+
+.ds-homepage-benefits-card__links a {
+  min-width: 0;
+  height: 51px;
+  display: grid;
+  grid-template-rows: 29px 20px;
+  justify-items: center;
+  align-items: end;
+  color: #1d1d1f;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.ds-homepage-benefits-card__links img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+  align-self: start;
+}
+
+/* LTD announcement, Figma section 1373:8720 */
+.ds-homepage-ltd-section {
+  position: relative;
+  width: 100%;
+  height: 127px;
+}
+
+.ds-homepage-ltd {
+  position: absolute;
+  left: 44px;
+  top: 11px;
+  width: 1104px;
+  height: 99px;
+  border: 1px solid #0077c8;
+  border-radius: 32px;
+  background: #eaf6ff;
+}
+
+.ds-homepage-ltd__icon {
+  position: absolute;
+  left: 34px;
+  top: 24px;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #0676d8;
+  color: #eaf6ff;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ds-homepage-ltd__copy h2 {
+  position: absolute;
+  left: 101px;
+  top: 23px;
+  width: 639px;
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+}
+
+.ds-homepage-ltd__copy p {
+  position: absolute;
+  left: 101px;
+  top: 53px;
+  width: 573px;
+  color: #86868b;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ds-homepage-button {
+  width: 166px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  background: #0676d8;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.ds-homepage-ltd > .ds-homepage-button {
+  position: absolute;
+  left: 913px;
+  top: 29px;
+  width: 152px;
+}
+
+/* Support and alerts, Figma section 1373:8719 */
+.ds-homepage-support {
+  position: relative;
+  width: 100%;
+  height: 310px;
+}
+
+.ds-homepage-help {
+  position: absolute;
+  left: 45px;
+  top: 0;
+  width: 243px;
+  height: 282px;
+}
+
+.ds-homepage-help h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180px;
+  font: 700 20px/48px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+}
+
+.ds-homepage-help h3 {
+  position: absolute;
+  left: 0;
+  top: 46px;
+  width: 234px;
+  color: #0077c8;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 24px;
+}
+
+.ds-homepage-help p {
+  position: absolute;
+  left: 0;
+  width: 243px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ds-homepage-help p:nth-of-type(1) {
+  top: 105px;
+}
+
+.ds-homepage-help p:nth-of-type(2) {
+  top: 196px;
+  left: 1px;
+  width: 242px;
+}
+
+.ds-homepage-help__links {
+  position: absolute;
+  left: 0;
+  top: 263px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0077c8;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.ds-homepage-help__links a {
+  text-decoration: none;
+}
+
+.ds-homepage-benefit-matters {
+  position: absolute;
+  left: 313px;
+  top: 16px;
+  width: 246px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #296bab;
+  color: #fff;
+}
+
+.ds-homepage-benefit-matters > img {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  width: 201px;
+  height: 151px;
+  display: block;
+  object-fit: contain;
+}
+
+.ds-homepage-benefit-matters > p {
+  position: absolute;
+  left: 20px;
+  top: 101px;
+  width: 210px;
   color: #fff;
   font-size: 14px;
+  line-height: 22px;
 }
-.ds-homepage-alert > img { width: 18px; height: 18px; object-fit: contain; }
-.ds-homepage-alert a { color: inherit; }
-.ds-homepage-alert__button { padding: 7px 17px; border: 1px solid #fff; border-radius: 20px; font-weight: 700; text-decoration: none; white-space: nowrap; }
-.ds-homepage-alert__language { position: absolute; right: 43px; text-decoration: none; }
 
-.ds-homepage-header__blue { padding: 11px 43px 10px; background: #087dce; color: #fff; }
-.ds-homepage-header__brand-row { min-height: 67px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.ds-homepage-header__brand { display: flex; align-items: center; gap: 14px; color: #fff; font-family: var(--32bj-font-heading, Georgia, serif); font-size: 28px; font-weight: 700; text-decoration: none; }
-.ds-homepage-header__brand img { width: 61px; height: 72px; object-fit: contain; }
-.ds-homepage-header__search { width: 360px; height: 38px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 24px; background: #fff; }
-.ds-homepage-header__search img { width: 20px; height: 20px; }
-.ds-homepage-header__search input { width: 100%; border: 0; outline: 0; background: transparent; color: #0676d8; font: 500 14px var(--32bj-font-body, Arial, sans-serif); }
-.ds-homepage-header__search input::placeholder { color: #0676d8; opacity: 1; }
-.ds-homepage-header__nav { min-height: 37px; display: flex; align-items: center; gap: 31px; padding-left: 76px; }
-.ds-homepage-header__nav[hidden] { display: flex; }
-.ds-homepage-header__nav a { color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }
-.ds-homepage-header__mobile-actions, .ds-homepage-header__mobile-search { display: none; }
+.ds-homepage-benefit-matters > .ds-homepage-button {
+  position: absolute;
+  left: 40px;
+  top: 205px;
+  width: 166px;
+  background: #fff;
+  color: #0077c8 !important;
+}
 
-.ds-homepage__main { padding: 20px 43px 47px; }
-.ds-homepage-hero { display: block; overflow: hidden; margin-bottom: 25px; border-radius: 28px; }
-.ds-homepage-hero img { width: 100%; height: auto; display: block; }
+.ds-homepage-news {
+  position: absolute;
+  left: 582px;
+  top: 14px;
+  width: 565px;
+  height: 264px;
+  overflow: hidden;
+  border: 1px solid #0077c8;
+  border-radius: 32px;
+  background: #fff;
+}
 
-.ds-homepage-intro-grid { display: grid; grid-template-columns: 1.15fr 1fr .8fr; gap: 17px; margin-bottom: 25px; }
-.ds-homepage-feature, .ds-homepage-benefits-card, .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news, .ds-homepage-story-card, .ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { overflow: hidden; border-radius: 27px; background: #fff; }
-.ds-homepage-feature { min-height: 307px; display: grid; grid-template-columns: minmax(0, 1fr) 43%; position: relative; }
-.ds-homepage-feature > div { z-index: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 28px 0 23px 27px; }
-.ds-homepage-feature h2, .ds-homepage-benefits-card h2, .ds-homepage-help-grid h2, .ds-homepage-story-grid h2, .ds-homepage-bottom-grid h2 { margin-bottom: 10px; font: 700 22px/1.12 var(--32bj-font-heading, Georgia, serif); }
-.ds-homepage-feature strong { margin-bottom: 10px; color: #0676d8; font-size: 13px; }
-.ds-homepage-feature p { font-size: 13px; line-height: 1.45; }
-.ds-homepage-feature > img { width: 100%; height: 100%; align-self: end; object-fit: contain; object-position: bottom; }
-.ds-homepage-feature--portal { background: #e3f2fc; }
-.ds-homepage-feature--who { background: #ffeec6; }
-.ds-homepage-feature--who > img { object-position: bottom right; }
-.ds-homepage-button { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; margin-top: auto; padding: 7px 20px; border-radius: 21px; background: #0676d8; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; }
-.ds-homepage-benefits-card { padding: 27px 22px 22px; background: #0676d8; color: #fff; }
-.ds-homepage-benefits-card p { font-size: 13px; line-height: 1.45; }
-.ds-homepage-benefits-card__links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-.ds-homepage-benefits-card__links a { min-height: 72px; display: grid; place-items: center; gap: 2px; padding: 8px; border-radius: 13px; background: #fff; color: #222; font-size: 12px; font-weight: 700; text-decoration: none; }
-.ds-homepage-benefits-card__links img { width: 34px; height: 34px; object-fit: contain; }
+.ds-homepage-news__heading {
+  position: absolute;
+  left: 50px;
+  top: 37px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
 
-.ds-homepage-help-grid { display: grid; grid-template-columns: .8fr .9fr 1.3fr; gap: 17px; margin-bottom: 25px; }
-.ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news { min-height: 304px; padding: 26px; }
-.ds-homepage-help-card { background: #ffeec6; }
-.ds-homepage-help-card h3 { margin-bottom: 10px; color: #0676d8; font-size: 16px; }
-.ds-homepage-help-card p, .ds-homepage-benefit-matters p, .ds-homepage-news { font-size: 13px; line-height: 1.48; }
-.ds-homepage-benefit-matters { position: relative; padding-top: 138px; background: #dff2ff; }
-.ds-homepage-benefit-matters > img { width: 150px; height: 113px; position: absolute; top: 10px; right: 20px; object-fit: contain; }
-.ds-homepage-news { background: #fff; }
-.ds-homepage-news ul { display: grid; gap: 11px; margin: 16px 0 18px; padding: 0; list-style: none; }
-.ds-homepage-news li { display: grid; grid-template-columns: 27px 1fr; align-items: center; gap: 9px; }
-.ds-homepage-news li img { width: 27px; height: 24px; object-fit: contain; }
-.ds-homepage-news li a { color: #222; font-weight: 600; text-decoration: none; }
-.ds-homepage-arrow-link { display: inline-flex; align-items: center; gap: 8px; color: #006fbe; font-size: 13px; font-weight: 700; text-decoration: none; }
-.ds-homepage-arrow-link > span { width: 22px; height: 22px; display: inline-grid; place-items: center; border-radius: 50%; background: #0676d8; }
-.ds-homepage-arrow-link > span::after { content: '›'; color: #fff; font-size: 18px; line-height: 1; }
+.ds-homepage-news__heading img {
+  width: 27px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
 
-.ds-homepage-ltd { display: grid; grid-template-columns: 1.15fr 1.25fr auto; align-items: center; gap: 26px; margin-bottom: 25px; padding: 27px 30px; border-radius: 27px; background: #ffcc55; }
-.ds-homepage-ltd__heading p, .ds-homepage-eyebrow { margin-bottom: 6px; color: #066fba; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-.ds-homepage-ltd h2 { margin-bottom: 0; font: 700 23px/1.15 var(--32bj-font-heading, Georgia, serif); }
-.ds-homepage-ltd__content p { margin-bottom: 12px; font-size: 13px; line-height: 1.45; }
-.ds-homepage-ltd__tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.ds-homepage-ltd__tags span { padding: 5px 9px; border-radius: 12px; background: rgb(255 255 255 / 65%); font-size: 10px; font-weight: 700; }
-.ds-homepage-button--dark { min-width: 103px; margin: 0; background: #222; }
+.ds-homepage-news h2 {
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
 
-.ds-homepage-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-bottom: 25px; }
-.ds-homepage-story-card { min-height: 282px; display: grid; grid-template-columns: 1fr 1fr; }
-.ds-homepage-story-card__copy { padding: 28px 25px; }
-.ds-homepage-story-card__copy p:not(.ds-homepage-eyebrow) { font-size: 13px; line-height: 1.48; }
-.ds-homepage-story-card > img { width: 100%; height: 100%; object-fit: cover; }
-.ds-homepage-story-card--staff { background: #e2f2fd; }
-.ds-homepage-story-card--staff > img { object-fit: contain; object-position: bottom; }
-.ds-homepage-story-card--seminars { background: #fff; }
+.ds-homepage-news ul {
+  position: absolute;
+  inset: 0;
+  list-style: none;
+  padding: 0;
+}
 
-.ds-homepage-bottom-grid { display: grid; grid-template-columns: .95fr .75fr 1.3fr; gap: 17px; }
-.ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { min-height: 292px; padding: 25px; }
-.ds-homepage-video-card__screen { height: 123px; display: grid; place-items: center; margin: 12px 0 15px; border-radius: 17px; background: linear-gradient(135deg, #123f70, #0a7fd3); text-decoration: none; }
-.ds-homepage-video-card__screen span { width: 47px; height: 47px; display: grid; place-items: center; padding-left: 3px; border-radius: 50%; background: #fff; color: #0676d8; }
-.ds-homepage-social-card { background: #e3f2fc; }
-.ds-homepage-social-card p { font-size: 13px; line-height: 1.45; }
-.ds-homepage-social-card__content { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
-.ds-homepage-social-card__icons { display: flex; gap: 8px; }
-.ds-homepage-social-card__icons img { width: 31px; height: 31px; object-fit: contain; }
-.ds-homepage-social-card__qr { width: 86px; height: 86px; object-fit: contain; }
-.ds-homepage-careers-card { display: grid; grid-template-columns: minmax(0, 1fr) 48%; padding: 0; background: #ffeec6; }
-.ds-homepage-careers-card > div { z-index: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 28px 0 24px 27px; }
-.ds-homepage-careers-card p:not(.ds-homepage-eyebrow) { font-size: 13px; line-height: 1.45; }
-.ds-homepage-careers-card > img { width: 100%; height: 100%; align-self: end; object-fit: contain; object-position: bottom; }
+.ds-homepage-news li {
+  position: absolute;
+  left: 50px;
+  width: 466px;
+  height: 38px;
+}
 
-.ds-homepage-footer { padding: 28px 43px 30px; background: #0676d8; color: #fff; text-align: center; }
-.ds-homepage-footer nav { display: flex; justify-content: center; gap: 31px; margin-bottom: 13px; }
-.ds-homepage-footer a { color: #fff; font-size: 12px; font-weight: 600; }
-.ds-homepage-footer p { margin: 0; font-size: 11px; }
+.ds-homepage-news li:nth-child(1) { top: 71px; }
+.ds-homepage-news li:nth-child(2) { top: 101px; }
+.ds-homepage-news li:nth-child(3) { top: 131px; }
+.ds-homepage-news li:nth-child(4) { top: 161px; }
+.ds-homepage-news li:nth-child(5) { top: 191px; }
 
+.ds-homepage-news li img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  display: block;
+  object-fit: contain;
+}
+
+.ds-homepage-news li a {
+  position: absolute;
+  left: 40px;
+  top: 9px;
+  width: 425px;
+  color: #0077c8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+  white-space: nowrap;
+}
+
+/* Stories and seminars, Figma section 1373:8721 */
+.ds-homepage-stories {
+  position: relative;
+  width: 100%;
+  height: 281px;
+}
+
+.ds-homepage-staff {
+  position: absolute;
+  left: 43px;
+  top: 0;
+  width: 515px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #fff 0%, #e1e1e1 100%);
+}
+
+.ds-homepage-staff__copy {
+  position: absolute;
+  left: 29px;
+  top: 21px;
+  width: 259px;
+  height: 228px;
+  z-index: 2;
+}
+
+.ds-homepage-staff h2 {
+  width: 218px;
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  letter-spacing: .03em;
+}
+
+.ds-homepage-staff p {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 259px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ds-homepage-staff .ds-homepage-button {
+  position: absolute;
+  left: 0;
+  top: 178px;
+}
+
+.ds-homepage-staff > img {
+  position: absolute;
+  left: 259px;
+  top: -9px;
+  width: 265px;
+  height: 284px;
+  display: block;
+  object-fit: cover;
+}
+
+.ds-homepage-seminars__image {
+  position: absolute;
+  left: 582px;
+  top: 2px;
+  width: 246px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #d9d9d9;
+}
+
+.ds-homepage-seminars__image img {
+  position: absolute;
+  left: -97px;
+  top: -14px;
+  width: 439px;
+  height: 293px;
+  max-width: none;
+  display: block;
+  object-fit: cover;
+}
+
+.ds-homepage-seminars__copy {
+  position: absolute;
+  left: 851px;
+  top: 10px;
+  width: 297px;
+  height: 239px;
+}
+
+.ds-homepage-seminars__copy h2 {
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  letter-spacing: .03em;
+}
+
+.ds-homepage-seminars__copy p {
+  position: absolute;
+  left: 0;
+  top: 58px;
+  width: 297px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ds-homepage-seminars__copy .ds-homepage-button {
+  position: absolute;
+  left: 0;
+  top: 189px;
+}
+
+/* Media, social and careers, Figma section 1373:8722 */
+.ds-homepage-media {
+  position: relative;
+  width: 100%;
+  height: 295px;
+}
+
+.ds-homepage-video {
+  position: absolute;
+  left: 42px;
+  top: 6px;
+  width: 218px;
+  height: 259px;
+}
+
+.ds-homepage-video h2 {
+  width: 218px;
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+}
+
+.ds-homepage-video p {
+  position: absolute;
+  left: 4px;
+  top: 65px;
+  width: 186px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ds-homepage-video .ds-homepage-button {
+  position: absolute;
+  left: 0;
+  top: 210px;
+}
+
+.ds-homepage-social {
+  position: absolute;
+  left: 296px;
+  top: 2px;
+  width: 262px;
+  height: 264px;
+  border: 1px solid #0077c8;
+  border-radius: 32px;
+  background: #fff;
+}
+
+.ds-homepage-social h2 {
+  position: absolute;
+  left: 35px;
+  top: 31px;
+  width: 213px;
+  font: 700 20px/20px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+}
+
+.ds-homepage-social h3 {
+  position: absolute;
+  left: 35px;
+  top: 79px;
+  width: 176px;
+  color: #0077c8;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.ds-homepage-social__links {
+  position: absolute;
+  left: 24px;
+  top: 164px;
+  width: 221px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.ds-homepage-social__links a {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.ds-homepage-social__links a:last-child {
+  width: 47px;
+  height: 47px;
+}
+
+.ds-homepage-social__links img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.ds-homepage-careers {
+  position: absolute;
+  left: 584px;
+  top: 0;
+  width: 563px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #fff 0%, #e1e1e1 100%);
+}
+
+.ds-homepage-careers__copy {
+  position: absolute;
+  left: 28px;
+  top: 29px;
+  width: 284px;
+  height: 220px;
+  z-index: 2;
+}
+
+.ds-homepage-careers h2 {
+  width: 265px;
+  font: 700 20px/25px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  letter-spacing: .03em;
+}
+
+.ds-homepage-careers p {
+  position: absolute;
+  left: 0;
+  top: 35px;
+  width: 284px;
+  color: #4c565e;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ds-homepage-careers .ds-homepage-button {
+  position: absolute;
+  left: 0;
+  top: 170px;
+  width: 181px;
+}
+
+.ds-homepage-careers > img {
+  position: absolute;
+  left: 222px;
+  top: -60px;
+  width: 426px;
+  height: 426px;
+  max-width: none;
+  display: block;
+  object-fit: cover;
+}
+
+/* Footer, Figma section 1373:8723 */
+.ds-homepage-footer {
+  position: relative;
+  width: 100%;
+  height: 152px;
+  background: #0676d8;
+  color: #fff;
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+}
+
+.ds-homepage-footer nav {
+  position: absolute;
+}
+
+.ds-homepage-footer__primary {
+  left: 336px;
+  top: 53px;
+  width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.ds-homepage-footer__secondary {
+  left: 514px;
+  top: 90px;
+  width: 165px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.ds-homepage-footer a {
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Responsive WordPress and Storybook behavior */
 @media (max-width: 700px) {
-  .ds-homepage-alert { min-height: 63px; justify-content: flex-start; padding: 9px 46px 9px 16px; font-size: 11px; line-height: 1.25; }
-  .ds-homepage-alert > img, .ds-homepage-alert__button { display: none; }
-  .ds-homepage-alert__language { right: 14px; font-size: 0; }
-  .ds-homepage-alert__language span { font-size: 24px; }
-  .ds-homepage-header__blue { padding: 8px 16px 10px; }
-  .ds-homepage-header__brand-row { min-height: 58px; }
-  .ds-homepage-header__brand { gap: 9px; font-size: 18px; }
-  .ds-homepage-header__brand img { width: 43px; height: 50px; }
-  .ds-homepage-header__search--desktop { display: none; }
-  .ds-homepage-header__mobile-actions { display: flex; align-items: center; gap: 8px; }
-  .ds-homepage-header__mobile-actions button { min-width: 41px; min-height: 37px; padding: 7px 9px; border: 1px solid rgb(255 255 255 / 70%); border-radius: 20px; background: transparent; color: #fff; font: 600 11px var(--32bj-font-body, Arial, sans-serif); }
-  .ds-homepage-header__mobile-actions img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
-  .ds-homepage-header__mobile-search { display: block; padding: 7px 0; }
-  .ds-homepage-header__mobile-search[hidden] { display: none; }
-  .ds-homepage-header__search { width: 100%; }
-  .ds-homepage-header__nav { display: grid; gap: 0; padding: 8px 0 0; }
-  .ds-homepage-header__nav[hidden] { display: none; }
-  .ds-homepage-header__nav a { padding: 10px 2px; border-top: 1px solid rgb(255 255 255 / 28%); }
-  .ds-homepage__main { padding: 16px 16px 30px; }
-  .ds-homepage-hero { margin-bottom: 16px; border-radius: 19px; }
-  .ds-homepage-hero img { width: 100%; height: 184px; object-fit: cover; object-position: left center; }
-  .ds-homepage-intro-grid, .ds-homepage-help-grid, .ds-homepage-story-grid, .ds-homepage-bottom-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
-  .ds-homepage-feature, .ds-homepage-benefits-card, .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news, .ds-homepage-story-card, .ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { border-radius: 22px; }
-  .ds-homepage-feature { min-height: 285px; }
-  .ds-homepage-feature > div { padding: 24px 0 22px 22px; }
-  .ds-homepage-feature h2, .ds-homepage-benefits-card h2, .ds-homepage-help-grid h2, .ds-homepage-story-grid h2, .ds-homepage-bottom-grid h2 { font-size: 21px; }
-  .ds-homepage-benefits-card { padding: 24px 22px; }
-  .ds-homepage-benefits-card__links { grid-template-columns: repeat(4, 1fr); }
-  .ds-homepage-benefits-card__links a { min-height: 68px; padding: 6px 2px; font-size: 10px; }
-  .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news { min-height: 0; padding: 24px 22px; }
-  .ds-homepage-benefit-matters { padding-top: 135px; }
-  .ds-homepage-ltd { grid-template-columns: 1fr; gap: 14px; margin-bottom: 16px; padding: 24px 22px; border-radius: 22px; }
-  .ds-homepage-ltd h2 { font-size: 21px; }
-  .ds-homepage-button--dark { justify-self: start; }
-  .ds-homepage-story-card { min-height: 0; grid-template-columns: 1fr; }
-  .ds-homepage-story-card__copy { padding: 24px 22px; }
-  .ds-homepage-story-card > img { height: 210px; }
-  .ds-homepage-story-card--staff > img { order: -1; }
-  .ds-homepage-video-card, .ds-homepage-social-card { min-height: 0; padding: 24px 22px; }
-  .ds-homepage-careers-card { min-height: 285px; }
-  .ds-homepage-careers-card > div { padding: 24px 0 22px 22px; }
-  .ds-homepage-footer { padding: 27px 20px; }
-  .ds-homepage-footer nav { flex-wrap: wrap; gap: 12px 20px; }
-  .ds-homepage-footer p { line-height: 1.5; }
-}
+  .ds-homepage {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
 
-.ds-homepage--mobile { width: 390px; max-width: 100%; }
+  .ds-homepage-header {
+    height: auto;
+    overflow: visible;
+  }
+
+  .ds-homepage-header__utility {
+    height: 33px;
+  }
+
+  .ds-homepage-header__language {
+    right: 12px;
+  }
+
+  .ds-homepage-header__blue,
+  .ds-homepage-header__brand-row {
+    height: auto;
+    min-height: 72px;
+  }
+
+  .ds-homepage-header__brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .ds-homepage-header__brand {
+    position: static;
+    height: 72px;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .ds-homepage-header__brand img {
+    width: 44px;
+    height: 54px;
+    margin: 0;
+  }
+
+  .ds-homepage-header__brand span {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .ds-homepage-header__search--desktop {
+    display: none;
+  }
+
+  .ds-homepage-header__mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ds-homepage-header__mobile-actions button {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: 0 8px;
+    background: transparent;
+    color: #fff;
+    font: 500 14px/20px var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+    cursor: pointer;
+  }
+
+  .ds-homepage-header__mobile-actions img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+  }
+
+  .ds-homepage-header__mobile-search {
+    position: static;
+    display: block;
+    padding: 0 16px 14px;
+  }
+
+  .ds-homepage-header__mobile-search[hidden] {
+    display: none;
+  }
+
+  .ds-homepage-header__mobile-search .ds-homepage-header__search {
+    width: 100%;
+    height: 44px;
+  }
+
+  .ds-homepage-header__nav {
+    position: static;
+    height: auto;
+    display: grid;
+    gap: 0;
+    padding: 0 16px 12px;
+  }
+
+  .ds-homepage-header__nav[hidden] {
+    display: none;
+  }
+
+  .ds-homepage-header__nav a {
+    min-height: 44px;
+    border-bottom: 1px solid rgba(255, 255, 255, .28);
+  }
+
+  .ds-homepage-header__nav a:nth-child(6) {
+    margin-right: 0;
+  }
+
+  .ds-homepage-hero-section,
+  .ds-homepage-primary,
+  .ds-homepage-ltd-section,
+  .ds-homepage-support,
+  .ds-homepage-stories,
+  .ds-homepage-media {
+    height: auto;
+    min-height: 0;
+  }
+
+  .ds-homepage-hero-section {
+    display: block;
+    padding: 16px;
+  }
+
+  .ds-homepage-hero-section > .ds-carousel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ds-homepage-primary,
+  .ds-homepage-support,
+  .ds-homepage-stories,
+  .ds-homepage-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 16px 24px;
+  }
+
+  .ds-homepage-primary > .ds-home-card,
+  .ds-homepage-benefits-card,
+  .ds-homepage-help,
+  .ds-homepage-benefit-matters,
+  .ds-homepage-news,
+  .ds-homepage-staff,
+  .ds-homepage-seminars__image,
+  .ds-homepage-seminars__copy,
+  .ds-homepage-video,
+  .ds-homepage-social,
+  .ds-homepage-careers {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: 100%;
+    max-width: 358px;
+    margin: 0 auto;
+  }
+
+  .ds-homepage-primary > .ds-home-card {
+    justify-self: center;
+  }
+
+  .ds-homepage-benefits-card {
+    height: 262px;
+  }
+
+  .ds-homepage-ltd-section {
+    padding: 0 16px 24px;
+  }
+
+  .ds-homepage-ltd {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 358px;
+    height: auto;
+    min-height: 190px;
+    margin: 0 auto;
+    padding: 24px 20px 20px;
+  }
+
+  .ds-homepage-ltd__icon,
+  .ds-homepage-ltd__copy h2,
+  .ds-homepage-ltd__copy p,
+  .ds-homepage-ltd > .ds-homepage-button {
+    position: static;
+  }
+
+  .ds-homepage-ltd__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+  }
+
+  .ds-homepage-ltd__copy h2,
+  .ds-homepage-ltd__copy p {
+    width: auto;
+  }
+
+  .ds-homepage-ltd__copy h2 {
+    margin-bottom: 6px;
+  }
+
+  .ds-homepage-ltd__copy p {
+    margin-bottom: 16px;
+  }
+
+  .ds-homepage-help {
+    height: auto;
+    min-height: 282px;
+  }
+
+  .ds-homepage-benefit-matters {
+    height: 262px;
+  }
+
+  .ds-homepage-news {
+    height: 264px;
+  }
+
+  .ds-homepage-staff {
+    height: 262px;
+  }
+
+  .ds-homepage-seminars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ds-homepage-seminars__image {
+    height: 262px;
+  }
+
+  .ds-homepage-seminars__copy {
+    height: 239px;
+  }
+
+  .ds-homepage-media {
+    padding-bottom: 28px;
+  }
+
+  .ds-homepage-video {
+    height: 259px;
+  }
+
+  .ds-homepage-social {
+    height: 264px;
+  }
+
+  .ds-homepage-careers {
+    height: 262px;
+  }
+
+  .ds-homepage-footer {
+    height: auto;
+    min-height: 190px;
+    padding: 28px 22px;
+  }
+
+  .ds-homepage-footer nav {
+    position: static;
+    width: auto;
+  }
+
+  .ds-homepage-footer__primary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 22px;
+  }
+
+  .ds-homepage-footer__secondary {
+    display: none;
+  }
+}

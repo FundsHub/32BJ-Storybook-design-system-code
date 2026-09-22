@@ -10,7 +10,7 @@ const meta: Meta<typeof Homepage> = {
     viewport: { defaultViewport: 'desktop1200' },
     docs: {
       description: {
-        component: 'The approved 32BJ Benefit Funds homepage from Figma node 1110:6811. This is a separate page pattern from the Health Fund landing page and includes matching framework-free WordPress markup.'
+        component: 'The approved 32BJ Benefit Funds homepage from Figma node 1373:8715. This is a separate page pattern from the Health Fund landing page and includes a matching framework-free WordPress handoff.'
       }
     }
   }

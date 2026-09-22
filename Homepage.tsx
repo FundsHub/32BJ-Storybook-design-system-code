@@ -1,8 +1,19 @@
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useState } from 'react';
+import { HeroCarousel, type HeroSlide } from './HeroCarousel';
+import { HomepageCard } from './HomepageCard';
 import { productionAssets } from './productionAssets';
 import './homepage.css';
 
-const primaryNavigation = ['Home', 'Health', 'Training', 'Pension', 'Retirement Savings (401K)', 'Legal'] as const;
+const sectionNavigation = [
+  'home',
+  'Health Plans',
+  '5 Star Centers',
+  'Lantern Surgery Care',
+  'Reproductive Health',
+  'Behavioral Health',
+  'Other Benefits',
+  'Forms'
+] as const;
 
 const benefitLinks = [
   { label: 'Health', image: productionAssets.homeBenefitHealth },
@@ -11,13 +22,28 @@ const benefitLinks = [
   { label: 'Training', image: productionAssets.homeBenefitTraining }
 ] as const;
 
-const alerts = [
-  'Summary Annual Report (SAR) Updated',
-  'Important Long-Term Disability Update',
-  'Health Fund changes effective July 1',
-  'New Member Portal is now available',
-  'Protect yourself from benefit scams'
+const newsItems = [
+  'Long-Term Disability changes go into effect July 1.',
+  'Review important dates and next steps for your LTD benefits.',
+  'Learn what this update means for your coverage.',
+  'Contact Member Services if you need help.',
+  'Log in to the Member Portal to check your benefits.'
 ] as const;
+
+const heroSlides: HeroSlide[] = [
+  {
+    id: 'hospital-billing',
+    imageUrl: productionAssets.heroBanner,
+    alt: "Don't pay more than you should",
+    href: '#hospital-billing'
+  },
+  {
+    id: 'hospital-billing-secondary',
+    imageUrl: productionAssets.heroBanner,
+    alt: "Don't pay more than you should",
+    href: '#hospital-billing'
+  }
+];
 
 type Props = {
   mobile?: boolean;
@@ -31,12 +57,11 @@ function HomepageHeader({ mobile }: { mobile: boolean }) {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="ds-header ds-homepage-header">
-      <div className="ds-homepage-alert">
-        <img src={productionAssets.homeSpeaker} alt="" aria-hidden="true" />
-        <a href="#long-term-disability"><strong>Important Long-Term Disability Update:</strong> Changes effective July 1.</a>
-        <a className="ds-homepage-alert__button" href="#long-term-disability">View Update</a>
-        <a className="ds-homepage-alert__language" href="#language">Language <span aria-hidden="true">›</span></a>
+    <header className="ds-homepage-header" data-figma-node="1373:8716">
+      <div className="ds-homepage-header__utility">
+        <a className="ds-homepage-header__language" href="#language">
+          Language <span aria-hidden="true">›</span>
+        </a>
       </div>
 
       <div className="ds-homepage-header__blue">
@@ -46,10 +71,10 @@ function HomepageHeader({ mobile }: { mobile: boolean }) {
             <span>32BJ Benefit Funds</span>
           </a>
 
-          <form className="ds-homepage-header__search ds-homepage-header__search--desktop" role="search">
+          <form className="ds-homepage-header__search ds-homepage-header__search--desktop" role="search" action="/">
             <label className="sr-only" htmlFor={`homepage-desktop-search-${id}`}>Search 32BJ Benefit Funds</label>
             <img src={productionAssets.searchIcon} alt="" aria-hidden="true" />
-            <input id={`homepage-desktop-search-${id}`} type="search" placeholder="Find What You Need" />
+            <input id={`homepage-desktop-search-${id}`} name="s" type="search" placeholder="Find What You Need" />
           </form>
 
           <div className="ds-homepage-header__mobile-actions">
@@ -73,65 +98,55 @@ function HomepageHeader({ mobile }: { mobile: boolean }) {
                 setMenuOpen((current) => !current);
                 setSearchOpen(false);
               }}
-            >Menu</button>
+            >
+              Menu
+            </button>
           </div>
         </div>
 
         <div id={searchId} className="ds-homepage-header__mobile-search" hidden={!searchOpen}>
-          <form className="ds-homepage-header__search" role="search">
+          <form className="ds-homepage-header__search" role="search" action="/">
             <label className="sr-only" htmlFor={`homepage-mobile-search-${id}`}>Search 32BJ Benefit Funds</label>
             <img src={productionAssets.searchIcon} alt="" aria-hidden="true" />
-            <input id={`homepage-mobile-search-${id}`} type="search" placeholder="Find What You Need" />
+            <input id={`homepage-mobile-search-${id}`} name="s" type="search" placeholder="Find What You Need" />
           </form>
         </div>
 
-        <nav id={menuId} className="ds-homepage-header__nav" aria-label="Main navigation" hidden={mobile && !menuOpen}>
-          {primaryNavigation.map((item) => <a href="#" key={item}>{item}</a>)}
+        <nav id={menuId} className="ds-homepage-header__nav" aria-label="Homepage navigation" hidden={mobile && !menuOpen}>
+          {sectionNavigation.map((item) => <a href="#" key={item}>{item}</a>)}
         </nav>
       </div>
     </header>
   );
 }
 
-function ArrowLink({ children, href = '#' }: { children: ReactNode; href?: string }) {
-  return <a className="ds-homepage-arrow-link" href={href}><span aria-hidden="true" />{children}</a>;
+function HomepageButton({ children, href }: { children: string; href: string }) {
+  return <a className="ds-homepage-button" href={href}>{children}</a>;
 }
 
 export function Homepage({ mobile = false }: Props) {
   return (
-    <div className={`ds-homepage${mobile ? ' ds-homepage--mobile' : ''}`} data-figma-node="1110:6811">
+    <div
+      className={`ds-homepage${mobile ? ' ds-homepage--mobile' : ''}`}
+      data-fund="health"
+      data-figma-node="1373:8715"
+    >
       <HomepageHeader mobile={mobile} />
 
       <main id="homepage-main" className="ds-homepage__main">
         <h1 className="sr-only">32BJ Benefit Funds</h1>
 
-        <a className="ds-homepage-hero" href="#healthcare-costs">
-          <img src={productionAssets.heroBanner} alt="Don't pay more than you should" />
-        </a>
+        <section className="ds-homepage-hero-section" data-figma-node="1373:8717" aria-label="Featured information">
+          <HeroCarousel slides={heroSlides} mobile={mobile} ariaLabel="Featured information" />
+        </section>
 
-        <section className="ds-homepage-intro-grid" aria-label="About your benefits">
-          <article className="ds-homepage-feature ds-homepage-feature--portal">
-            <div>
-              <h2>Introducing 32BJ Funds Member Portal</h2>
-              <strong>Keeping You Connected</strong>
-              <p>Everything you need in one place to make the best use of all of your 32BJ Funds Benefits.</p>
-              <a className="ds-homepage-button" href="#member-portal">Join Now</a>
-            </div>
-            <img src={productionAssets.memberPortal} alt="Member using the 32BJ Funds Member Portal" />
-          </article>
+        <section className="ds-homepage-primary" data-figma-node="1373:8718" aria-label="About your benefits">
+          <HomepageCard type="member" mobile={mobile} />
+          <HomepageCard type="who" mobile={mobile} />
 
-          <article className="ds-homepage-feature ds-homepage-feature--who">
-            <div>
-              <h2>Who We Are</h2>
-              <p>We serve working people and their families with benefits that support their health, security, and future.</p>
-              <a className="ds-homepage-button" href="#who-we-are">Learn More</a>
-            </div>
-            <img src={productionAssets.whoWeAre} alt="32BJ Benefit Funds team members" />
-          </article>
-
-          <article className="ds-homepage-benefits-card">
-            <h2>What Are My Benefits?</h2>
-            <p>Explore your benefits and find the information you need.</p>
+          <article className="ds-homepage-benefits-card" data-figma-node="1374:8850">
+            <h2>What Are My Benefits</h2>
+            <p>These benefits were made for you—explore what’s possible.</p>
             <div className="ds-homepage-benefits-card__links">
               {benefitLinks.map((benefit) => (
                 <a href="#" key={benefit.label}>
@@ -143,112 +158,114 @@ export function Homepage({ mobile = false }: Props) {
           </article>
         </section>
 
-        <section className="ds-homepage-help-grid" aria-label="Member help and updates">
-          <article className="ds-homepage-help-card">
+        <section className="ds-homepage-ltd-section" data-figma-node="1373:8720">
+          <article id="long-term-disability" className="ds-homepage-ltd" data-figma-node="1374:9071">
+            <div className="ds-homepage-ltd__icon" aria-hidden="true">!</div>
+            <div className="ds-homepage-ltd__copy">
+              <h2>Long-Term Disability Benefit Increase Effective July 1, 2026.</h2>
+              <p>Review the benefit increase, effective date, and important next steps.</p>
+            </div>
+            <HomepageButton href="#ltd-update">View Update</HomepageButton>
+          </article>
+        </section>
+
+        <section className="ds-homepage-support" data-figma-node="1373:8719" aria-label="Member help and updates">
+          <article className="ds-homepage-help" data-figma-node="1374:9031">
             <h2>Need Help?</h2>
-            <h3>Member Services</h3>
-            <p>Our team is here to help you understand and use your benefits.</p>
-            <p><strong>Call 800-551-3225</strong><br />Monday-Friday, 8:30am-8pm<br />Saturday, 9am-5pm</p>
-            <ArrowLink href="#member-services">Contact Member Services</ArrowLink>
+            <h3>Member Services is Here for You</h3>
+            <p>By phone and live chat through the member portal: Monday-Friday, 8:30am-8pm, and Saturday, 9am-5pm.</p>
+            <p>In person at the Welcome Center in Manhattan: Monday-Friday, 8:30am-6pm.</p>
+            <div className="ds-homepage-help__links">
+              <a href="#email">Email us</a><span aria-hidden="true">|</span><a href="#directions">Get Directions</a>
+            </div>
           </article>
 
-          <article className="ds-homepage-benefit-matters">
+          <article className="ds-homepage-benefit-matters" data-figma-node="1374:9037">
             <img src={productionAssets.benefitMatters} alt="Benefit Matters" />
-            <h2>Benefit Matters</h2>
-            <p>Get helpful benefit information, news, and practical tips for you and your family.</p>
-            <ArrowLink href="#benefit-matters">Read the latest issue</ArrowLink>
+            <p>Be in the know! Every bi-monthly issue provides you with updates and information about your benefits.</p>
+            <HomepageButton href="#benefit-matters">Read Now</HomepageButton>
           </article>
 
-          <article className="ds-homepage-news">
-            <h2>News &amp; Member Alerts</h2>
+          <article className="ds-homepage-news" data-figma-node="1374:9048">
+            <div className="ds-homepage-news__heading">
+              <img src={productionAssets.homeAlertIcon} alt="" aria-hidden="true" />
+              <h2>News &amp; Member Alerts</h2>
+            </div>
             <ul>
-              {alerts.map((alert) => (
-                <li key={alert}>
+              {newsItems.map((item) => (
+                <li key={item}>
                   <img src={productionAssets.homeAlertIcon} alt="" aria-hidden="true" />
-                  <a href="#">{alert}</a>
+                  <a href="#">{item}</a>
                 </li>
               ))}
             </ul>
-            <ArrowLink href="#news">View all news and alerts</ArrowLink>
           </article>
         </section>
 
-        <section id="long-term-disability" className="ds-homepage-ltd">
-          <div className="ds-homepage-ltd__heading">
-            <p>Important Member Update</p>
-            <h2>Long-Term Disability Benefits are changing</h2>
-          </div>
-          <div className="ds-homepage-ltd__content">
-            <p>Changes to the Long-Term Disability Plan are effective July 1. Review the update to understand what this means for you.</p>
-            <div className="ds-homepage-ltd__tags" aria-label="Update topics">
-              <span>Effective July 1</span><span>Plan information</span><span>Member action</span>
-            </div>
-          </div>
-          <a className="ds-homepage-button ds-homepage-button--dark" href="#ltd-update">View Update</a>
-        </section>
-
-        <section className="ds-homepage-story-grid" aria-label="Programs and support">
-          <article className="ds-homepage-story-card ds-homepage-story-card--staff">
-            <div className="ds-homepage-story-card__copy">
-              <p className="ds-homepage-eyebrow">Member Support</p>
+        <section className="ds-homepage-stories" data-figma-node="1373:8721" aria-label="Stories and seminars">
+          <article className="ds-homepage-staff" data-figma-node="1374:9082">
+            <div className="ds-homepage-staff__copy">
               <h2>Staff Helping Members</h2>
-              <p>Meet the people who help members navigate their benefits and get the care and support they need.</p>
-              <ArrowLink href="#staff-helping-members">Read their stories</ArrowLink>
+              <p>From benefits to workplace challenges, our staff are on the front lines helping members navigate it all. Meet the people who care deeply about your success and well-being.</p>
+              <HomepageButton href="#staff-helping-members">Read Their Stories</HomepageButton>
             </div>
-            <img src={productionAssets.homeStaff} alt="32BJ Benefit Funds staff member helping a member" />
+            <img src={productionAssets.homeStaff} alt="32BJ Benefit Funds staff helping members" />
           </article>
 
-          <article className="ds-homepage-story-card ds-homepage-story-card--seminars">
-            <img src={productionAssets.homeSeminar} alt="Members attending a seminar" />
-            <div className="ds-homepage-story-card__copy">
-              <p className="ds-homepage-eyebrow">Learn With Us</p>
-              <h2>Upcoming Seminars and Workshops</h2>
-              <p>Find classes and events that help you make informed decisions about your benefits.</p>
-              <ArrowLink href="#seminars">View the schedule</ArrowLink>
+          <div className="ds-homepage-seminars">
+            <div className="ds-homepage-seminars__image" data-figma-node="1374:9098">
+              <img src={productionAssets.homeSeminar} alt="Members attending a seminar" />
             </div>
-          </article>
+            <article className="ds-homepage-seminars__copy" data-figma-node="1374:9102">
+              <h2>Upcoming Seminars<br />and Workshops</h2>
+              <p>Get the most out of your benefits. Join an upcoming session to learn, ask questions, and get support from our team. In-person and virtual options available.</p>
+              <HomepageButton href="#seminars">View Schedule</HomepageButton>
+            </article>
+          </div>
         </section>
 
-        <section className="ds-homepage-bottom-grid" aria-label="Videos, social media, and careers">
-          <article className="ds-homepage-video-card">
-            <p className="ds-homepage-eyebrow">Featured Video</p>
-            <h2>Watch the Latest from 32BJ Funds</h2>
-            <a className="ds-homepage-video-card__screen" href="#latest-video" aria-label="Play the latest 32BJ Funds video">
-              <span aria-hidden="true">▶</span>
-            </a>
-            <ArrowLink href="#videos">View all videos</ArrowLink>
+        <section className="ds-homepage-media" data-figma-node="1373:8722" aria-label="Videos, social media, and careers">
+          <article className="ds-homepage-video" data-figma-node="1374:9109">
+            <h2>Watch the Latest from<br />32BJ Funds</h2>
+            <p>Watch informational videos about your benefits. Hear fellow 32BJ Members’ stories. Stay informed and learn what's new</p>
+            <HomepageButton href="#videos">Watch Now</HomepageButton>
           </article>
 
-          <article className="ds-homepage-social-card">
-            <h2>Stay Connected</h2>
-            <p>Follow 32BJ Benefit Funds for important news, reminders, and helpful benefit information.</p>
-            <div className="ds-homepage-social-card__content">
-              <div className="ds-homepage-social-card__icons">
-                <a href="#facebook" aria-label="32BJ Benefit Funds on Facebook"><img src={productionAssets.facebook} alt="" /></a>
-                <a href="#bluesky" aria-label="32BJ Benefit Funds on Bluesky"><img src={productionAssets.bluesky} alt="" /></a>
-                <a href="#instagram" aria-label="32BJ Benefit Funds on Instagram"><img src={productionAssets.instagram} alt="" /></a>
-              </div>
-              <img className="ds-homepage-social-card__qr" src={productionAssets.footerQr} alt="QR code for 32BJ Benefit Funds online" />
+          <article className="ds-homepage-social" data-figma-node="1374:9118">
+            <h2>Stay Connected with 32BJ Funds</h2>
+            <h3>Get the latest updates and info</h3>
+            <div className="ds-homepage-social__links" aria-label="Social links">
+              <a href="#facebook" aria-label="32BJ Benefit Funds on Facebook"><img src={productionAssets.facebook} alt="" /></a>
+              <a href="#bluesky" aria-label="32BJ Benefit Funds on Bluesky"><img src={productionAssets.bluesky} alt="" /></a>
+              <a href="#instagram" aria-label="32BJ Benefit Funds on Instagram"><img src={productionAssets.instagram} alt="" /></a>
+              <a href="#website" aria-label="32BJ Benefit Funds website"><img src={productionAssets.footerQr} alt="" /></a>
             </div>
           </article>
 
-          <article className="ds-homepage-careers-card">
-            <div>
-              <p className="ds-homepage-eyebrow">Join Our Team</p>
+          <article className="ds-homepage-careers" data-figma-node="1399:12806">
+            <div className="ds-homepage-careers__copy">
               <h2>Careers at 32BJ Funds</h2>
-              <p>Build a career that makes a difference for working people and their families.</p>
-              <a className="ds-homepage-button" href="#careers">Explore Careers</a>
+              <p>Join a team that makes a real difference for working people and their families. Grow your career in a supportive environment where your work truly matters.</p>
+              <HomepageButton href="#careers">See Careers</HomepageButton>
             </div>
-            <img src={productionAssets.homeCareers} alt="32BJ Benefit Funds employee" />
+            <img src={productionAssets.homeCareers} alt="32BJ Benefit Funds team member" />
           </article>
         </section>
       </main>
 
-      <footer className="ds-homepage-footer">
-        <nav aria-label="Footer navigation">
-          <a href="#contact">Contact Us</a><a href="#directions">Get Directions</a><a href="#terms">Terms of Use</a><a href="#privacy">Privacy Policy</a>
+      <footer className="ds-homepage-footer" data-figma-node="1373:8723">
+        <nav className="ds-homepage-footer__primary" aria-label="Footer navigation">
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#sitemap">Site Map</a>
+          <a href="#terms">Terms of Use</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#seiu">32BJ SEIU</a>
         </nav>
-        <p>25 West 18th Street, New York, NY 10011-4676 &nbsp; | &nbsp; Member Services: <a href="tel:18005513225">800-551-3225</a></p>
+        <nav className="ds-homepage-footer__secondary" aria-label="Legal navigation">
+          <a href="#terms">Terms of Use</a>
+          <a href="#privacy">Privacy Policy</a>
+        </nav>
       </footer>
     </div>
   );
