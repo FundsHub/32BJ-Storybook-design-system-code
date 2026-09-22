@@ -1,7 +1,7 @@
 {
   "name": "32bj-storybook-design-system",
   "private": true,
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",

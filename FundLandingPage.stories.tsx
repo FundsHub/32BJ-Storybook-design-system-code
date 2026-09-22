@@ -11,7 +11,7 @@ const meta: Meta<typeof FundLandingPage> = {
     docs: {
       description: {
         component:
-          'The complete Health Fund landing-page pattern. It assembles the approved alert, header, live-text hero, benefit cards, Member Services, and footer. The WordPress handoff includes the same structure as framework-free HTML.'
+          'The complete Health Fund landing page from Figma node 548:3795. It includes the approved Health Fund header, scrolling banner, information sidebar, welcome, mission, portal, healthcare-cost content, resources, and footer. The WordPress handoff includes the same structure as framework-free HTML.'
       }
     }
   }
