@@ -1,0 +1,168 @@
+/* 32BJ Benefit Funds homepage. Figma source: 1110:6811. */
+.ds-homepage {
+  width: min(1192px, 100%);
+  min-width: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #f4f4f6;
+  color: #222;
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+}
+
+.ds-homepage, .ds-homepage *, .ds-homepage *::before, .ds-homepage *::after { box-sizing: border-box; }
+.ds-homepage a:focus-visible, .ds-homepage button:focus-visible, .ds-homepage input:focus-visible { outline: 3px solid #ffcd00; outline-offset: 3px; }
+.ds-homepage h2, .ds-homepage h3, .ds-homepage p { margin-top: 0; }
+
+.ds-homepage-alert {
+  min-height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  position: relative;
+  padding: 7px 150px 7px 42px;
+  background: #e52e28;
+  color: #fff;
+  font-size: 14px;
+}
+.ds-homepage-alert > img { width: 18px; height: 18px; object-fit: contain; }
+.ds-homepage-alert a { color: inherit; }
+.ds-homepage-alert__button { padding: 7px 17px; border: 1px solid #fff; border-radius: 20px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.ds-homepage-alert__language { position: absolute; right: 43px; text-decoration: none; }
+
+.ds-homepage-header__blue { padding: 11px 43px 10px; background: #087dce; color: #fff; }
+.ds-homepage-header__brand-row { min-height: 67px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.ds-homepage-header__brand { display: flex; align-items: center; gap: 14px; color: #fff; font-family: var(--32bj-font-heading, Georgia, serif); font-size: 28px; font-weight: 700; text-decoration: none; }
+.ds-homepage-header__brand img { width: 61px; height: 72px; object-fit: contain; }
+.ds-homepage-header__search { width: 360px; height: 38px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 24px; background: #fff; }
+.ds-homepage-header__search img { width: 20px; height: 20px; }
+.ds-homepage-header__search input { width: 100%; border: 0; outline: 0; background: transparent; color: #0676d8; font: 500 14px var(--32bj-font-body, Arial, sans-serif); }
+.ds-homepage-header__search input::placeholder { color: #0676d8; opacity: 1; }
+.ds-homepage-header__nav { min-height: 37px; display: flex; align-items: center; gap: 31px; padding-left: 76px; }
+.ds-homepage-header__nav[hidden] { display: flex; }
+.ds-homepage-header__nav a { color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.ds-homepage-header__mobile-actions, .ds-homepage-header__mobile-search { display: none; }
+
+.ds-homepage__main { padding: 20px 43px 47px; }
+.ds-homepage-hero { display: block; overflow: hidden; margin-bottom: 25px; border-radius: 28px; }
+.ds-homepage-hero img { width: 100%; height: auto; display: block; }
+
+.ds-homepage-intro-grid { display: grid; grid-template-columns: 1.15fr 1fr .8fr; gap: 17px; margin-bottom: 25px; }
+.ds-homepage-feature, .ds-homepage-benefits-card, .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news, .ds-homepage-story-card, .ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { overflow: hidden; border-radius: 27px; background: #fff; }
+.ds-homepage-feature { min-height: 307px; display: grid; grid-template-columns: minmax(0, 1fr) 43%; position: relative; }
+.ds-homepage-feature > div { z-index: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 28px 0 23px 27px; }
+.ds-homepage-feature h2, .ds-homepage-benefits-card h2, .ds-homepage-help-grid h2, .ds-homepage-story-grid h2, .ds-homepage-bottom-grid h2 { margin-bottom: 10px; font: 700 22px/1.12 var(--32bj-font-heading, Georgia, serif); }
+.ds-homepage-feature strong { margin-bottom: 10px; color: #0676d8; font-size: 13px; }
+.ds-homepage-feature p { font-size: 13px; line-height: 1.45; }
+.ds-homepage-feature > img { width: 100%; height: 100%; align-self: end; object-fit: contain; object-position: bottom; }
+.ds-homepage-feature--portal { background: #e3f2fc; }
+.ds-homepage-feature--who { background: #ffeec6; }
+.ds-homepage-feature--who > img { object-position: bottom right; }
+.ds-homepage-button { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; margin-top: auto; padding: 7px 20px; border-radius: 21px; background: #0676d8; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; }
+.ds-homepage-benefits-card { padding: 27px 22px 22px; background: #0676d8; color: #fff; }
+.ds-homepage-benefits-card p { font-size: 13px; line-height: 1.45; }
+.ds-homepage-benefits-card__links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.ds-homepage-benefits-card__links a { min-height: 72px; display: grid; place-items: center; gap: 2px; padding: 8px; border-radius: 13px; background: #fff; color: #222; font-size: 12px; font-weight: 700; text-decoration: none; }
+.ds-homepage-benefits-card__links img { width: 34px; height: 34px; object-fit: contain; }
+
+.ds-homepage-help-grid { display: grid; grid-template-columns: .8fr .9fr 1.3fr; gap: 17px; margin-bottom: 25px; }
+.ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news { min-height: 304px; padding: 26px; }
+.ds-homepage-help-card { background: #ffeec6; }
+.ds-homepage-help-card h3 { margin-bottom: 10px; color: #0676d8; font-size: 16px; }
+.ds-homepage-help-card p, .ds-homepage-benefit-matters p, .ds-homepage-news { font-size: 13px; line-height: 1.48; }
+.ds-homepage-benefit-matters { position: relative; padding-top: 138px; background: #dff2ff; }
+.ds-homepage-benefit-matters > img { width: 150px; height: 113px; position: absolute; top: 10px; right: 20px; object-fit: contain; }
+.ds-homepage-news { background: #fff; }
+.ds-homepage-news ul { display: grid; gap: 11px; margin: 16px 0 18px; padding: 0; list-style: none; }
+.ds-homepage-news li { display: grid; grid-template-columns: 27px 1fr; align-items: center; gap: 9px; }
+.ds-homepage-news li img { width: 27px; height: 24px; object-fit: contain; }
+.ds-homepage-news li a { color: #222; font-weight: 600; text-decoration: none; }
+.ds-homepage-arrow-link { display: inline-flex; align-items: center; gap: 8px; color: #006fbe; font-size: 13px; font-weight: 700; text-decoration: none; }
+.ds-homepage-arrow-link > span { width: 22px; height: 22px; display: inline-grid; place-items: center; border-radius: 50%; background: #0676d8; }
+.ds-homepage-arrow-link > span::after { content: '›'; color: #fff; font-size: 18px; line-height: 1; }
+
+.ds-homepage-ltd { display: grid; grid-template-columns: 1.15fr 1.25fr auto; align-items: center; gap: 26px; margin-bottom: 25px; padding: 27px 30px; border-radius: 27px; background: #ffcc55; }
+.ds-homepage-ltd__heading p, .ds-homepage-eyebrow { margin-bottom: 6px; color: #066fba; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.ds-homepage-ltd h2 { margin-bottom: 0; font: 700 23px/1.15 var(--32bj-font-heading, Georgia, serif); }
+.ds-homepage-ltd__content p { margin-bottom: 12px; font-size: 13px; line-height: 1.45; }
+.ds-homepage-ltd__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.ds-homepage-ltd__tags span { padding: 5px 9px; border-radius: 12px; background: rgb(255 255 255 / 65%); font-size: 10px; font-weight: 700; }
+.ds-homepage-button--dark { min-width: 103px; margin: 0; background: #222; }
+
+.ds-homepage-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin-bottom: 25px; }
+.ds-homepage-story-card { min-height: 282px; display: grid; grid-template-columns: 1fr 1fr; }
+.ds-homepage-story-card__copy { padding: 28px 25px; }
+.ds-homepage-story-card__copy p:not(.ds-homepage-eyebrow) { font-size: 13px; line-height: 1.48; }
+.ds-homepage-story-card > img { width: 100%; height: 100%; object-fit: cover; }
+.ds-homepage-story-card--staff { background: #e2f2fd; }
+.ds-homepage-story-card--staff > img { object-fit: contain; object-position: bottom; }
+.ds-homepage-story-card--seminars { background: #fff; }
+
+.ds-homepage-bottom-grid { display: grid; grid-template-columns: .95fr .75fr 1.3fr; gap: 17px; }
+.ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { min-height: 292px; padding: 25px; }
+.ds-homepage-video-card__screen { height: 123px; display: grid; place-items: center; margin: 12px 0 15px; border-radius: 17px; background: linear-gradient(135deg, #123f70, #0a7fd3); text-decoration: none; }
+.ds-homepage-video-card__screen span { width: 47px; height: 47px; display: grid; place-items: center; padding-left: 3px; border-radius: 50%; background: #fff; color: #0676d8; }
+.ds-homepage-social-card { background: #e3f2fc; }
+.ds-homepage-social-card p { font-size: 13px; line-height: 1.45; }
+.ds-homepage-social-card__content { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; }
+.ds-homepage-social-card__icons { display: flex; gap: 8px; }
+.ds-homepage-social-card__icons img { width: 31px; height: 31px; object-fit: contain; }
+.ds-homepage-social-card__qr { width: 86px; height: 86px; object-fit: contain; }
+.ds-homepage-careers-card { display: grid; grid-template-columns: minmax(0, 1fr) 48%; padding: 0; background: #ffeec6; }
+.ds-homepage-careers-card > div { z-index: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 28px 0 24px 27px; }
+.ds-homepage-careers-card p:not(.ds-homepage-eyebrow) { font-size: 13px; line-height: 1.45; }
+.ds-homepage-careers-card > img { width: 100%; height: 100%; align-self: end; object-fit: contain; object-position: bottom; }
+
+.ds-homepage-footer { padding: 28px 43px 30px; background: #0676d8; color: #fff; text-align: center; }
+.ds-homepage-footer nav { display: flex; justify-content: center; gap: 31px; margin-bottom: 13px; }
+.ds-homepage-footer a { color: #fff; font-size: 12px; font-weight: 600; }
+.ds-homepage-footer p { margin: 0; font-size: 11px; }
+
+@media (max-width: 700px) {
+  .ds-homepage-alert { min-height: 63px; justify-content: flex-start; padding: 9px 46px 9px 16px; font-size: 11px; line-height: 1.25; }
+  .ds-homepage-alert > img, .ds-homepage-alert__button { display: none; }
+  .ds-homepage-alert__language { right: 14px; font-size: 0; }
+  .ds-homepage-alert__language span { font-size: 24px; }
+  .ds-homepage-header__blue { padding: 8px 16px 10px; }
+  .ds-homepage-header__brand-row { min-height: 58px; }
+  .ds-homepage-header__brand { gap: 9px; font-size: 18px; }
+  .ds-homepage-header__brand img { width: 43px; height: 50px; }
+  .ds-homepage-header__search--desktop { display: none; }
+  .ds-homepage-header__mobile-actions { display: flex; align-items: center; gap: 8px; }
+  .ds-homepage-header__mobile-actions button { min-width: 41px; min-height: 37px; padding: 7px 9px; border: 1px solid rgb(255 255 255 / 70%); border-radius: 20px; background: transparent; color: #fff; font: 600 11px var(--32bj-font-body, Arial, sans-serif); }
+  .ds-homepage-header__mobile-actions img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
+  .ds-homepage-header__mobile-search { display: block; padding: 7px 0; }
+  .ds-homepage-header__mobile-search[hidden] { display: none; }
+  .ds-homepage-header__search { width: 100%; }
+  .ds-homepage-header__nav { display: grid; gap: 0; padding: 8px 0 0; }
+  .ds-homepage-header__nav[hidden] { display: none; }
+  .ds-homepage-header__nav a { padding: 10px 2px; border-top: 1px solid rgb(255 255 255 / 28%); }
+  .ds-homepage__main { padding: 16px 16px 30px; }
+  .ds-homepage-hero { margin-bottom: 16px; border-radius: 19px; }
+  .ds-homepage-hero img { width: 100%; height: 184px; object-fit: cover; object-position: left center; }
+  .ds-homepage-intro-grid, .ds-homepage-help-grid, .ds-homepage-story-grid, .ds-homepage-bottom-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+  .ds-homepage-feature, .ds-homepage-benefits-card, .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news, .ds-homepage-story-card, .ds-homepage-video-card, .ds-homepage-social-card, .ds-homepage-careers-card { border-radius: 22px; }
+  .ds-homepage-feature { min-height: 285px; }
+  .ds-homepage-feature > div { padding: 24px 0 22px 22px; }
+  .ds-homepage-feature h2, .ds-homepage-benefits-card h2, .ds-homepage-help-grid h2, .ds-homepage-story-grid h2, .ds-homepage-bottom-grid h2 { font-size: 21px; }
+  .ds-homepage-benefits-card { padding: 24px 22px; }
+  .ds-homepage-benefits-card__links { grid-template-columns: repeat(4, 1fr); }
+  .ds-homepage-benefits-card__links a { min-height: 68px; padding: 6px 2px; font-size: 10px; }
+  .ds-homepage-help-card, .ds-homepage-benefit-matters, .ds-homepage-news { min-height: 0; padding: 24px 22px; }
+  .ds-homepage-benefit-matters { padding-top: 135px; }
+  .ds-homepage-ltd { grid-template-columns: 1fr; gap: 14px; margin-bottom: 16px; padding: 24px 22px; border-radius: 22px; }
+  .ds-homepage-ltd h2 { font-size: 21px; }
+  .ds-homepage-button--dark { justify-self: start; }
+  .ds-homepage-story-card { min-height: 0; grid-template-columns: 1fr; }
+  .ds-homepage-story-card__copy { padding: 24px 22px; }
+  .ds-homepage-story-card > img { height: 210px; }
+  .ds-homepage-story-card--staff > img { order: -1; }
+  .ds-homepage-video-card, .ds-homepage-social-card { min-height: 0; padding: 24px 22px; }
+  .ds-homepage-careers-card { min-height: 285px; }
+  .ds-homepage-careers-card > div { padding: 24px 0 22px 22px; }
+  .ds-homepage-footer { padding: 27px 20px; }
+  .ds-homepage-footer nav { flex-wrap: wrap; gap: 12px 20px; }
+  .ds-homepage-footer p { line-height: 1.5; }
+}
+
+.ds-homepage--mobile { width: 390px; max-width: 100%; }

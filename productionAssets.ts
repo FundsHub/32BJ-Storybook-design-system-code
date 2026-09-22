@@ -10,5 +10,15 @@ export const productionAssets = {
   facebook: new URL('./32bj-facebook.png', import.meta.url).href,
   bluesky: new URL('./32bj-bluesky.png', import.meta.url).href,
   instagram: new URL('./32bj-instagram.svg', import.meta.url).href,
-  footerQr: new URL('./32bj-footer-qr.png', import.meta.url).href
+  footerQr: new URL('./32bj-footer-qr.png', import.meta.url).href,
+  homeSpeaker: new URL('./32bj-home-speaker.png', import.meta.url).href,
+  homeBenefitHealth: new URL('./32bj-home-benefit-health.png', import.meta.url).href,
+  homeBenefitRetirement: new URL('./32bj-home-benefit-retirement.png', import.meta.url).href,
+  homeBenefitLegal: new URL('./32bj-home-benefit-legal.png', import.meta.url).href,
+  homeBenefitTraining: new URL('./32bj-home-benefit-training.png', import.meta.url).href,
+  homeAlertIcon: new URL('./32bj-home-alert-icon.png', import.meta.url).href,
+  benefitMatters: new URL('./32bj-benefit-matters.png', import.meta.url).href,
+  homeStaff: new URL('./32bj-home-staff.png', import.meta.url).href,
+  homeSeminar: new URL('./32bj-home-seminar.png', import.meta.url).href,
+  homeCareers: new URL('./32bj-home-careers.png', import.meta.url).href
 } as const;
