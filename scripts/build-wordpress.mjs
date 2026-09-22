@@ -43,6 +43,8 @@ const imageAssets = [
   '32bj-hero-visual.png',
   '32bj-member-portal.png',
   '32bj-who-we-are.png',
+  '32bj-health-fund-welcome-team.png',
+  '32bj-healthcare-costs.png',
   '32bj-facebook.png',
   '32bj-bluesky.png',
   '32bj-instagram.svg',
