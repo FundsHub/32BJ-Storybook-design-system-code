@@ -14,6 +14,7 @@ export type BenefitItem = {
 
 export type BenefitCardProps = BenefitItem & {
   mobile?: boolean;
+  headingLevel?: 'h2' | 'h3';
 };
 
 export type BenefitCollectionProps = {
@@ -32,8 +33,10 @@ export function BenefitCard({
   href = '#benefit',
   kind = 'benefit',
   external = false,
-  mobile
+  mobile,
+  headingLevel = 'h2'
 }: BenefitCardProps) {
+  const Heading = headingLevel;
   const modeClass =
     mobile === true
       ? ' ds-benefit-card--mobile'
@@ -49,7 +52,7 @@ export function BenefitCard({
     >
       <div className="ds-benefit-card__body">
         <p className="ds-benefit-card__eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
+        <Heading>{title}</Heading>
         <p className="ds-benefit-card__description">{description}</p>
       </div>
 

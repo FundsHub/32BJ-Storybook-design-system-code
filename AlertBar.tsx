@@ -13,9 +13,9 @@ export function AlertBar({
   linkLabel = 'Please click here.'
 }: Props) {
   return (
-    <aside className="ds-alert" role="status" data-figma-node="1623:8">
+    <div className="ds-alert" role="status" data-figma-node="1623:8">
       <span className="ds-alert__icon" aria-hidden>!</span>
       <span className="ds-alert__message">{message} <a href={href}>{linkLabel}</a></span>
-    </aside>
+    </div>
   );
 }

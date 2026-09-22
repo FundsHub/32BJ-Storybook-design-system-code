@@ -1,3 +1,4 @@
+import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
 import type { Fund } from './types';
 import { Search } from './Search';
 import { productionAssets } from './productionAssets';
@@ -21,8 +22,38 @@ type Props = {
 };
 
 export function Header({ fund = 'health', mobile = false, open = false, searchOpen = false }: Props) {
+  const instanceId = useId().replace(/:/g, '');
+  const navigationId = `mobile-section-navigation-${instanceId}`;
+  const searchPanelId = `mobile-site-search-${instanceId}`;
+  const searchInputId = `mobile-site-search-input-${instanceId}`;
+  const desktopSearchInputId = `desktop-site-search-input-${instanceId}`;
+  const [menuExpanded, setMenuExpanded] = useState(open);
+  const [searchExpanded, setSearchExpanded] = useState(searchOpen);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const searchButton = useRef<HTMLButtonElement>(null);
+  const searchPanel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => setMenuExpanded(open), [open]);
+  useEffect(() => setSearchExpanded(searchOpen), [searchOpen]);
+
+  useEffect(() => {
+    if (!mobile || !searchExpanded) return;
+    searchPanel.current?.querySelector<HTMLInputElement>('input[type="search"]')?.focus();
+  }, [mobile, searchExpanded]);
+
+  function handleEscape(event: KeyboardEvent<HTMLElement>) {
+    if (event.key !== 'Escape') return;
+    if (searchExpanded) {
+      setSearchExpanded(false);
+      searchButton.current?.focus();
+    } else if (menuExpanded) {
+      setMenuExpanded(false);
+      menuButton.current?.focus();
+    }
+  }
+
   return (
-    <header className={`ds-header ${mobile ? 'ds-header--mobile' : ''}`} data-fund={fund} data-figma-node="1707:8700">
+    <header className={`ds-header ${mobile ? 'ds-header--mobile' : ''}`} data-fund={fund} data-figma-node="1707:8700" onKeyDown={handleEscape}>
       <div className="ds-header__utility">
         <nav aria-label="Benefit fund navigation">
           {global.map((item) => <a href="#" key={item}>{item}</a>)}
@@ -39,22 +70,51 @@ export function Header({ fund = 'health', mobile = false, open = false, searchOp
 
           {mobile ? (
             <div className="ds-header__mobile-actions">
-              <button className="ds-header__search-toggle" type="button" aria-expanded={searchOpen} aria-controls="mobile-site-search">
+              <button
+                className="ds-header__search-toggle"
+                type="button"
+                aria-expanded={searchExpanded}
+                aria-controls={searchPanelId}
+                ref={searchButton}
+                onClick={() => {
+                  setSearchExpanded((current) => !current);
+                  setMenuExpanded(false);
+                }}
+              >
                 <img className="ds-header__search-icon" src={productionAssets.searchIcon} alt="" aria-hidden />
                 <span className="sr-only">Search</span>
               </button>
-              <button className="ds-menu" type="button" aria-expanded={open} aria-controls="mobile-section-navigation">Menu</button>
+              <button
+                className="ds-menu"
+                type="button"
+                aria-expanded={menuExpanded}
+                aria-controls={navigationId}
+                ref={menuButton}
+                onClick={() => {
+                  setMenuExpanded((current) => !current);
+                  setSearchExpanded(false);
+                }}
+              >
+                Menu
+              </button>
             </div>
-          ) : <Search />}
+          ) : <Search id={desktopSearchInputId} />}
         </div>
 
-        {mobile && searchOpen && <div id="mobile-site-search" className="ds-header__mobile-search"><Search mobile id="mobile-site-search-input" /></div>}
-
-        {(!mobile || open) && (
-          <nav id={mobile ? 'mobile-section-navigation' : undefined} className="ds-header__section" aria-label={`${fund} section navigation`}>
-            {sections[fund].map((item) => <a href="#" key={item}>{item}</a>)}
-          </nav>
+        {mobile && (
+          <div id={searchPanelId} className="ds-header__mobile-search" ref={searchPanel} hidden={!searchExpanded}>
+            <Search mobile id={searchInputId} />
+          </div>
         )}
+
+        <nav
+          id={mobile ? navigationId : undefined}
+          className="ds-header__section"
+          aria-label={`${fund} section navigation`}
+          hidden={mobile && !menuExpanded}
+        >
+          {sections[fund].map((item) => <a href="#" key={item}>{item}</a>)}
+        </nav>
       </div>
     </header>
   );

@@ -33,7 +33,7 @@
 .ds-button--secondary:focus-visible,.ds-button--secondary[data-state='focus']{background:#fff;color:var(--fund);border-color:var(--fund-focus)}
 
 .ds-badge{display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:var(--32bj-radius-full);font-size:14px;line-height:20px;font-weight:500;border:1px solid transparent;background:transparent;color:var(--32bj-ink)}
-.ds-badge--cleaning{background:var(--32bj-info-surface);border-color:var(--32bj-info);color:var(--32bj-info)}
+.ds-badge--cleaning{background:var(--32bj-info-surface);border-color:var(--32bj-health-hover);color:var(--32bj-health-hover)}
 .ds-badge--security{background:var(--32bj-neutral-50);border-color:var(--32bj-muted);color:var(--32bj-ink)}
 
 .ds-field{display:grid;gap:8px;width:400px;max-width:100%;color:var(--32bj-body)}
@@ -133,7 +133,7 @@
 .ds-toc{width:min(100%,360px);padding:var(--32bj-space-24);border-left:4px solid var(--fund,var(--32bj-health));border-radius:0 var(--32bj-radius-xl) var(--32bj-radius-xl) 0;background:var(--32bj-info-surface)}
 .ds-toc h2{margin:0 0 var(--32bj-space-12);font-family:var(--32bj-font-heading);font-size:var(--32bj-type-xl)}
 .ds-toc ol{display:grid;gap:var(--32bj-space-8);margin:0;padding-left:var(--32bj-space-20)}
-.ds-toc a{display:inline-flex;min-height:40px;align-items:center;color:var(--fund-link,var(--32bj-health));font-weight:var(--32bj-weight-medium)}
+.ds-toc a{display:inline-flex;min-height:40px;align-items:center;color:var(--32bj-health-hover);font-weight:var(--32bj-weight-medium)}
 
 @media (max-width:640px){
   .ds-benefit-results{padding:var(--32bj-space-20);gap:var(--32bj-space-24)}

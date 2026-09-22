@@ -1,11 +1,13 @@
 {
   "name": "32bj-storybook-design-system",
   "private": true,
-  "version": "1.3.2",
+  "version": "1.5.0",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build:wordpress": "node scripts/build-wordpress.mjs",
+    "build:release": "npm run build-storybook && npm run build:wordpress && node scripts/copy-wordpress-to-storybook.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

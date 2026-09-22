@@ -8,8 +8,8 @@ Storybook is deployed from the `main` branch with GitHub Actions.
 2. Node.js 20 is installed.
 3. Dependencies are installed with `npm install --no-audit --no-fund`.
 4. `npm run typecheck` must pass.
-5. `npm run build-storybook` must pass.
-6. The generated `storybook-static` folder is published to GitHub Pages.
+5. `npm run build:release` builds Storybook and the framework-free WordPress package.
+6. The generated `storybook-static` folder is published to GitHub Pages, including the WordPress preview and download at `/wordpress/`.
 
 If typecheck or the Storybook build fails, the publish step does not run.
 

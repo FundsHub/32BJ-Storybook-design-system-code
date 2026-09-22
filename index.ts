@@ -32,3 +32,4 @@ export * from './ProfileCard';
 export * from './BenefitCollection';
 export * from './ResourceFormsIndex';
 export * from './RetirementJourneyPlanIndex';
+export * from './FundLandingPage';

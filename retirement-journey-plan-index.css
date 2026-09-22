@@ -21,7 +21,7 @@
 .ds-retirement-index__eyebrow,
 .ds-retirement-journey-card__eyebrow {
   margin: 0;
-  color: var(--32bj-retirement);
+  color: var(--32bj-retirement-hover);
   font-size: var(--32bj-type-xs);
   font-weight: var(--32bj-weight-bold);
   line-height: 18px;

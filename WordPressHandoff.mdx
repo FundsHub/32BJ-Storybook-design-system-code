@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System/WordPress Handoff" />
+
+# WordPress handoff
+
+The production handoff now ships as plain HTML, CSS, vanilla JavaScript, PHP setup, and approved image assets. React remains inside Storybook only as the documentation and QA shell. It is not included in the WordPress package.
+
+## Open the handoff
+
+- [Preview every WordPress-ready component](./wordpress/)
+- [Preview the complete Fund Landing Page](./wordpress/#fund-landing-page)
+- [Download the installable WordPress package](./wordpress/32bj-design-system-wordpress.zip)
+- [View the package manifest](./wordpress/manifest.json)
+
+## What developers receive
+
+- One production CSS file with the approved tokens and component styles
+- One small framework-free JavaScript file for accordions, mobile navigation, translation panels, carousels, video-state controls, and textarea counters
+- Individual HTML snippets for components and page patterns
+- A complete Fund Landing Page template assembled from the shared components
+- A lightweight WordPress plugin that enqueues the shared assets
+- Production logo, icon, social, hero, and card imagery
+
+## WordPress and Elementor use
+
+Developers can install the ZIP as a plugin, then use the HTML snippets in theme templates, custom HTML blocks, or Elementor HTML widgets. When a component is rebuilt with normal Elementor containers and widgets, the same `ds-` class names should be applied so Storybook and WordPress share one visual contract.
+
+For a complete page starting point, use `snippets/fund-landing-page.html`. Its content can be connected to WordPress fields or rebuilt with Elementor while preserving the documented structure and `ds-` classes.
+
+The package does not register custom React blocks and does not add a front-end framework to WordPress.
+
+## Integration checks
+
+Before a component is released, verify its real content and links, keyboard behavior, 200% zoom, mobile reflow, long copy, Spanish copy, reduced motion, and its final behavior inside the active WordPress theme.

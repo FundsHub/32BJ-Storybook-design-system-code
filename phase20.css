@@ -2,12 +2,15 @@
 
 /* Header */
 .ds-header{width:min(1200px,100%);font-family:'Roboto Slab',serif}
+.ds-header [hidden]{display:none!important}
 .ds-header__utility{
   min-height:33px;
   padding:0 24px;
   gap:16px
 }.ds-header__utility nav{gap:14px}
 .ds-header__utility a,.ds-header__language{font-size:13px;line-height:20px}
+.ds-header[data-fund='health'] .ds-header__utility,
+.ds-header[data-fund='training'] .ds-header__utility{color:#1a1a1a}
 .ds-header__brandrow{min-height:74px;padding:0 24px;gap:20px}
 .ds-logo{gap:16px;font-size:32px;line-height:1.15;font-weight:500}
 .ds-logo__image{
@@ -67,7 +70,7 @@
 .ds-hero__visual{min-height:189px;overflow:hidden;background:#28c2ef;display:flex;align-items:stretch}
 .ds-hero__image{width:100%;height:100%;object-fit:cover;object-position:left center;display:block}
 .ds-hero__content{padding:22px 28px;display:flex;flex-direction:column;justify-content:center}
-.ds-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--32bj-blue);margin-bottom:4px}
+.ds-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--32bj-blue-800);margin-bottom:4px}
 .ds-hero h2{font-family:'Roboto Slab';font-size:27px;line-height:1.23;margin:0 0 8px;color:var(--32bj-ink)}
 .ds-hero p{margin:0;color:var(--32bj-body);font-size:14px;line-height:1.55;max-width:62ch}
 .ds-hero--mobile{width:358px;min-height:0;grid-template-columns:1fr}

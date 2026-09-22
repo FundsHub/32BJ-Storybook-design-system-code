@@ -1,0 +1,205 @@
+/* Complete Fund Landing Page pattern. Figma inventory reference: 1685:156. */
+.ds-fund-landing {
+  box-sizing: border-box;
+  width: min(1200px, 100%);
+  min-width: 0;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--32bj-page, #f3f4f6);
+  color: var(--32bj-body, #374151);
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+}
+
+.ds-fund-landing,
+.ds-fund-landing *,
+.ds-fund-landing *::before,
+.ds-fund-landing *::after {
+  box-sizing: border-box;
+}
+
+.ds-fund-landing__main {
+  width: min(1104px, calc(100% - 64px));
+  display: grid;
+  gap: var(--32bj-space-48, 48px);
+  margin: 0 auto;
+  padding: var(--32bj-space-40, 40px) 0 var(--32bj-space-64, 64px);
+}
+
+.ds-fund-landing__intro {
+  display: grid;
+  gap: var(--32bj-space-8, 8px);
+  max-width: 760px;
+}
+
+.ds-fund-landing__eyebrow {
+  margin: 0;
+  color: var(--32bj-health-hover, #00529e);
+  font-size: var(--32bj-type-xs, 12px);
+  font-weight: var(--32bj-weight-bold, 700);
+  letter-spacing: .08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.ds-fund-landing__intro h1,
+.ds-fund-landing__programs h2 {
+  margin: 0;
+  color: var(--32bj-ink, #222);
+  font-family: var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  font-weight: var(--32bj-weight-bold, 700);
+}
+
+.ds-fund-landing__intro h1 {
+  font-size: var(--32bj-type-4xl, 40px);
+  line-height: 1.15;
+}
+
+.ds-fund-landing__intro > p:last-child,
+.ds-fund-landing__programs > header > p:last-child {
+  max-width: 66ch;
+  margin: 0;
+  font-size: var(--32bj-type-base, 16px);
+  line-height: 1.6;
+}
+
+.ds-fund-landing__quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--32bj-space-16, 16px);
+}
+
+.ds-fund-landing__quick-actions a {
+  min-width: 0;
+  min-height: 132px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--32bj-space-16, 16px);
+  padding: var(--32bj-space-20, 20px);
+  border: 1px solid color-mix(in srgb, var(--32bj-health, #0676d8) 24%, var(--32bj-border, #d1d5db));
+  border-radius: var(--32bj-radius-2xl, 16px);
+  background: #fff;
+  color: var(--32bj-health-hover, #00529e);
+  text-decoration: none;
+}
+
+.ds-fund-landing__quick-actions a > span:first-child {
+  display: grid;
+  gap: var(--32bj-space-8, 8px);
+}
+
+.ds-fund-landing__quick-actions strong {
+  color: var(--32bj-ink, #222);
+  font-family: var(--32bj-font-heading, 'Roboto Slab', Georgia, serif);
+  font-size: var(--32bj-type-lg, 18px);
+  line-height: 1.35;
+}
+
+.ds-fund-landing__quick-actions small {
+  color: var(--32bj-body, #374151);
+  font-size: var(--32bj-type-sm, 14px);
+  line-height: 1.5;
+}
+
+.ds-fund-landing__quick-actions a > span:last-child {
+  flex: 0 0 auto;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.ds-fund-landing__quick-actions a:hover {
+  border-color: var(--32bj-health, #0676d8);
+  background: var(--32bj-info-surface, #eaf6ff);
+}
+
+.ds-fund-landing__quick-actions a:focus-visible {
+  outline: 3px solid var(--32bj-focus, #f5c400);
+  outline-offset: 3px;
+}
+
+.ds-fund-landing__programs {
+  display: grid;
+  gap: var(--32bj-space-24, 24px);
+}
+
+.ds-fund-landing__programs > header {
+  display: grid;
+  gap: var(--32bj-space-8, 8px);
+  max-width: 760px;
+}
+
+.ds-fund-landing__programs h2 {
+  font-size: var(--32bj-type-3xl, 32px);
+  line-height: 1.2;
+}
+
+.ds-fund-landing__program-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: var(--32bj-space-20, 20px);
+}
+
+.ds-fund-landing__program-grid .ds-benefit-card {
+  width: 100%;
+}
+
+.ds-fund-landing__support {
+  display: flex;
+  justify-content: center;
+}
+
+.ds-fund-landing--mobile {
+  width: 390px;
+  max-width: 100%;
+}
+
+.ds-fund-landing--mobile .ds-fund-landing__main {
+  width: calc(100% - 32px);
+  gap: var(--32bj-space-32, 32px);
+  padding: var(--32bj-space-32, 32px) 0 var(--32bj-space-40, 40px);
+}
+
+.ds-fund-landing--mobile .ds-fund-landing__intro h1 {
+  font-size: 30px;
+}
+
+.ds-fund-landing--mobile .ds-fund-landing__quick-actions,
+.ds-fund-landing--mobile .ds-fund-landing__program-grid {
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: auto;
+}
+
+.ds-fund-landing--mobile .ds-fund-landing__quick-actions a {
+  min-height: 0;
+}
+
+.ds-fund-landing--mobile .ds-fund-landing__programs h2 {
+  font-size: 26px;
+}
+
+@media (max-width: 760px) {
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__main {
+    width: calc(100% - 32px);
+    gap: var(--32bj-space-32, 32px);
+    padding: var(--32bj-space-32, 32px) 0 var(--32bj-space-40, 40px);
+  }
+
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__intro h1 {
+    font-size: 30px;
+  }
+
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__quick-actions,
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__program-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+  }
+
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__quick-actions a {
+    min-height: 0;
+  }
+
+  .ds-fund-landing:not(.ds-fund-landing--mobile) .ds-fund-landing__programs h2 {
+    font-size: 26px;
+  }
+}

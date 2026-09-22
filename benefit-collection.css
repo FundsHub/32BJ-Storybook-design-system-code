@@ -18,7 +18,7 @@
 .ds-benefit-collection__eyebrow,
 .ds-benefit-card__eyebrow {
   margin: 0;
-  color: var(--32bj-health);
+  color: var(--32bj-health-hover);
   font-size: var(--32bj-type-xs);
   font-weight: var(--32bj-weight-bold);
   line-height: 18px;
@@ -89,7 +89,8 @@
   gap: var(--32bj-space-10);
 }
 
-.ds-benefit-card h2 {
+.ds-benefit-card h2,
+.ds-benefit-card h3 {
   margin: 0;
   font-family: var(--32bj-font-heading);
   font-size: var(--32bj-type-xl);
@@ -166,7 +167,8 @@
   gap: var(--32bj-space-20);
 }
 
-.ds-benefit-card--mobile h2 {
+.ds-benefit-card--mobile h2,
+.ds-benefit-card--mobile h3 {
   font-size: var(--32bj-type-xl);
 }
 

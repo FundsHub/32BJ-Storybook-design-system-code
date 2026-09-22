@@ -16,7 +16,7 @@
 
 .ds-resource-index__eyebrow {
   margin: 0;
-  color: var(--fund-link, var(--32bj-health));
+  color: var(--32bj-health-hover);
   font-size: var(--32bj-type-xs);
   font-weight: var(--32bj-weight-bold);
   line-height: 18px;
