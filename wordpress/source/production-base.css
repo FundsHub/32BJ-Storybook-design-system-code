@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Rubik:wght@400;500;600;700;800&display=swap');
+
+/*
+ * 32BJ Design System WordPress production base.
+ * Keeps portable snippets predictable inside WordPress themes and Elementor.
+ */
+
+.ds-scope,
+.ds-scope *,
+.ds-scope *::before,
+.ds-scope *::after {
+  box-sizing: border-box;
+}
+
+.ds-scope {
+  color: var(--32bj-ink, #1d1d1f);
+  font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ds-scope img,
+.ds-scope svg {
+  max-width: 100%;
+}
+
+.ds-scope img {
+  height: auto;
+}
+
+.ds-scope button,
+.ds-scope input,
+.ds-scope select,
+.ds-scope textarea {
+  font: inherit;
+}
+
+.ds-scope button,
+.ds-scope [role='button'] {
+  cursor: pointer;
+}
+
+.ds-scope button:disabled,
+.ds-scope [aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.ds-scope a {
+  color: inherit;
+}
+
+.ds-scope :focus-visible {
+  outline: 3px solid var(--32bj-focus, #ffd256);
+  outline-offset: 3px;
+}
+
+.ds-scope [hidden] {
+  display: none !important;
+}
+
+.ds-scope .sr-only,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-scope *,
+  .ds-scope *::before,
+  .ds-scope *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
