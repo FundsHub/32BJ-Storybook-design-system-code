@@ -633,11 +633,13 @@
   position: absolute;
   left: 259px;
   top: -9px;
-  width: 265px;
+  width: 538px;
   height: 284px;
+  max-width: none;
   display: block;
-  object-fit: cover;
+  object-fit: initial;
 }
+
 
 .ds-homepage-seminars__image {
   position: absolute;
