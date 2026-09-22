@@ -33,7 +33,8 @@ const cssSources = [
   'benefit-collection.css',
   'resource-forms-index.css',
   'retirement-journey-plan-index.css',
-  'fund-landing-page.css'
+  'fund-landing-page.css',
+  'homepage.css'
 ];
 
 const imageAssets = [
@@ -48,7 +49,17 @@ const imageAssets = [
   '32bj-facebook.png',
   '32bj-bluesky.png',
   '32bj-instagram.svg',
-  '32bj-footer-qr.png'
+  '32bj-footer-qr.png',
+  '32bj-home-speaker.png',
+  '32bj-home-benefit-health.png',
+  '32bj-home-benefit-retirement.png',
+  '32bj-home-benefit-legal.png',
+  '32bj-home-benefit-training.png',
+  '32bj-home-alert-icon.png',
+  '32bj-benefit-matters.png',
+  '32bj-home-staff.png',
+  '32bj-home-seminar.png',
+  '32bj-home-careers.png'
 ];
 
 rmSync(outputRoot, { recursive: true, force: true });
