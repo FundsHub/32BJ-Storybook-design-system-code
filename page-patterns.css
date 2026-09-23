@@ -146,3 +146,15 @@
   .ds-page-patterns .ds-page-patterns__inventory { grid-template-columns: minmax(0, 1fr); }
   .ds-page-patterns .ds-page-patterns__inventory-card p { font-size: 14px; line-height: 21px; }
 }
+
+/* Content + Detail composition. The same classes ship in the WordPress bundle. */
+.ds-content-detail .ds-content-detail__resources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; min-width: 0; }
+.ds-content-detail .ds-content-detail__resources > * { box-sizing: border-box; width: 100%; max-width: none; min-width: 0; }
+.ds-content-detail .ds-member-services { box-sizing: border-box; width: 100%; max-width: 100%; }
+.ds-content-detail .ds-page-patterns__section > .ds-member-services h2 { font-size: 20px; }
+.ds-content-detail[data-size='mobile'] .ds-content-detail__resources { grid-template-columns: minmax(0, 1fr); }
+@container page-patterns (max-width: 700px) {
+  .ds-content-detail .ds-content-detail__resources { grid-template-columns: minmax(0, 1fr); }
+  .ds-content-detail .ds-member-services__actions { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .ds-content-detail .ds-member-services__actions .ds-button { box-sizing: border-box; width: 100%; min-width: 0; }
+}
