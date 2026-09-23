@@ -13,6 +13,12 @@ Use `snippets/fund-landing-page.html` when you need the complete Health Fund lan
 
 Use `snippets/homepage.html` for the approved main 32BJ Benefit Funds homepage. It is a separate pattern from the Health Fund landing page.
 
+## Content + Detail handoff for Xavier
+
+Use `snippets/content-detail-page.html` alongside **Patterns / Content + Detail Page / Desktop** and **Mobile** in Storybook. This is an illustrative composition based on the Figma page-family inventory, not approved plan copy or a finished Figma page. It uses the existing Table of Contents, Document Link, Resource Link, and Member Services styles.
+
+Replace the example eligibility, coverage, next-step, document, and contact text with approved content. Replace both `#replace-with-approved-...` destinations with real URLs. If the page has different sections, update the table-of-contents links and matching section IDs together. Make IDs unique when this pattern appears more than once on a WordPress page. Keep the `ds-scope`, `ds-page-patterns`, and component classes when rebuilding editable content in Elementor. Compare the result at desktop and 390px mobile widths; confirm links, focus, and section navigation.
+
 ## Homepage handoff for Xavier
 
 The published Storybook release includes the current plugin ZIP, `snippets/homepage.html`, and a browser preview at `/wordpress/`. Use that preview alongside **Patterns / Homepage / Desktop** and **Mobile** in Storybook.
