@@ -138,6 +138,9 @@ let match;
 while ((match = snippetPattern.exec(catalogSource)) !== null) {
   const [, name, markup] = match;
   if (snippets.includes(name)) throw new Error(`Duplicate snippet name: ${name}`);
+  if (/class="[^"]*\bcatalog-[\w-]+/.test(markup)) {
+    throw new Error(`Snippet ${name} depends on catalog-only CSS.`);
+  }
   snippets.push(name);
   writeFileSync(join(snippetOutput, `${name}.html`), dedent(markup));
 }
