@@ -1,3 +1,4 @@
+import { createElement, Fragment } from 'react';
 import type { Preview } from '@storybook/react';
 import '../tokens.css';
 import '../global.css';
@@ -49,15 +50,22 @@ const preview: Preview = {
       const patternName = context.title?.replace('Patterns/', '');
       const status = patternName ? patternStatus[patternName] : undefined;
 
-      return (
-        <>
-          {isPattern && status && (
-            <div className="ds-pattern-status" data-status={status}>
-              {status}
-            </div>
-          )}
-          <Story />
-        </>
+      if (!isPattern || !status) {
+        return Story();
+      }
+
+      return createElement(
+        Fragment,
+        null,
+        createElement(
+          'div',
+          {
+            className: 'ds-pattern-status',
+            'data-status': status
+          },
+          status
+        ),
+        Story()
       );
     }
   ]
