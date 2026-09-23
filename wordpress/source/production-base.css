@@ -50,6 +50,20 @@
   color: inherit;
 }
 
+.ds-scope.ds-layout-stack,
+.ds-scope .ds-layout-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.ds-scope.ds-layout-row,
+.ds-scope .ds-layout-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
 .ds-scope :focus-visible {
   outline: 3px solid var(--32bj-focus, #ffd256);
   outline-offset: 3px;

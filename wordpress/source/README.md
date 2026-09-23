@@ -13,6 +13,17 @@ Use `snippets/fund-landing-page.html` when you need the complete Health Fund lan
 
 Use `snippets/homepage.html` for the approved main 32BJ Benefit Funds homepage. It is a separate pattern from the Health Fund landing page.
 
+## Homepage handoff for Xavier
+
+The published Storybook release includes the current plugin ZIP, `snippets/homepage.html`, and a browser preview at `/wordpress/`. Use that preview alongside **Patterns / Homepage / Desktop** and **Mobile** in Storybook.
+
+1. Install or update the plugin ZIP in the WordPress environment you are building in. It supplies the shared styles, image assets, and menu and carousel behavior.
+2. Use `snippets/homepage.html` as the markup reference. In Elementor, build editable content with containers and widgets and keep the matching `ds-` classes. For sections that need exact markup, use an HTML widget or a theme template.
+3. Connect the sample links, search action, announcements, and images to the actual WordPress destinations and content. Any `#wp-...` link is a placeholder.
+4. Compare the result at desktop and 390px mobile widths with the matching Storybook stories. Check menu and search toggles, carousel controls, image crops, and keyboard focus.
+
+The ZIP does not create a WordPress page or overwrite an Elementor page. A Storybook code change updates the generated CSS automatically. When component markup changes, its HTML snippet must also be updated in `wordpress/source/catalog.html` before release.
+
 The plugin loads one CSS file and one small JavaScript file. The JavaScript adds only the behaviors that HTML cannot provide on its own, including accordion toggles, mobile navigation, language panels, carousel controls, video-state controls, and textarea counters.
 
 ## Elementor use
