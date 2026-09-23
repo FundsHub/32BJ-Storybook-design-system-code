@@ -87,8 +87,13 @@ body {
 
 .catalog-main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
   padding: 32px 0 64px;
+}
+
+.catalog-main > * {
+  min-width: 0;
 }
 
 .catalog-note,
@@ -142,6 +147,16 @@ body {
 
 .catalog-preview--full > .ds-scope {
   margin-inline: auto;
+}
+
+/* Keep the 1192px homepage intact in a narrow documentation viewport. */
+#homepage .catalog-preview--full {
+  overflow-x: auto;
+}
+
+#homepage .catalog-preview--full > .ds-homepage {
+  width: 1192px;
+  max-width: none;
 }
 
 .catalog-stack {
