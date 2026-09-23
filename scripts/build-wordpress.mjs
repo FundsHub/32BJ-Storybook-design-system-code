@@ -28,6 +28,7 @@ const cssSources = [
   'hero-carousel.css',
   'benefit-finder.css',
   'page-patterns.css',
+  'form-page.css',
   'location-card.css',
   'course-card.css',
   'benefit-collection.css',

@@ -1,0 +1,26 @@
+/* Form Page composition, shared by Storybook and the WordPress package. */
+.ds-form-page .ds-page-patterns__surface { justify-items: start; }
+.ds-form-page .ds-form-page__form, .ds-form-page .ds-form-page__success { box-sizing: border-box; display: grid; gap: 28px; width: min(100%, 756px); min-width: 0; padding: 28px; border: 1px solid var(--32bj-border, #d1d5db); border-radius: 16px; background: #fff; }
+.ds-form-page .ds-field-group, .ds-form-page .ds-field--textarea { width: 100%; }
+.ds-form-page .ds-form-page__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; min-width: 0; }
+.ds-form-page .ds-form-page__row .ds-field { box-sizing: border-box; width: 100%; min-width: 0; }
+.ds-form-page .ds-form-page__row .ds-input, .ds-form-page .ds-textarea { box-sizing: border-box; }
+.ds-form-page .ds-form-page__choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.ds-form-page .ds-form-page__choices .ds-choice { box-sizing: border-box; min-width: 0; padding: 0 16px; border: 1px solid var(--32bj-border, #d1d5db); border-radius: 8px; }
+.ds-form-page .ds-form-page__consent { display: grid; gap: 4px; }
+.ds-form-page .ds-form-page__field-error { margin: 0 0 0 32px; color: var(--32bj-error, #b42318); font-size: 14px; }
+.ds-form-page .ds-form-page__errors { box-sizing: border-box; width: 100%; padding: 16px; border-left: 4px solid var(--32bj-error, #b42318); background: #fff3f2; }
+.ds-form-page .ds-form-page__errors ul { margin: 8px 0 0; padding-left: 24px; }
+.ds-form-page .ds-form-page__errors a { color: var(--32bj-blue-800, #005fb5); }
+.ds-form-page .ds-form-page__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.ds-form-page .ds-form-page__actions p, .ds-form-page .ds-form-page__success p { margin: 0; }
+.ds-form-page .ds-form-page__success { justify-items: start; }
+.ds-form-page .ds-form-page__success h2 { margin: 0; }
+.ds-form-page .ds-form-page__form :is(input, select, textarea, button, a):focus-visible { outline: 3px solid var(--32bj-focus, #005fb5); outline-offset: 3px; }
+.ds-form-page[data-size='mobile'] .ds-form-page__form, .ds-form-page[data-size='mobile'] .ds-form-page__success { padding: 16px; gap: 20px; }
+.ds-form-page[data-size='mobile'] .ds-form-page__row, .ds-form-page[data-size='mobile'] .ds-form-page__choices { grid-template-columns: minmax(0, 1fr); }
+@container page-patterns (max-width: 700px) {
+  .ds-form-page .ds-form-page__form, .ds-form-page .ds-form-page__success { padding: 16px; gap: 20px; }
+  .ds-form-page .ds-form-page__row, .ds-form-page .ds-form-page__choices { grid-template-columns: minmax(0, 1fr); }
+}
+.ds-form-page [hidden] { display: none !important; }

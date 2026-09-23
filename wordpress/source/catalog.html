@@ -866,6 +866,34 @@
       </div>
     </article>
 
+    <article class="catalog-item" id="form-page">
+      <header><h2>Form page</h2><p>Interactive structure example with client-side validation. The preview never sends or stores entries.</p></header>
+      <div class="catalog-preview catalog-preview--full">
+        <!-- 32BJ-SNIPPET form-page START -->
+        <div class="ds-scope ds-page-patterns ds-form-page" data-fund="health" data-figma-node="1685:162">
+          <div class="ds-page-patterns__surface">
+            <header class="ds-page-patterns__intro"><p class="ds-page-patterns__eyebrow">Form page example</p><h1>Ask a question</h1><p class="ds-page-patterns__lede">Use this example to review the field order, validation, consent, and submission states.</p></header>
+            <p class="ds-page-patterns__note">Demonstration only. Do not enter personal or medical information. Nothing you enter here is sent or saved.</p>
+            <form class="ds-form-page__form" data-ds-demo-form novalidate>
+              <div class="ds-form-page__errors" id="wp-form-errors" role="alert" aria-label="Check these fields" hidden><strong>Check these fields</strong><ul></ul></div>
+              <fieldset class="ds-field-group" aria-describedby="wp-form-question-help"><legend>Your question</legend><p class="ds-field-group__help" id="wp-form-question-help">Fields marked * are required.</p><div class="ds-field-group__content">
+                <div class="ds-form-page__row">
+                  <label class="ds-field ds-field--default" for="wp-form-name"><span class="ds-field__label">Name *</span><input class="ds-input" id="wp-form-name" name="name" type="text" autocomplete="name" required data-ds-required data-ds-error="wp-form-name-error" data-ds-message="Enter a name." aria-describedby="wp-form-name-error"><span class="ds-field__hint" id="wp-form-name-error" hidden>Enter a name.</span></label>
+                  <label class="ds-field ds-field--default" for="wp-form-topic"><span class="ds-field__label">Topic *</span><select class="ds-input" id="wp-form-topic" name="topic" required data-ds-required data-ds-error="wp-form-topic-error" data-ds-message="Choose a topic." aria-describedby="wp-form-topic-error"><option value="">Choose a topic</option><option value="benefits">Benefits</option><option value="forms">Forms</option><option value="other">Other</option></select><span class="ds-field__hint" id="wp-form-topic-error" hidden>Choose a topic.</span></label>
+                </div>
+                <label class="ds-field ds-field--textarea ds-field--default" for="wp-form-question"><span class="ds-field__label">Your question *</span><textarea class="ds-textarea" id="wp-form-question" name="question" maxlength="2000" required data-ds-required data-ds-error="wp-form-question-error" data-ds-message="Enter a question." data-ds-count="wp-form-question-counter" aria-describedby="wp-form-question-error wp-form-question-help-text wp-form-question-counter"></textarea><span class="ds-textarea__meta"><span><span class="ds-field__hint" id="wp-form-question-help-text">Do not include sensitive medical information.</span><span class="ds-field__hint ds-field__hint--error" id="wp-form-question-error" hidden>Enter a question.</span></span><span id="wp-form-question-counter" aria-live="polite">0 / 2000</span></span></label>
+              </div></fieldset>
+              <fieldset class="ds-field-group" aria-describedby="wp-form-reply-help wp-form-reply-error"><legend>Reply method *</legend><p class="ds-field-group__help" id="wp-form-reply-help">Choose one option.</p><p class="ds-form-page__field-error" id="wp-form-reply-error" hidden>Choose a reply method.</p><div class="ds-field-group__content ds-form-page__choices"><label class="ds-choice"><input id="wp-form-reply" type="radio" name="reply" value="email" data-ds-required data-ds-error="wp-form-reply-error" data-ds-message="Choose a reply method."><span>Email</span></label><label class="ds-choice"><input type="radio" name="reply" value="phone"><span>Phone</span></label></div></fieldset>
+              <div class="ds-form-page__consent"><label class="ds-choice ds-choice--checkbox"><input id="wp-form-consent" type="checkbox" name="consent" required data-ds-required data-ds-error="wp-form-consent-error" data-ds-message="Confirm the example privacy notice." aria-describedby="wp-form-consent-error"><span><strong>I have read the example privacy notice *</strong><small>Replace this wording and link with approved policy content.</small></span></label><p class="ds-form-page__field-error" id="wp-form-consent-error" hidden>Confirm the example privacy notice.</p></div>
+              <div class="ds-form-page__actions"><button class="ds-button ds-button--primary" data-fund="health" type="submit" data-ds-demo-submit disabled>Submit example</button><p>Demonstration only. No data is sent.</p></div>
+            </form>
+            <div class="ds-form-page__success" id="wp-form-success" role="status" tabindex="-1" hidden><h2>Example complete</h2><p>This shows the confirmation state. Your information was not sent.</p><button type="button" class="ds-button ds-button--secondary" data-fund="health" data-ds-form-restart>Start again</button></div>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET form-page END -->
+      </div>
+    </article>
+
     <article class="catalog-item" id="content-detail-page">
       <header><h2>Content + Detail page</h2><p>Illustrative page structure. Replace all sample guidance, document URLs, and contact details with approved content.</p></header>
       <div class="catalog-preview catalog-preview--full">

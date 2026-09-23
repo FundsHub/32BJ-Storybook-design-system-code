@@ -13,6 +13,12 @@ Use `snippets/fund-landing-page.html` when you need the complete Health Fund lan
 
 Use `snippets/homepage.html` for the approved main 32BJ Benefit Funds homepage. It is a separate pattern from the Health Fund landing page.
 
+## Form Page handoff for Xavier
+
+Use `snippets/form-page.html` alongside **Patterns / Form Page / Desktop** and **Mobile** in Storybook. Figma node 1685:162 is a page-family inventory card, not an approved full form design. All prompts, options, privacy wording, and confirmation text here are examples.
+
+The snippet uses `data-ds-demo-form` so the package JavaScript can demonstrate errors and a confirmation without sending or storing entries. Remove that attribute and the demonstration confirmation before publishing a real form. Connect an approved WordPress form handler or Elementor form, add a server-generated nonce and server-side validation, then show a real success or failure response only after the handler confirms it. Replace the example privacy notice with approved linked text, map field names to the handler, and keep each label, help text, error target, and ID unique. Check empty submission, keyboard focus, long text, mobile layout, and the actual delivered response. Do not publish a real form with the demo handler attached.
+
 ## Content + Detail handoff for Xavier
 
 Use `snippets/content-detail-page.html` alongside **Patterns / Content + Detail Page / Desktop** and **Mobile** in Storybook. This is an illustrative composition based on the Figma page-family inventory, not approved plan copy or a finished Figma page. It uses the existing Table of Contents, Document Link, Resource Link, and Member Services styles.
