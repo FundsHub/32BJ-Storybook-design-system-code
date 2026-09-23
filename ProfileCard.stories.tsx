@@ -8,7 +8,7 @@ const leadershipTeam = [
     role: 'Executive Director',
     figmaNode: '976:6094',
 imageSrc: productionAssets.leadershipPeterGoldberger,
-imageAlt: 'Peter Goldberger',',
+imageAlt: 'Peter Goldberger',
     bio: `As Executive Director of the 32BJ Benefit Funds, Peter Goldberger oversees the administration, operation and planning for the eleven multi-employer funds that deliver a broad range of benefits to more than 187,122 members and 288,330 covered lives with a combined asset portfolio of $9.4 billion. Prior to his appointment as Executive Director in 2018, Mr. Goldberger served as Deputy Executive Director for nine years and in that time worked closely with the Executive Director on the restructuring of the health benefits to eliminate deficits, the expansion of the reserves of all the funds, and the move of the headquarters to more efficient space. Mr. Goldberger is also responsible for charting the Funds’ future growth and its response to an ever increasing demand for the organization’s services. Prior to joining the Funds, Peter served as Chief of Staff for the SEIU Local 32BJ, and as Director of Education and Mobilization for UNITE/ACTWU. Mr. Goldberger holds an A.B. in History from Brown University.`
   },
   {
