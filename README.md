@@ -35,6 +35,8 @@ That command creates `wordpress-dist` with:
 
 Use `npm run build:release` to build Storybook and place the complete WordPress handoff at `storybook-static/wordpress`.
 
+The published `/wordpress/` preview and plugin ZIP are the developer handoff. The ZIP supplies CSS, vanilla JavaScript, and image assets. Each HTML snippet is a separate example for Elementor or a theme template, and does not create a WordPress page. Shared CSS changes are bundled on every release; markup changes also need a matching edit in `wordpress/source/catalog.html`.
+
 ## Run locally
 
 ```bash
