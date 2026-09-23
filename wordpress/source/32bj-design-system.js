@@ -130,6 +130,37 @@
     counter.textContent = max ? textarea.value.length + ' / ' + max : String(textarea.value.length);
   }
 
+  function validateDemoForm(form) {
+    var summary = form.querySelector('.ds-form-page__errors');
+    var list = summary && summary.querySelector('ul');
+    if (list) list.textContent = '';
+    var firstInvalid = null;
+    form.querySelectorAll('[data-ds-required]').forEach(function (field) {
+      var valid = field.type === 'radio'
+        ? !!form.querySelector('input[name="' + field.name + '"]:checked')
+        : field.type === 'checkbox' ? field.checked : !!field.value.trim();
+      var error = document.getElementById(field.getAttribute('data-ds-error'));
+      field.setAttribute('aria-invalid', valid ? 'false' : 'true');
+      if (error) error.hidden = valid;
+      var label = field.closest('.ds-field');
+      if (label) label.classList.toggle('ds-field--error', !valid);
+      if (!valid) {
+        if (!firstInvalid) firstInvalid = field;
+        if (list) {
+          var item = document.createElement('li');
+          var link = document.createElement('a');
+          link.href = '#' + field.id;
+          link.textContent = field.getAttribute('data-ds-message') || 'Complete this field.';
+          item.appendChild(link);
+          list.appendChild(item);
+        }
+      }
+    });
+    if (summary) summary.hidden = !firstInvalid;
+    if (firstInvalid) { firstInvalid.focus(); return false; }
+    return true;
+  }
+
   function initialize(root) {
     var scope = root || document;
     hydrateAssets(scope);
@@ -140,6 +171,7 @@
     });
 
     scope.querySelectorAll('textarea[data-ds-count]').forEach(updateCounter);
+    scope.querySelectorAll('form[data-ds-demo-form] [data-ds-demo-submit]').forEach(function (button) { button.disabled = false; });
   }
 
   document.addEventListener('click', function (event) {
@@ -169,6 +201,38 @@
       event.preventDefault();
       toggleVideo(videoToggle);
     }
+  });
+
+  document.addEventListener('submit', function (event) {
+    var form = event.target.closest('form[data-ds-demo-form]');
+    if (!form) return;
+    event.preventDefault();
+    if (!validateDemoForm(form)) return;
+    form.hidden = true;
+    var success = form.parentElement.querySelector('.ds-form-page__success');
+    if (success) { success.hidden = false; success.focus(); }
+  });
+
+  document.addEventListener('click', function (event) {
+    var restart = event.target.closest('[data-ds-form-restart]');
+    if (!restart) return;
+    var surface = restart.closest('.ds-form-page__surface, .ds-page-patterns__surface');
+    var form = surface && surface.querySelector('form[data-ds-demo-form]');
+    var success = surface && surface.querySelector('.ds-form-page__success');
+    if (!form || !success) return;
+    form.reset();
+    form.querySelectorAll('[aria-invalid]').forEach(function (field) { field.removeAttribute('aria-invalid'); });
+    form.querySelectorAll('.ds-field--error').forEach(function (label) { label.classList.remove('ds-field--error'); });
+    form.querySelectorAll('[data-ds-error]').forEach(function (field) {
+      var error = document.getElementById(field.getAttribute('data-ds-error'));
+      if (error) error.hidden = true;
+    });
+    form.querySelector('.ds-form-page__errors').hidden = true;
+    var textarea = form.querySelector('textarea[data-ds-count]');
+    if (textarea) updateCounter(textarea);
+    success.hidden = true;
+    form.hidden = false;
+    form.querySelector('[data-ds-required]').focus();
   });
 
   document.addEventListener('input', function (event) {
