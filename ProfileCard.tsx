@@ -1,26 +1,56 @@
+import type { ReactNode } from 'react';
+
 type Props = {
   name: string;
   role: string;
-  group?: string;
-  bio?: string;
+  bio?: ReactNode;
   imageSrc?: string;
+  imageAlt?: string;
+  figmaNode?: string;
+
+  group?: string;
   profileHref?: string;
 };
 
-export function ProfileCard({ name, role, group, bio, imageSrc, profileHref = '#profile' }: Props) {
-  const initials = name.split(/\s+/).map((part) => part[0]).slice(0, 2).join('');
+export function ProfileCard({
+  name,
+  role,
+  bio,
+  imageSrc,
+  imageAlt = '',
+  figmaNode
+}: Props) {
+  const initials = name
+    .split(/\s+/)
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join('');
 
   return (
-    <article className="ds-profile">
+    <article
+      className="ds-profile"
+      data-figma-node={figmaNode}
+    >
       <div className="ds-profile__image">
-        {imageSrc ? <img src={imageSrc} alt="" /> : <span aria-hidden="true">{initials}</span>}
+        {imageSrc ? (
+          <img src={imageSrc} alt={imageAlt} />
+        ) : (
+          <span aria-hidden="true">{initials}</span>
+        )}
       </div>
+
       <div className="ds-profile__copy">
-        {group && <p className="ds-profile__group">{group}</p>}
         <h2>{name}</h2>
-        <p className="ds-profile__role">{role}</p>
-        {bio && <p className="ds-profile__bio">{bio}</p>}
-        <a href={profileHref} aria-label={`Read ${name}'s profile`}>View profile <span aria-hidden="true">→</span></a>
+
+        <p className="ds-profile__role">
+          {role}
+        </p>
+
+        {bio && (
+          <div className="ds-profile__bio">
+            {typeof bio === 'string' ? <p>{bio}</p> : bio}
+          </div>
+        )}
       </div>
     </article>
   );
