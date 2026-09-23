@@ -1,8 +1,27 @@
-
 import type { Preview } from '@storybook/react';
 import '../tokens.css';
 import '../global.css';
 import '../components.css';
+
+const patternStatus: Record<string, string> = {
+  Homepage: 'Approved Figma Page',
+  'Fund Landing Page': 'Approved Figma Page',
+
+  'Hero Carousel': 'Figma-backed Pattern',
+  'Ask a Question': 'Figma-backed Pattern',
+  'Video + Media': 'Figma-backed Pattern',
+  'Leadership + Trustee Profiles': 'Figma-backed Pattern',
+
+  'Content + Detail Page': 'Illustrative Composition',
+  'Form Page': 'Illustrative Composition',
+  'Benefit Collection': 'Illustrative Composition',
+  'Resource + Forms Index': 'Illustrative Composition',
+  'Course Catalog': 'Illustrative Composition',
+  'Locations Directory': 'Illustrative Composition',
+  'Retirement Journey + Plan Index': 'Illustrative Composition',
+  'Benefit Finder': 'Illustrative Composition',
+  'Page Patterns': 'Documentation / Inventory'
+};
 
 const preview: Preview = {
   parameters: {
@@ -22,7 +41,26 @@ const preview: Preview = {
         }
       }
     }
-  }
+  },
+
+  decorators: [
+    (Story, context) => {
+      const isPattern = context.title?.startsWith('Patterns/');
+      const patternName = context.title?.replace('Patterns/', '');
+      const status = patternName ? patternStatus[patternName] : undefined;
+
+      return (
+        <>
+          {isPattern && status && (
+            <div className="ds-pattern-status" data-status={status}>
+              {status}
+            </div>
+          )}
+          <Story />
+        </>
+      );
+    }
+  ]
 };
 
 export default preview;
