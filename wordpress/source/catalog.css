@@ -159,18 +159,6 @@ body {
   max-width: none;
 }
 
-.catalog-stack {
-  display: grid;
-  gap: 18px;
-}
-
-.catalog-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: flex-start;
-}
-
 @media (max-width: 700px) {
   .catalog-header__inner,
   .catalog-main {
