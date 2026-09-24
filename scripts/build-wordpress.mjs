@@ -28,6 +28,7 @@ const cssSources = [
   'hero-carousel.css',
   'benefit-finder.css',
   'page-patterns.css',
+  'faq-srsp.css',
   'form-page.css',
   'location-card.css',
   'course-card.css',
@@ -62,6 +63,11 @@ const imageAssets = [
   '32bj-home-seminar.png',
   '32bj-home-careers.png',
   'training-video-poster.png',
+  'srsp-faq-hero.png',
+  'srsp-ready-retire.png',
+  'srsp-already-retired.png',
+  'srsp-not-ready.png',
+  'srsp-grief.png',
   '32bj-leadership-steve-jenkins.png'
 ];
 
