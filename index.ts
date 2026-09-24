@@ -36,3 +36,4 @@ export * from './FundLandingPage';
 export * from './Homepage';
 export * from './ContentDetailPage';
 export * from './FormPage';
+export * from './FaqAccordionIndex';
