@@ -23,3 +23,7 @@ export const productionAssets = {
  homeCareers: new URL('./32bj-home-careers.png', import.meta.url).href,
 leadershipPeterGoldberger: new URL('./32bj-leadership-peter-goldberger.png', import.meta.url).href
 } as const;
+homeCareers: new URL('./32bj-home-careers.png', import.meta.url).href,
+leadershipPeterGoldberger: new URL('./32bj-leadership-peter-goldberger.png', import.meta.url).href,
+leadershipSteveJenkins: new URL('./32bj-leadership-steve-jenkins.png', import.meta.url).href
+} as const;
