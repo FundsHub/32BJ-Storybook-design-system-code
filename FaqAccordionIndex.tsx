@@ -1,70 +1,73 @@
-import { useId } from 'react';
 import { Accordion } from './Accordion';
-import { TableOfContents } from './TableOfContents';
-import './page-patterns.css';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { productionAssets } from './productionAssets';
+import './faq-srsp.css';
 
-const groups = [
-  {
-    key: 'getting-started',
-    label: 'Getting started',
-    questions: [
-      {
-        question: 'Which benefits apply to me?',
-        answer: 'Example answer: explain how a member can identify the relevant plan, then provide the approved next step. Avoid implying that every member has the same coverage.'
-      },
-      {
-        question: 'Where should I start?',
-        answer: 'Example answer: begin with the most useful action and include only the information needed to complete it. Keep supporting detail on the related benefit page.'
-      }
-    ]
-  },
-  {
-    key: 'documents-support',
-    label: 'Documents and support',
-    questions: [
-      {
-        question: 'Where can I find a form?',
-        answer: 'Example answer: point to the related forms collection and explain how to choose the correct document. Add the approved destination before publication.'
-      },
-      {
-        question: 'Who can help with my question?',
-        answer: 'Example answer: identify the appropriate support team and its approved contact route. Keep contact details consistent with the Member Services component.'
-      }
-    ]
-  }
-] as const;
+const cards = [
+  { title: 'Ready To Retire?', body: 'Plan your next step toward retirement.', action: 'Start Planning', image: productionAssets.srspReadyRetire },
+  { title: 'Already Retired?', body: 'Stay informed and supported in retirement.', action: 'View Retiree Resources', image: productionAssets.srspAlreadyRetired },
+  { title: 'Not ready to Retire?', body: 'Prepare now for future retirement.', action: 'Plan Ahead', image: productionAssets.srspNotReady },
+  { title: 'Grief Counseling', body: 'Find support during difficult times.', action: 'Get Support', image: productionAssets.srspGrief }
+];
+
+const questions = [
+  'I have questions about my account. How do I get in touch with John Hancock?',
+  'How much can I contribute to the SRSP?',
+  'How can the SRSP help me save for retirement?',
+  'Why should I contribute to the SRSP?',
+  'I plan to retire in the next few years. Is it too late to start saving?',
+  'When am I eligible to take a distribution from the SRSP?',
+  'How do I apply for a distribution from the SRSP?',
+  'How will my account be paid out when I request a distribution?',
+  'Can I roll over my SRSP distribution into an IRA?',
+  'Can I withdraw money or take a loan from the SRSP while I am still working in covered employment?',
+  'Can I leave my account in the Plan after I leave covered employment?'
+];
+
+const contributionAnswer = 'Contribution limits depend on the plan year:\n• Check the current annual contribution limit.\n• Members age 50 or older may qualify for catch-up contributions.\n• Confirm any additional age-based catch-up limit with the plan administrator.\nThese amounts may be adjusted each year by the IRS. Replace this sample with approved plan information.';
 
 export function FaqAccordionIndex({ mobile = false }: { mobile?: boolean }) {
-  const instanceId = useId().replace(/:/g, '');
-  const topics = groups.map((group) => ({ id: `faq-${instanceId}-${group.key}`, label: group.label }));
-
   return (
-    <div className="ds-page-patterns ds-faq-index" data-size={mobile ? 'mobile' : 'desktop'} data-fund="health">
-      <div className="ds-page-patterns__surface">
-        <header className="ds-page-patterns__intro">
-          <p className="ds-page-patterns__eyebrow">FAQ + accordion example</p>
-          <h1>Frequently asked questions</h1>
-          <p className="ds-page-patterns__lede">Group related questions by topic and let members open the answers they need.</p>
-        </header>
-        <p className="ds-page-patterns__note">Composition example with illustrative answers. Replace these with approved content before publishing.</p>
-        <div className="ds-page-patterns__detail">
-          <aside className="ds-page-patterns__navigation">
-            <TableOfContents title="Browse topics" items={topics} />
-          </aside>
-          <div className="ds-page-patterns__article">
-            {groups.map((group, groupIndex) => (
-              <section className="ds-page-patterns__section" id={topics[groupIndex].id} tabIndex={-1} aria-labelledby={`${topics[groupIndex].id}-heading`} key={group.key}>
-                <h2 id={`${topics[groupIndex].id}-heading`}>{group.label}</h2>
-                <div className="ds-page-patterns__accordions">
-                  {group.questions.map((item, itemIndex) => (
-                    <Accordion key={item.question} fund="health" question={item.question} answer={item.answer} defaultOpen={groupIndex === 0 && itemIndex === 0} />
-                  ))}
-                </div>
-              </section>
-            ))}
+    <div className="ds-faq-srsp" data-size={mobile ? 'mobile' : 'desktop'} data-fund="retirement" data-figma-node="740:6316">
+      <Header fund="retirement" mobile={mobile} />
+      <main className="ds-faq-srsp__main">
+        <section className="ds-faq-srsp__hero" aria-labelledby="srsp-faq-hero-title">
+          <img src={productionAssets.srspFaqHero} alt="" />
+          <div className="ds-faq-srsp__hero-copy">
+            <h1 id="srsp-faq-hero-title">Have questions about SRSP?</h1>
+            <p>Find answers to common questions about your plan, including how it works, managing your account, and planning for retirement.</p>
           </div>
+        </section>
+        <div className="ds-faq-srsp__layout">
+          <aside className="ds-faq-srsp__sidebar" aria-label="Retirement resources">
+            {cards.map((card) => (
+              <article className="ds-faq-srsp__card" key={card.title}>
+                <img src={card.image} alt="" />
+                <div className="ds-faq-srsp__card-copy">
+                  <h2>{card.title}</h2>
+                  <p>{card.body}</p>
+                  <a href="#srsp-resources">{card.action}</a>
+                </div>
+              </article>
+            ))}
+            <div className="ds-faq-srsp__benefits" id="srsp-resources">
+              <h2>What Are My Benefits?</h2>
+              <p>Find your current benefits and resources in one place.</p>
+              <a href="#srsp-resources">Learn More</a>
+            </div>
+          </aside>
+          <section className="ds-faq-srsp__content" aria-labelledby="srsp-faq-title">
+            <h2 id="srsp-faq-title">SRSP FAQs</h2>
+            <div className="ds-faq-srsp__questions">
+              {questions.map((question, index) => (
+                <Accordion key={question} fund="retirement" question={question} answer={index === 1 ? contributionAnswer : 'Sample answer for the reference guide. Replace with approved plan content.'} defaultOpen={index === 1} />
+              ))}
+            </div>
+          </section>
         </div>
-      </div>
+      </main>
+      <Footer fund="retirement" mobile={mobile} />
     </div>
   );
 }

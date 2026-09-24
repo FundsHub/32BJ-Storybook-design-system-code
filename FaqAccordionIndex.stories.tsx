@@ -7,7 +7,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    docs: { description: { component: 'One illustrative composition for the FAQ + Accordion Index family in Figma inventory 1709:132. Figma defines the family, not a finished FAQ page. Replace sample answers with approved content. The framework-free WordPress example is faq-accordion-index.html.' } }
+    docs: { description: { component: 'SRSP FAQ page reference from Figma 740:6316. The Figma frame includes 2025 contribution figures, so the open answer uses sample copy until current plan content is approved. The matching WordPress snippet is faq-accordion-index.html.' } }
   }
 } satisfies Meta<typeof FaqAccordionIndex>;
 
