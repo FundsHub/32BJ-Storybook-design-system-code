@@ -137,57 +137,90 @@
     </article>
 
     <article class="catalog-item" id="faq-accordion-index">
-      <header>
-        <h2>FAQ + Accordion Index</h2>
-        <p>One illustrative FAQ page composition using the shared accordion and topic navigation.</p>
-      </header>
+      <header><h2>FAQ + Accordion Index</h2><p>SRSP FAQ page reference from Figma 740:6316. Answers are sample content.</p></header>
       <div class="catalog-preview">
         <!-- 32BJ-SNIPPET faq-accordion-index START -->
-        <div class="ds-scope ds-page-patterns ds-faq-index" data-fund="health">
-          <div class="ds-page-patterns__surface">
-            <header class="ds-page-patterns__intro">
-              <p class="ds-page-patterns__eyebrow">FAQ + accordion example</p>
-              <h1>Frequently asked questions</h1>
-              <p class="ds-page-patterns__lede">Group related questions by topic and let members open the answers they need.</p>
-            </header>
-            <p class="ds-page-patterns__note">Composition example with illustrative answers. Replace these with approved content before publishing.</p>
-            <div class="ds-page-patterns__detail">
-              <aside class="ds-page-patterns__navigation">
-                <nav class="ds-toc" aria-labelledby="faq-topics-title">
-                  <h2 id="faq-topics-title">Browse topics</h2>
-                  <ol><li><a href="#faq-getting-started">Getting started</a></li><li><a href="#faq-documents-support">Documents and support</a></li></ol>
-                </nav>
+        <div class="ds-scope ds-faq-srsp" data-fund="retirement" data-figma-node="740:6316">
+          <main class="ds-faq-srsp__main">
+            <section class="ds-faq-srsp__hero" aria-labelledby="srsp-faq-hero-title-wp">
+              <img data-ds-asset="srsp-faq-hero.png" alt="">
+              <div class="ds-faq-srsp__hero-copy"><h1 id="srsp-faq-hero-title-wp">Have questions about SRSP?</h1><p>Find answers to common questions about your plan, including how it works, managing your account, and planning for retirement.</p></div>
+            </section>
+            <div class="ds-faq-srsp__layout">
+              <aside class="ds-faq-srsp__sidebar" aria-label="Retirement resources">
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-ready-retire.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Ready To Retire?</h2><p>Plan your next step toward retirement.</p><a href="#srsp-resources">Start Planning</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-already-retired.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Already Retired?</h2><p>Stay informed and supported in retirement.</p><a href="#srsp-resources">View Retiree Resources</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-not-ready.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Not ready to Retire?</h2><p>Prepare now for future retirement.</p><a href="#srsp-resources">Plan Ahead</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-grief.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Grief Counseling</h2><p>Find support during difficult times.</p><a href="#srsp-resources">Get Support</a></div>
+              </article>
+                <div class="ds-faq-srsp__benefits" id="srsp-resources"><h2>What Are My Benefits?</h2><p>Find your current benefits and resources in one place.</p><a href="#srsp-resources">Learn More</a></div>
               </aside>
-              <div class="ds-page-patterns__article">
-                <section class="ds-page-patterns__section" id="faq-getting-started" tabindex="-1" aria-labelledby="faq-getting-started-heading">
-                  <h2 id="faq-getting-started-heading">Getting started</h2>
-                  <div class="ds-page-patterns__accordions">
-                    <div class="ds-accordion" data-fund="health" data-open="true" data-figma-node="1529:5872">
-                      <button id="faq-benefits-trigger" type="button" aria-expanded="true" aria-controls="faq-benefits-panel"><span class="ds-accordion__question">Which benefits apply to me?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
-                      <div id="faq-benefits-panel" class="ds-accordion__answer" role="region" aria-labelledby="faq-benefits-trigger">Example answer: explain how a member can identify the relevant plan, then provide the approved next step. Avoid implying that every member has the same coverage.</div>
-                    </div>
-                    <div class="ds-accordion" data-fund="health" data-open="false" data-figma-node="1529:5872">
-                      <button id="faq-start-trigger" type="button" aria-expanded="false" aria-controls="faq-start-panel"><span class="ds-accordion__question">Where should I start?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
-                      <div id="faq-start-panel" class="ds-accordion__answer" role="region" aria-labelledby="faq-start-trigger" hidden>Example answer: begin with the most useful action and include only the information needed to complete it. Keep supporting detail on the related benefit page.</div>
-                    </div>
-                  </div>
-                </section>
-                <section class="ds-page-patterns__section" id="faq-documents-support" tabindex="-1" aria-labelledby="faq-documents-support-heading">
-                  <h2 id="faq-documents-support-heading">Documents and support</h2>
-                  <div class="ds-page-patterns__accordions">
-                    <div class="ds-accordion" data-fund="health" data-open="false" data-figma-node="1529:5872">
-                      <button id="faq-form-trigger" type="button" aria-expanded="false" aria-controls="faq-form-panel"><span class="ds-accordion__question">Where can I find a form?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
-                      <div id="faq-form-panel" class="ds-accordion__answer" role="region" aria-labelledby="faq-form-trigger" hidden>Example answer: point to the related forms collection and explain how to choose the correct document. Add the approved destination before publication.</div>
-                    </div>
-                    <div class="ds-accordion" data-fund="health" data-open="false" data-figma-node="1529:5872">
-                      <button id="faq-help-trigger" type="button" aria-expanded="false" aria-controls="faq-help-panel"><span class="ds-accordion__question">Who can help with my question?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
-                      <div id="faq-help-panel" class="ds-accordion__answer" role="region" aria-labelledby="faq-help-trigger" hidden>Example answer: identify the appropriate support team and its approved contact route. Keep contact details consistent with the Member Services component.</div>
-                    </div>
-                  </div>
-                </section>
-              </div>
+              <section class="ds-faq-srsp__content" aria-labelledby="srsp-faq-title-wp">
+                <h2 id="srsp-faq-title-wp">SRSP FAQs</h2>
+                <div class="ds-faq-srsp__questions">
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-0" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-0"><span class="ds-accordion__question">I have questions about my account. How do I get in touch with John Hancock?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-0" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-0" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="true" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-1" type="button" aria-expanded="true" aria-controls="srsp-faq-panel-1"><span class="ds-accordion__question">How much can I contribute to the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-1" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-1">Contribution limits depend on the plan year:
+• Check the current annual contribution limit.
+• Members age 50 or older may qualify for catch-up contributions.
+• Confirm any additional age-based catch-up limit with the plan administrator.
+These amounts may be adjusted each year by the IRS. Replace this sample with approved plan information.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-2" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-2"><span class="ds-accordion__question">How can the SRSP help me save for retirement?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-2" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-2" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-3" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-3"><span class="ds-accordion__question">Why should I contribute to the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-3" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-3" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-4" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-4"><span class="ds-accordion__question">I plan to retire in the next few years. Is it too late to start saving?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-4" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-4" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-5" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-5"><span class="ds-accordion__question">When am I eligible to take a distribution from the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-5" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-5" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-6" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-6"><span class="ds-accordion__question">How do I apply for a distribution from the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-6" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-6" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-7" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-7"><span class="ds-accordion__question">How will my account be paid out when I request a distribution?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-7" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-7" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-8" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-8"><span class="ds-accordion__question">Can I roll over my SRSP distribution into an IRA?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-8" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-8" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-9" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-9"><span class="ds-accordion__question">Can I withdraw money or take a loan from the SRSP while I am still working in covered employment?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-9" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-9" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-10" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-10"><span class="ds-accordion__question">Can I leave my account in the Plan after I leave covered employment?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-10" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-10" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                </div>
+              </section>
             </div>
-          </div>
+          </main>
         </div>
         <!-- 32BJ-SNIPPET faq-accordion-index END -->
       </div>
