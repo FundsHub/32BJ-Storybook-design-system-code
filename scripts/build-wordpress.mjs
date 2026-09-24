@@ -60,7 +60,8 @@ const imageAssets = [
   '32bj-benefit-matters.png',
   '32bj-home-staff.png',
   '32bj-home-seminar.png',
-  '32bj-home-careers.png'
+  '32bj-home-careers.png',
+  '32bj-leadership-steve-jenkins.png'
 ];
 
 rmSync(outputRoot, { recursive: true, force: true });
