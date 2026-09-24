@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>32BJ WordPress Component Package</title>
+  <link rel="stylesheet" href="./assets/32bj-design-system.css">
+  <link rel="stylesheet" href="./catalog.css">
+</head>
+<body>
+  <header class="catalog-header">
+    <div class="catalog-header__inner">
+      <span class="catalog-eyebrow">32BJ Benefit Funds Design System</span>
+      <h1>WordPress-ready component package</h1>
+      <p>The approved Storybook components are available here as plain HTML, CSS, and vanilla JavaScript. Nothing in this package requires React or another front-end framework on the website.</p>
+      <div class="catalog-actions">
+        <a href="./32bj-design-system-wordpress.zip" download>Download WordPress package</a>
+        <a href="./manifest.json">View component manifest</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="catalog-main">
+    <section class="catalog-note">
+      <h2>How this handoff works</h2>
+      <p>Each preview below is also saved as an individual file in the <strong>snippets</strong> folder. The WordPress ZIP installs the shared CSS, JavaScript, and approved image assets. Developers can paste a snippet into a theme template, custom HTML block, or Elementor HTML widget, then connect the sample content to WordPress.</p>
+    </section>
+
+    <article class="catalog-item" id="alert-bar">
+      <header>
+        <h2>Alert bar</h2>
+        <p>Global urgent message with real text and a visible action.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET alert-bar START -->
+        <div class="ds-scope">
+          <div class="ds-alert" role="status" data-figma-node="1623:8">
+            <span class="ds-alert__icon" aria-hidden="true">!</span>
+            <span class="ds-alert__message">The Summary Annual Report (SAR) has been updated to reflect corrected information. <a href="#sar">Please click here.</a></span>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET alert-bar END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="buttons-badges">
+      <header>
+        <h2>Buttons and badges</h2>
+        <p>Fund-aware actions with primary, secondary, disabled, and badge states.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET buttons-badges START -->
+        <div class="ds-scope ds-layout-stack" data-fund="health">
+          <div class="ds-layout-row">
+            <a class="ds-button ds-button--primary" data-fund="health" href="#learn-more">Learn more</a>
+            <a class="ds-button ds-button--secondary" data-fund="health" href="#compare">Compare plans</a>
+            <button class="ds-button" data-fund="health" data-state="disabled" type="button" disabled>Unavailable</button>
+          </div>
+          <div class="ds-layout-row">
+            <span class="ds-badge ds-badge--cleaning">Cleaning</span>
+            <span class="ds-badge ds-badge--security">Security</span>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET buttons-badges END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="form-controls">
+      <header>
+        <h2>Form controls</h2>
+        <p>Inputs, dropdowns, textarea counter, radio buttons, and consent checkbox.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET form-controls START -->
+        <form class="ds-scope ds-layout-stack" data-fund="legal" action="#" method="post">
+          <label class="ds-field ds-field--default">
+            <span class="ds-field__label">Member ID</span>
+            <input class="ds-input" id="member-id" name="member_id" type="text" autocomplete="off" aria-describedby="member-id-hint">
+            <span class="ds-field__hint" id="member-id-hint">Enter the ID shown on your member card.</span>
+          </label>
+
+          <label class="ds-field ds-field--default">
+            <span class="ds-field__label">Topic</span>
+            <select class="ds-input" id="question-topic" name="topic">
+              <option value="">Choose one</option>
+              <option value="benefits">Benefits</option>
+              <option value="forms">Forms</option>
+            </select>
+          </label>
+
+          <label class="ds-field ds-field--textarea ds-field--default">
+            <span class="ds-field__label">Your question *</span>
+            <textarea class="ds-textarea" id="member-question" name="question" maxlength="2000" data-ds-count="member-question-counter" aria-describedby="member-question-hint member-question-counter"></textarea>
+            <span class="ds-textarea__meta">
+              <span class="ds-field__hint" id="member-question-hint">Do not include sensitive medical information.</span>
+              <span id="member-question-counter" aria-live="polite">0 / 2000</span>
+            </span>
+          </label>
+
+          <fieldset class="ds-field-group" aria-describedby="reply-method-help">
+            <legend>How should we contact you?</legend>
+            <p class="ds-field-group__help" id="reply-method-help">Choose one option.</p>
+            <div class="ds-field-group__content">
+              <label class="ds-choice"><input type="radio" name="reply" value="email"><span>Email</span></label>
+              <label class="ds-choice"><input type="radio" name="reply" value="phone"><span>Phone</span></label>
+              <label class="ds-choice ds-choice--checkbox"><input type="checkbox" name="consent" value="yes"><span><strong>I agree to the privacy notice</strong><small>Required before submission.</small></span></label>
+            </div>
+          </fieldset>
+          <button class="ds-button" data-fund="legal" type="submit">Submit question</button>
+        </form>
+        <!-- 32BJ-SNIPPET form-controls END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="accordion">
+      <header>
+        <h2>Accordion</h2>
+        <p>Accessible question and answer behavior with no framework dependency.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET accordion START -->
+        <div class="ds-scope">
+          <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+            <button id="retirement-question-trigger" type="button" aria-expanded="false" aria-controls="retirement-question-panel">
+              <span class="ds-accordion__question">When can I retire?</span>
+              <span class="ds-accordion__chevron" aria-hidden="true">
+                <svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </span>
+            </button>
+            <section id="retirement-question-panel" class="ds-accordion__answer" aria-labelledby="retirement-question-trigger" hidden>
+              Retirement eligibility depends on your age, years of service, and pension plan. Review your pension information or contact Member Services for help.
+            </section>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET accordion END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="faq-accordion-index">
+      <header><h2>FAQ + Accordion Index</h2><p>SRSP FAQ page reference from Figma 740:6316. Answers are sample content.</p></header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET faq-accordion-index START -->
+        <div class="ds-scope ds-faq-srsp" data-fund="retirement" data-figma-node="740:6316">
+          <main class="ds-faq-srsp__main">
+            <section class="ds-faq-srsp__hero" aria-labelledby="srsp-faq-hero-title-wp">
+              <img data-ds-asset="srsp-faq-hero.png" alt="">
+              <div class="ds-faq-srsp__hero-copy"><h1 id="srsp-faq-hero-title-wp">Have questions about SRSP?</h1><p>Find answers to common questions about your plan, including how it works, managing your account, and planning for retirement.</p></div>
+            </section>
+            <div class="ds-faq-srsp__layout">
+              <aside class="ds-faq-srsp__sidebar" aria-label="Retirement resources">
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-ready-retire.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Ready To Retire?</h2><p>Plan your next step toward retirement.</p><a href="#srsp-resources">Start Planning</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-already-retired.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Already Retired?</h2><p>Stay informed and supported in retirement.</p><a href="#srsp-resources">View Retiree Resources</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-not-ready.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Not ready to Retire?</h2><p>Prepare now for future retirement.</p><a href="#srsp-resources">Plan Ahead</a></div>
+              </article>
+              <article class="ds-faq-srsp__card">
+                <img data-ds-asset="srsp-grief.png" alt="">
+                <div class="ds-faq-srsp__card-copy"><h2>Grief Counseling</h2><p>Find support during difficult times.</p><a href="#srsp-resources">Get Support</a></div>
+              </article>
+                <div class="ds-faq-srsp__benefits" id="srsp-resources"><h2>What Are My Benefits?</h2><p>Find your current benefits and resources in one place.</p><a href="#srsp-resources">Learn More</a></div>
+              </aside>
+              <section class="ds-faq-srsp__content" aria-labelledby="srsp-faq-title-wp">
+                <h2 id="srsp-faq-title-wp">SRSP FAQs</h2>
+                <div class="ds-faq-srsp__questions">
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-0" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-0"><span class="ds-accordion__question">I have questions about my account. How do I get in touch with John Hancock?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-0" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-0" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="true" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-1" type="button" aria-expanded="true" aria-controls="srsp-faq-panel-1"><span class="ds-accordion__question">How much can I contribute to the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-1" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-1">Contribution limits depend on the plan year:
+• Check the current annual contribution limit.
+• Members age 50 or older may qualify for catch-up contributions.
+• Confirm any additional age-based catch-up limit with the plan administrator.
+These amounts may be adjusted each year by the IRS. Replace this sample with approved plan information.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-2" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-2"><span class="ds-accordion__question">How can the SRSP help me save for retirement?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-2" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-2" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-3" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-3"><span class="ds-accordion__question">Why should I contribute to the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-3" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-3" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-4" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-4"><span class="ds-accordion__question">I plan to retire in the next few years. Is it too late to start saving?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-4" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-4" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-5" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-5"><span class="ds-accordion__question">When am I eligible to take a distribution from the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-5" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-5" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-6" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-6"><span class="ds-accordion__question">How do I apply for a distribution from the SRSP?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-6" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-6" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-7" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-7"><span class="ds-accordion__question">How will my account be paid out when I request a distribution?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-7" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-7" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-8" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-8"><span class="ds-accordion__question">Can I roll over my SRSP distribution into an IRA?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-8" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-8" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-9" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-9"><span class="ds-accordion__question">Can I withdraw money or take a loan from the SRSP while I am still working in covered employment?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-9" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-9" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                <div class="ds-accordion" data-fund="retirement" data-open="false" data-figma-node="1529:5872">
+                  <button id="srsp-faq-trigger-10" type="button" aria-expanded="false" aria-controls="srsp-faq-panel-10"><span class="ds-accordion__question">Can I leave my account in the Plan after I leave covered employment?</span><span class="ds-accordion__chevron" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+                  <div id="srsp-faq-panel-10" class="ds-accordion__answer" role="region" aria-labelledby="srsp-faq-trigger-10" hidden>Sample answer for the reference guide. Replace with approved plan content.</div>
+                </div>
+                </div>
+              </section>
+            </div>
+          </main>
+        </div>
+        <!-- 32BJ-SNIPPET faq-accordion-index END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="callouts">
+      <header>
+        <h2>Callouts</h2>
+        <p>Page-level information, warning, and critical notices.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET callouts START -->
+        <div class="ds-scope ds-layout-stack">
+          <aside class="ds-callout ds-callout--important" aria-label="important: Important benefit information">
+            <strong>Important benefit information</strong>
+            <div>Review the details before scheduling care.</div>
+            <div class="ds-callout__action"><a href="#details">Review details</a></div>
+          </aside>
+          <aside class="ds-callout ds-callout--critical" aria-label="critical: Action required">
+            <strong>Action required</strong>
+            <div>A deadline applies to this benefit.</div>
+          </aside>
+        </div>
+        <!-- 32BJ-SNIPPET callouts END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="links">
+      <header>
+        <h2>Document and resource links</h2>
+        <p>Portable link cards for forms, downloads, internal pages, and external services.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET document-resource-links START -->
+        <div class="ds-scope ds-layout-row" data-fund="health">
+          <a class="ds-document-link ds-document-link--health-form" href="#release-form" aria-label="Form: Authorization to Release Health Information. PDF, English">
+            <span class="ds-document-link__type">Form</span>
+            <strong>Authorization to Release Health Information</strong>
+            <span class="sr-only">PDF · English</span>
+          </a>
+          <a class="ds-resource" href="#forms">
+            <span><strong>Forms and downloads</strong><small>Find member forms and instructions</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <!-- 32BJ-SNIPPET document-resource-links END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="search">
+      <header>
+        <h2>Search</h2>
+        <p>Labeled search form that can connect directly to WordPress search.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET search START -->
+        <div class="ds-scope" data-fund="health">
+          <form class="ds-search" role="search" aria-label="Standalone site search" action="/" method="get">
+            <label class="sr-only" for="site-search-wordpress">Search 32BJ Benefit Funds</label>
+            <img class="ds-search__icon" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true">
+            <input id="site-search-wordpress" name="s" type="search" autocomplete="off" placeholder="Find What You Need">
+            <button type="submit" class="sr-only">Submit search</button>
+          </form>
+        </div>
+        <!-- 32BJ-SNIPPET search END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="header">
+      <header>
+        <h2>Header</h2>
+        <p>One responsive WordPress header with desktop search and mobile menu controls.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET header START -->
+        <div class="ds-scope">
+          <header class="ds-header ds-header--wordpress" data-fund="health" data-figma-node="1707:8700">
+            <div class="ds-header__utility">
+              <nav aria-label="Benefit fund navigation">
+                <a href="#home">Home</a><a href="#health">Health</a><a href="#training">Training</a><a href="#pension">Pension</a><a href="#retirement">Retirement Savings (401K)</a><a href="#legal">Legal</a>
+              </nav>
+              <a class="ds-header__language" href="#languages">Language <span aria-hidden="true">›</span></a>
+            </div>
+
+            <div class="ds-header__brand">
+              <div class="ds-header__brandrow">
+                <a class="ds-logo" href="#home" aria-label="32BJ Benefit Funds home">
+                  <img class="ds-logo__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-benefit-funds-logo.svg" alt="" aria-hidden="true">
+                  <span>32BJ Benefit Funds</span>
+                </a>
+
+                <form class="ds-search ds-header__desktop-search" role="search" aria-label="Header site search" action="/" method="get">
+                  <label class="sr-only" for="header-search-wordpress">Search 32BJ Benefit Funds</label>
+                  <img class="ds-search__icon" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true">
+                  <input id="header-search-wordpress" name="s" type="search" autocomplete="off" placeholder="Find What You Need">
+                  <button type="submit" class="sr-only">Submit search</button>
+                </form>
+
+                <div class="ds-header__mobile-actions">
+                  <button class="ds-header__search-toggle" type="button" data-ds-toggle="search" aria-expanded="false" aria-controls="wordpress-mobile-search">
+                    <img class="ds-header__search-icon" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true"><span class="sr-only">Search</span>
+                  </button>
+                  <button class="ds-menu" type="button" data-ds-toggle="menu" aria-expanded="false" aria-controls="wordpress-mobile-navigation">Menu</button>
+                </div>
+              </div>
+
+              <div id="wordpress-mobile-search" class="ds-header__mobile-search" hidden>
+                <form class="ds-search ds-search--mobile" role="search" aria-label="Mobile site search" action="/" method="get">
+                  <label class="sr-only" for="mobile-search-wordpress">Search 32BJ Benefit Funds</label>
+                  <img class="ds-search__icon" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true">
+                  <input id="mobile-search-wordpress" name="s" type="search" autocomplete="off" placeholder="Find What You Need">
+                  <button type="submit" class="sr-only">Submit search</button>
+                </form>
+              </div>
+
+              <nav class="ds-header__section ds-header__section--desktop" aria-label="Health section navigation">
+                <a href="#health-home">Home</a><a href="#health-plans">Health Plans</a><a href="#centers">5 Star Centers</a><a href="#lantern">Lantern Surgery Care</a><a href="#other-benefits">Other Benefits</a><a href="#forms">Forms</a><a href="#reproductive-health">Reproductive Health</a><a href="#behavioral-health">Behavioral Health</a>
+              </nav>
+
+              <nav id="wordpress-mobile-navigation" class="ds-header__section ds-header__section--mobile" aria-label="Health mobile section navigation" hidden>
+                <a href="#health-home">Home</a><a href="#health-plans">Health Plans</a><a href="#centers">5 Star Centers</a><a href="#lantern">Lantern Surgery Care</a><a href="#other-benefits">Other Benefits</a><a href="#forms">Forms</a><a href="#reproductive-health">Reproductive Health</a><a href="#behavioral-health">Behavioral Health</a>
+              </nav>
+            </div>
+          </header>
+        </div>
+        <!-- 32BJ-SNIPPET header END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="nested-navigation">
+      <header>
+        <h2>Nested navigation and translation</h2>
+        <p>Grouped section links plus a keyboard-operable language panel.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET nested-navigation-translation START -->
+        <div class="ds-scope ds-layout-stack" data-fund="retirement">
+          <nav class="ds-nested" aria-label="Retirement navigation">
+            <section><strong>Retirement Plans</strong><a href="#program-a">Program A</a><a href="#program-b">Program B</a><a href="#program-c">Program C</a><a href="#program-d">Program D</a></section>
+            <section><strong>Resources</strong><a href="#srsp">SRSP</a><a href="#glossary">Glossary</a><a href="#spds">Summary Plan Descriptions</a><a href="#forms">Forms</a></section>
+          </nav>
+          <div class="ds-translation">
+            <button type="button" data-ds-toggle="language" aria-expanded="false" aria-controls="wordpress-language-panel">Language <span aria-hidden="true">⌄</span></button>
+            <div class="ds-translation__panel" id="wordpress-language-panel" hidden>
+              <a href="?lang=en">English</a><a href="?lang=es">Español</a>
+              <p>Automated translations are provided for convenience. Official plan documents and notices control if there is a conflict.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET nested-navigation-translation END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="hero-banner">
+      <header>
+        <h2>Hero banner</h2>
+        <p>Responsive live-text version for WordPress content editing and translation.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET hero-banner START -->
+        <div class="ds-scope">
+          <section class="ds-hero ds-hero--live" data-figma-node="1623:6212">
+            <div class="ds-hero__visual" aria-hidden="true"><img class="ds-hero__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-hero-visual.png" alt=""></div>
+            <div class="ds-hero__content">
+              <span class="ds-hero__eyebrow">32BJ Benefit Funds</span>
+              <h2>Don't pay more than you should</h2>
+              <p>When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay.</p>
+            </div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET hero-banner END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="hero-carousel">
+      <header>
+        <h2>Hero carousel</h2>
+        <p>Plain HTML slides with vanilla previous and next controls.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET hero-carousel START -->
+        <div class="ds-scope">
+          <section class="ds-carousel ds-carousel--wordpress" data-ds-carousel data-ds-active-slide="0" aria-roledescription="carousel" aria-label="Featured information">
+            <div class="ds-carousel__desktop">
+              <div class="ds-carousel__frame">
+                <a class="ds-carousel__slide" data-ds-carousel-slide href="#hospital-billing"><img class="ds-carousel__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-hero-banner.png" alt="Don't pay more than you should"></a>
+                <a class="ds-carousel__slide" data-ds-carousel-slide href="#member-help" hidden><img class="ds-carousel__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-hero-banner.png" alt="Member help and resources"></a>
+                <button class="ds-carousel__arrow ds-carousel__arrow--prev" data-ds-carousel-action="previous" type="button" aria-label="Previous slide"><span aria-hidden="true">‹</span></button>
+                <button class="ds-carousel__arrow ds-carousel__arrow--next" data-ds-carousel-action="next" type="button" aria-label="Next slide"><span aria-hidden="true">›</span></button>
+              </div>
+            </div>
+
+            <div class="ds-carousel__mobile" data-ds-carousel-mobile-slide data-figma-node="1715:132">
+              <div class="ds-carousel__mobile-graphic" aria-hidden="true"><span class="ds-carousel__mobile-dollar">$</span><span class="ds-carousel__mobile-slash"></span></div>
+              <h2 class="ds-carousel__mobile-title">DON'T PAY MORE THAN YOU SHOULD</h2>
+              <p class="ds-carousel__mobile-body">When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay.</p>
+              <a class="ds-carousel__mobile-link" href="#hospital-billing">Don't pay more than you should. Here's how.</a>
+            </div>
+
+            <div class="ds-carousel__mobile" data-ds-carousel-mobile-slide hidden>
+              <div class="ds-carousel__mobile-graphic" aria-hidden="true"><span class="ds-carousel__mobile-dollar">?</span><span class="ds-carousel__mobile-slash"></span></div>
+              <h2 class="ds-carousel__mobile-title">MEMBER HELP IS HERE</h2>
+              <p class="ds-carousel__mobile-body">Find answers, forms, plan information, and support from Member Services.</p>
+              <a class="ds-carousel__mobile-link" href="#member-help">Find member help and resources.</a>
+            </div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET hero-carousel END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="homepage-cards">
+      <header>
+        <h2>Homepage cards</h2>
+        <p>Responsive card structure with approved member and organization imagery.</p>
+      </header>
+      <div class="catalog-preview">
+        
+   <!-- 32BJ-SNIPPET homepage-cards START -->
+<div class="ds-scope ds-card-row" data-fund="health">
+  <article class="ds-home-card ds-home-card--member" data-figma-node="1632:438">
+    <div class="ds-home-card__copy">
+      <div class="ds-home-card__content">
+        <h3>Introducing 32BJ Funds Member Portal</h3>
+        <strong>Keeping You Connected</strong>
+        <p>Everything you need in one place to make the best use of all of your 32BJ Funds Benefits.</p>
+      </div>
+      <a class="ds-button" data-fund="health" href="#member-portal">Join Now</a>
+    </div>
+    <div class="ds-home-card__art" aria-hidden="true">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-member-portal.png" alt="">
+    </div>
+  </article>
+
+  <article class="ds-home-card ds-home-card--who" data-figma-node="1632:438">
+    <div class="ds-home-card__copy">
+      <div class="ds-home-card__content">
+        <h3>Who We Are</h3>
+        <p>We serve working people and their families with benefits that support their health, security, and future.</p>
+      </div>
+      <a class="ds-button" data-fund="health" href="#who-we-are">Learn More</a>
+    </div>
+    <div class="ds-home-card__art" aria-hidden="true">
+      <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-who-we-are.png" alt="">
+    </div>
+  </article>
+</div>
+<!-- 32BJ-SNIPPET homepage-cards END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="news-alerts">
+      <header>
+        <h2>News and member alerts</h2>
+        <p>Linked updates with clear news and alert treatments.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET news-member-alerts START -->
+        <div class="ds-scope ds-layout-stack">
+          <a class="ds-news ds-news--news" href="#benefit-matters"><span class="ds-news__meta">SEPTEMBER 2026</span><strong>Benefit Matters update</strong><span>Read the latest benefit news.</span></a>
+          <a class="ds-news ds-news--alert" href="#member-alert"><span class="ds-news__meta">MEMBER ALERT</span><strong>Important update for members</strong><span>Review this time-sensitive benefit information.</span></a>
+        </div>
+        <!-- 32BJ-SNIPPET news-member-alerts END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="member-services">
+      <header>
+        <h2>Member Services</h2>
+        <p>Responsive support panel with direct phone, chat, and directions actions.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET member-services START -->
+        <div class="ds-scope">
+          <section class="ds-member-services ds-member-services--wordpress" data-fund="health">
+            <h2>Need help? Member Services is here for you.</h2>
+            <a class="ds-member-services__phone" href="tel:+18005513225">800-551-3225</a>
+            <p>Monday-Friday, 8:30am-8pm · Saturday, 9am-5pm</p>
+            <p>Welcome Center · 25 West 18th Street, 5th Floor, Manhattan</p>
+            <div class="ds-member-services__actions">
+              <a class="ds-button ds-button--primary" data-fund="health" href="tel:+18005513225">Call Member Services</a>
+              <a class="ds-button ds-button--primary" data-fund="health" href="#live-chat">Live Chat</a>
+              <a class="ds-button ds-button--primary" data-fund="health" href="#directions">Get Directions</a>
+            </div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET member-services END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="footer">
+      <header>
+        <h2>Footer</h2>
+        <p>Responsive fund-aware footer with notices, contact details, and social links.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET footer START -->
+        <div class="ds-scope">
+          <footer class="ds-footer ds-footer--wordpress" data-fund="health" data-figma-node="1752:9817">
+            <div class="ds-footer__inner">
+              <section class="ds-footer__notices" aria-label="Important notices">
+                <a href="#surprise-bills"><span class="ds-footer__notice-dot" aria-hidden="true"></span>Your rights and protections against surprise medical bills</a>
+                <a href="#transparency"><span class="ds-footer__notice-dot" aria-hidden="true"></span>Anthem transparency in coverage notice</a>
+              </section>
+              <nav class="ds-footer__social" aria-label="Social links">
+                <a class="ds-footer__social-icon" href="#facebook" aria-label="32BJ Benefit Funds on Facebook"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-facebook.png" alt=""></a>
+                <a class="ds-footer__social-icon" href="#bluesky" aria-label="32BJ Benefit Funds on Bluesky"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-bluesky.png" alt=""></a>
+                <a class="ds-footer__social-icon" href="#instagram" aria-label="32BJ Benefit Funds on Instagram"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-instagram.svg" alt=""></a>
+                <a class="ds-footer__qr" href="https://32bjfunds.org/" aria-label="Open 32BJ Benefit Funds website"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-footer-qr.png" alt=""></a>
+              </nav>
+              <p class="ds-footer__contact"><span>25 West 18th Street, New York, NY 10011-4676</span><span class="ds-footer__separator" aria-hidden="true">|</span><a href="tel:18005513225">Member Services: 800-551-3225</a></p>
+              <nav class="ds-footer__links" aria-label="Footer navigation">
+                <a href="#email">Email Us</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#directions">Get Directions</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#terms">Terms of Use</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#privacy">Privacy Policy</a>
+              </nav>
+            </div>
+          </footer>
+        </div>
+        <!-- 32BJ-SNIPPET footer END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="benefit-results">
+      <header>
+        <h2>Benefit Finder results</h2>
+        <p>Responsive data tables that become labeled cards on narrow screens.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET benefit-finder-results START -->
+        <div class="ds-scope">
+          <section class="ds-benefit-results" data-fund="health" aria-labelledby="wordpress-benefit-results-title">
+            <div class="ds-benefit-results__heading">
+              <p class="ds-benefit-results__eyebrow">Benefit Plan Finder</p>
+              <h2 id="wordpress-benefit-results-title">Your results</h2>
+              <p>Review the matching work site, then open each plan for eligibility and coverage details.</p>
+            </div>
+
+            <div class="ds-benefit-results__section">
+              <h3>Matching work sites</h3>
+              <section class="ds-table-scroll" tabindex="0" aria-label="Matching work sites">
+                <table class="ds-responsive-table">
+                  <caption class="sr-only">Matching work sites</caption>
+                  <thead><tr><th scope="col">Work location</th><th scope="col">Employer</th><th scope="col">Type of work</th><th scope="col">Action</th></tr></thead>
+                  <tbody>
+                    <tr><td data-label="Work location">Manhattan</td><td data-label="Employer">Example Building Services</td><td data-label="Type of work">Commercial office</td><td data-label="Action"><a class="ds-table-action" href="#manhattan-office">Select</a></td></tr>
+                    <tr><td data-label="Work location">Brooklyn</td><td data-label="Employer">Example Residential Partners</td><td data-label="Type of work">Residential building</td><td data-label="Action"><a class="ds-table-action" href="#brooklyn-residential">Select</a></td></tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+
+            <div class="ds-benefit-results__section">
+              <h3>Benefit summary</h3>
+              <section class="ds-table-scroll" tabindex="0" aria-label="Benefit summary">
+                <table class="ds-responsive-table">
+                  <caption class="sr-only">Benefit summary</caption>
+                  <thead><tr><th scope="col">Fund</th><th scope="col">Plan</th><th scope="col">More information</th></tr></thead>
+                  <tbody>
+                    <tr><td data-label="Fund">Health Fund</td><td data-label="Plan">Building Service 32BJ Health Fund</td><td data-label="More information"><a class="ds-table-action" href="#health-plan">View plan</a></td></tr>
+                    <tr><td data-label="Fund">Legal Services Fund</td><td data-label="Plan">32BJ Legal Services Fund</td><td data-label="More information"><a class="ds-table-action" href="#legal-plan">View plan</a></td></tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+
+            <div class="ds-benefit-results__actions"><a class="ds-text-action" href="#questions">← Back</a><a class="ds-button" data-fund="health" href="#start-over">Start over</a></div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET benefit-finder-results END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="locations">
+      <header>
+        <h2>Locations directory</h2>
+        <p>Training center cards with address, hours, services, and directions.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET locations-directory START -->
+        <div class="ds-scope ds-directory-grid" data-fund="training">
+          <article class="ds-location" data-fund="training">
+            <div class="ds-location__pin" aria-hidden="true"><span></span></div>
+            <div class="ds-location__content">
+              <h2>Manhattan Training Center</h2>
+              <address>25 West 18th Street, New York, NY 10011</address>
+              <a class="ds-location__phone" href="tel:2123883701">212-388-3701</a>
+              <p class="ds-location__hours"><strong>Hours</strong><span>Monday-Friday, 8:00 AM-7:00 PM</span></p>
+              <ul class="ds-location__services"><li>Registration</li><li>Computer lab</li><li>Advising</li></ul>
+              <a class="ds-location__directions" href="#manhattan-directions">Get directions <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="ds-location" data-fund="training">
+            <div class="ds-location__pin" aria-hidden="true"><span></span></div>
+            <div class="ds-location__content">
+              <h2>Brooklyn Training Center</h2>
+              <address>25 Chapel Street, Brooklyn, NY 11201</address>
+              <a class="ds-location__phone" href="tel:7185553200">718-555-3200</a>
+              <p class="ds-location__hours"><strong>Hours</strong><span>Monday-Friday, 9:00 AM-6:00 PM</span></p>
+              <ul class="ds-location__services"><li>Registration</li><li>Career services</li></ul>
+              <a class="ds-location__directions" href="#brooklyn-directions">Get directions <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <!-- 32BJ-SNIPPET locations-directory END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="course-card">
+      <header>
+        <h2>Course cards</h2>
+        <p>Training course information with status and registration action.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET course-card START -->
+        <div class="ds-scope ds-course-grid" data-fund="training">
+          <article class="ds-course-card" data-fund="training" data-status="open">
+            <div class="ds-course-card__topline"><span class="ds-course-card__category">Language skills</span><span class="ds-course-card__status ds-course-card__status--open">Registration open</span></div>
+            <h2>English as a Second Language</h2>
+            <dl class="ds-course-card__details">
+              <div><dt>Format</dt><dd>In person</dd></div><div><dt>Date</dt><dd>October 6 to December 15</dd></div><div><dt>Time</dt><dd>Tuesdays and Thursdays, 6:00 PM</dd></div><div><dt>Location</dt><dd>Manhattan Training Center</dd></div>
+            </dl>
+            <a class="ds-course-card__action" href="#english-course">View course</a>
+          </article>
+        </div>
+        <!-- 32BJ-SNIPPET course-card END -->
+      </div></article>
+ <article class="catalog-item" id="course-catalog">
+      <header>
+        <h2>Course catalog</h2>
+        <p>Complete Training Fund course-list pattern with open, waitlist, and closed registration states.</p>
+      </header>
+      <div class="catalog-preview catalog-preview--full">
+        <!-- 32BJ-SNIPPET course-catalog START -->
+        <div class="ds-scope">
+          <section class="ds-course-catalog" data-fund="training" data-figma-node="1709:123" aria-labelledby="wordpress-course-catalog-title">
+            <header class="ds-course-catalog__intro">
+              <p class="ds-course-catalog__eyebrow">Training Fund</p>
+              <h1 id="wordpress-course-catalog-title">Upcoming courses</h1>
+              <p>Browse upcoming training opportunities and check registration availability.</p>
+            </header>
+
+            <div class="ds-course-catalog__grid">
+              <article class="ds-course-card" data-fund="training" data-status="open">
+                <div class="ds-course-card__topline">
+                  <span class="ds-course-card__category">Language skills</span>
+                  <span class="ds-course-card__status ds-course-card__status--open">Registration open</span>
+                </div>
+                <h2>English as a Second Language</h2>
+                <dl class="ds-course-card__details">
+                  <div><dt>Format</dt><dd>In person</dd></div>
+                  <div><dt>Date</dt><dd>October 6 to December 15</dd></div>
+                  <div><dt>Time</dt><dd>Tuesdays and Thursdays, 6:00 PM</dd></div>
+                  <div><dt>Location</dt><dd>Manhattan Training Center</dd></div>
+                </dl>
+                <a class="ds-course-card__action" href="#english-course">View course</a>
+              </article>
+
+              <article class="ds-course-card" data-fund="training" data-status="waitlist">
+                <div class="ds-course-card__topline">
+                  <span class="ds-course-card__category">Career training</span>
+                  <span class="ds-course-card__status ds-course-card__status--waitlist">Waitlist available</span>
+                </div>
+                <h2>Commercial Building Skills</h2>
+                <dl class="ds-course-card__details">
+                  <div><dt>Format</dt><dd>Hybrid</dd></div>
+                  <div><dt>Date</dt><dd>November 2 to December 18</dd></div>
+                  <div><dt>Time</dt><dd>Mondays and Wednesdays, 6:30 PM</dd></div>
+                  <div><dt>Location</dt><dd>Manhattan Training Center</dd></div>
+                </dl>
+                <a class="ds-course-card__action" href="#building-skills">Join the waitlist</a>
+              </article>
+
+              <article class="ds-course-card" data-fund="training" data-status="closed">
+                <div class="ds-course-card__topline">
+                  <span class="ds-course-card__category">Safety</span>
+                  <span class="ds-course-card__status ds-course-card__status--closed">Registration closed</span>
+                </div>
+                <h2>OSHA 30-Hour Training</h2>
+                <dl class="ds-course-card__details">
+                  <div><dt>Format</dt><dd>Online</dd></div>
+                  <div><dt>Date</dt><dd>January 12 to January 28</dd></div>
+                  <div><dt>Time</dt><dd>Tuesdays and Thursdays, 6:00 PM</dd></div>
+                </dl>
+                <button class="ds-course-card__action" type="button" disabled>Registration closed</button>
+              </article>
+            </div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET course-catalog END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="video-feature">
+      <header>
+        <h2>Video and media</h2>
+        <p>Training Fund media card with a responsive video slot.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET video-feature START -->
+        <div class="ds-scope">
+          <article class="ds-video ds-video--training" aria-labelledby="wordpress-video-title">
+            <h2 id="wordpress-video-title">Learn more about the Training Fund</h2>
+            <p class="ds-video__summary">Discover programs, resources, and support designed to help members build skills, advance their careers, and plan their next opportunity.</p>
+            <div class="ds-video__player">
+              <img data-ds-asset="training-video-poster.png" alt="">
+            </div>
+          </article>
+        </div>
+        <!-- 32BJ-SNIPPET video-feature END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="profile-card">
+      <header>
+        <h2>Leadership profile</h2>
+        <p>One reference example showing portrait, role, biography, and responsive layout.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET profile-card START -->
+        <div class="ds-scope ds-profile-grid">
+          <article class="ds-profile">
+            <div class="ds-profile__image"><img data-ds-asset="32bj-leadership-steve-jenkins.png" alt="Steve Jenkins"></div>
+            <div class="ds-profile__copy">
+              <h2>Steve Jenkins</h2><p class="ds-profile__role">Deputy Executive Director</p><div class="ds-profile__bio"><p>As Deputy Executive Director for 32BJ Benefit Funds, Steve Jenkins works with Fund and Department Directors to plan and manage key program objectives. Mr. Jenkins started with 32BJ Funds in January 2018. Prior to joining the Funds he worked for fourteen years for SEIU Local 32BJ in several capacities including Director of Operations and Director of the Contract and Grievance Center. Mr. Jenkins has also worked with Make the Road New York and The Door’s Legal Services Center. Mr. Jenkins holds a J.D. from Northeastern University and a B.A. in Film from the University of Michigan.</p></div>
+            </div>
+          </article>
+        </div>
+        <!-- 32BJ-SNIPPET profile-card END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="benefit-collection">
+      <header>
+        <h2>Benefit collection</h2>
+        <p>Health benefit index with reusable cards and responsive grid behavior.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET benefit-collection START -->
+        <div class="ds-scope">
+          <section class="ds-benefit-collection" data-fund="health" aria-labelledby="wordpress-benefit-collection-title">
+            <header class="ds-benefit-collection__intro"><p class="ds-benefit-collection__eyebrow">Health Fund</p><h1 id="wordpress-benefit-collection-title">Other benefits</h1><p>Explore additional Health Fund benefits, programs, and member resources.</p></header>
+            <div class="ds-benefit-collection__grid">
+              <article class="ds-benefit-card ds-benefit-card--benefit" data-fund="health" data-kind="benefit"><div class="ds-benefit-card__body"><p class="ds-benefit-card__eyebrow">Health Fund</p><h2>Behavioral Health</h2><p class="ds-benefit-card__description">Find mental health, substance use, and member support resources.</p></div><a class="ds-benefit-card__action" href="#behavioral-health"><span>Explore behavioral health</span></a></article>
+              <article class="ds-benefit-card ds-benefit-card--benefit" data-fund="health" data-kind="benefit"><div class="ds-benefit-card__body"><p class="ds-benefit-card__eyebrow">Health Fund</p><h2>Reproductive Health</h2><p class="ds-benefit-card__description">Find reproductive health information, support, and member resources.</p></div><a class="ds-benefit-card__action" href="#reproductive-health"><span>Explore reproductive health</span></a></article>
+              <article class="ds-benefit-card ds-benefit-card--partner" data-fund="health" data-kind="partner"><div class="ds-benefit-card__body"><p class="ds-benefit-card__eyebrow">Care partner</p><h2>5 Star Centers</h2><p class="ds-benefit-card__description">Find highlighted care options and supporting information for members.</p></div><a class="ds-benefit-card__action" href="#five-star"><span>Find a center</span></a></article>
+            </div>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET benefit-collection END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="resource-index">
+      <header>
+        <h2>Forms and resources index</h2>
+        <p>Composed page pattern using callouts, document links, and resource links.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET resource-forms-index START -->
+        <div class="ds-scope">
+          <section class="ds-resource-index" data-fund="health" aria-labelledby="wordpress-resource-index-title">
+            <header class="ds-resource-index__intro"><p class="ds-resource-index__eyebrow">Health Fund</p><h1 id="wordpress-resource-index-title">Forms and resources</h1><p>Find forms, claims information, documents, and other member resources.</p></header>
+            <aside class="ds-callout ds-callout--important" aria-label="important: Review instructions"><strong>Review instructions</strong><div>Review the instructions before submitting a form or claim.</div></aside>
+            <section class="ds-resource-index__section" aria-labelledby="wordpress-forms-heading">
+              <div class="ds-resource-index__section-heading"><h2 id="wordpress-forms-heading">Forms and claims</h2><p>Download the form you need and review any instructions before submitting it.</p></div>
+              <div class="ds-resource-index__forms">
+                <a class="ds-document-link ds-document-link--health-form" href="#release-health-information" aria-label="Form: Authorization to Release Health Information. PDF, English"><span class="ds-document-link__type">Form</span><strong>Authorization to Release Health Information</strong><span class="sr-only">PDF · English</span></a>
+                <a class="ds-document-link ds-document-link--claim-form" href="#medical-claim" aria-label="Form: Medical Claim Form. PDF, English"><span class="ds-document-link__type">Form</span><strong>Medical Claim Form</strong><span class="sr-only">PDF · English</span></a>
+              </div>
+            </section>
+            <section class="ds-resource-index__section" aria-labelledby="wordpress-resources-heading">
+              <div class="ds-resource-index__section-heading"><h2 id="wordpress-resources-heading">Related resources</h2><p>Use these links for supporting information and external services.</p></div>
+              <div class="ds-resource-index__resources"><a class="ds-resource" href="#claims"><span><strong>Claims information</strong><small>How to submit and track a claim</small></span><span aria-hidden="true">→</span></a><a class="ds-resource" href="#provider"><span><strong>Find a provider</strong><small>External provider directory</small></span><span aria-hidden="true">↗</span></a></div>
+            </section>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET resource-forms-index END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="retirement-index">
+      <header>
+        <h2>Retirement journey and plan index</h2>
+        <p>Journey cards and pension-plan links for the Retirement Fund.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET retirement-journey-plan-index START -->
+        <div class="ds-scope">
+          <section class="ds-retirement-index" data-fund="retirement" aria-labelledby="wordpress-retirement-title">
+            <header class="ds-retirement-index__intro"><p class="ds-retirement-index__eyebrow">Retirement Fund</p><h1 id="wordpress-retirement-title">Retirement benefits</h1><p>Choose where you are in your retirement journey, then find the pension plan and resources that apply to you.</p></header>
+            <section class="ds-retirement-index__section" aria-labelledby="wordpress-retirement-journey-heading">
+              <div class="ds-retirement-index__section-heading"><h2 id="wordpress-retirement-journey-heading">Where are you in your retirement journey?</h2><p>Start with the path that best matches what you need to do next.</p></div>
+              <div class="ds-retirement-index__journeys">
+                <article class="ds-retirement-journey-card" data-fund="retirement"><div class="ds-retirement-journey-card__copy"><p class="ds-retirement-journey-card__eyebrow">Your retirement journey</p><h2>Planning for retirement</h2><p>Start with information and resources that help you understand your retirement benefits.</p></div><a class="ds-retirement-journey-card__action" href="#planning">Explore planning resources <span aria-hidden="true">→</span></a></article>
+                <article class="ds-retirement-journey-card" data-fund="retirement"><div class="ds-retirement-journey-card__copy"><p class="ds-retirement-journey-card__eyebrow">Your retirement journey</p><h2>Ready to retire</h2><p>Find the plan information, documents, and next steps you may need.</p></div><a class="ds-retirement-journey-card__action" href="#ready">Review retirement steps <span aria-hidden="true">→</span></a></article>
+                <article class="ds-retirement-journey-card" data-fund="retirement"><div class="ds-retirement-journey-card__copy"><p class="ds-retirement-journey-card__eyebrow">Your retirement journey</p><h2>Already retired</h2><p>Find pension information, forms, and support resources for retired members.</p></div><a class="ds-retirement-journey-card__action" href="#retired">View retiree resources <span aria-hidden="true">→</span></a></article>
+              </div>
+            </section>
+            <section class="ds-retirement-index__section" aria-labelledby="wordpress-retirement-plans-heading">
+              <div class="ds-retirement-index__section-heading"><h2 id="wordpress-retirement-plans-heading">Find your pension plan</h2><p>Select a plan to review its information, documents, and related resources.</p></div>
+              <div class="ds-retirement-index__plans">
+                <a class="ds-retirement-plan-card" data-fund="retirement" href="#program-a"><span><strong>Program A</strong><small>Review pension information, plan documents, forms, and related retirement resources.</small></span><span class="ds-retirement-plan-card__arrow" aria-hidden="true">→</span></a>
+                <a class="ds-retirement-plan-card" data-fund="retirement" href="#program-b"><span><strong>Program B</strong><small>Review pension information, plan documents, forms, and related retirement resources.</small></span><span class="ds-retirement-plan-card__arrow" aria-hidden="true">→</span></a>
+                <a class="ds-retirement-plan-card" data-fund="retirement" href="#program-c"><span><strong>Program C</strong><small>Review pension information, plan documents, forms, and related retirement resources.</small></span><span class="ds-retirement-plan-card__arrow" aria-hidden="true">→</span></a>
+              </div>
+            </section>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET retirement-journey-plan-index END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="fund-landing-page">
+      <header>
+        <h2>Fund landing page</h2>
+        <p>Complete Health Fund landing-page pattern using the shared framework-free components.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET fund-landing-page START -->
+        <div class="ds-scope ds-fund-landing ds-fund-landing--wordpress" data-fund="health" data-figma-node="548:3795">
+          <header class="ds-fund-page-header" data-figma-node="922:5420">
+            <div class="ds-fund-page-header__announcement">
+              <span aria-hidden="true">▸</span>
+              <a href="#fund-landing-careers">Discover Your Next Role at 32BJ Funds — Explore Opportunities now!</a>
+              <a class="ds-fund-page-header__language" href="#fund-landing-language">Language <span aria-hidden="true">›</span></a>
+            </div>
+            <div class="ds-fund-page-header__blue">
+              <div class="ds-fund-page-header__brand-row">
+                <a class="ds-fund-page-header__brand" href="#fund-landing-home" aria-label="32BJ Benefit Funds home">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-benefit-funds-logo.svg" alt="" aria-hidden="true">
+                  <span>32BJ Benefit Funds</span>
+                </a>
+                <form class="ds-fund-page-header__search ds-fund-page-header__search--desktop" role="search" action="/" method="get">
+                  <label class="sr-only" for="fund-landing-desktop-search">Search 32BJ Benefit Funds</label>
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true">
+                  <input id="fund-landing-desktop-search" name="s" type="search" placeholder="Find What You Need">
+                </form>
+                <div class="ds-fund-page-header__mobile-actions">
+                  <button type="button" data-ds-toggle="search" aria-expanded="false" aria-controls="fund-landing-mobile-search-panel">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true"><span class="sr-only">Search</span>
+                  </button>
+                  <button type="button" data-ds-toggle="menu" aria-expanded="false" aria-controls="fund-landing-mobile-navigation">Menu</button>
+                </div>
+              </div>
+              <div id="fund-landing-mobile-search-panel" class="ds-fund-page-header__mobile-search" hidden>
+                <form class="ds-fund-page-header__search" role="search" action="/" method="get">
+                  <label class="sr-only" for="fund-landing-mobile-search">Search 32BJ Benefit Funds</label>
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt="" aria-hidden="true">
+                  <input id="fund-landing-mobile-search" name="s" type="search" placeholder="Find What You Need">
+                </form>
+              </div>
+              <nav class="ds-fund-page-header__nav ds-fund-page-header__nav--desktop" aria-label="Health Fund navigation">
+                <a href="#fund-landing-home">Home</a><a href="#fund-landing-health-plans">Health Plans</a><a href="#fund-landing-centers">5 Star Centers</a><a href="#fund-landing-lantern">Lantern Surgery Care</a><a href="#fund-landing-reproductive">Reproductive Health</a><a href="#fund-landing-behavioral">Behavioral Health</a><a href="#fund-landing-benefits">Other Benefits</a><a href="#fund-landing-forms">Forms</a>
+              </nav>
+              <nav id="fund-landing-mobile-navigation" class="ds-fund-page-header__nav ds-fund-page-header__nav--mobile" aria-label="Health Fund mobile navigation" hidden>
+                <a href="#fund-landing-home">Home</a><a href="#fund-landing-health-plans">Health Plans</a><a href="#fund-landing-centers">5 Star Centers</a><a href="#fund-landing-lantern">Lantern Surgery Care</a><a href="#fund-landing-reproductive">Reproductive Health</a><a href="#fund-landing-behavioral">Behavioral Health</a><a href="#fund-landing-benefits">Other Benefits</a><a href="#fund-landing-forms">Forms</a>
+              </nav>
+            </div>
+          </header>
+
+          <main class="ds-fund-landing__canvas">
+            <section class="ds-fund-landing__banner" aria-label="Featured Health Fund announcements">
+              <button type="button" aria-label="Previous announcement">‹</button><p>Scrolling Banner</p><button type="button" aria-label="Next announcement">›</button>
+            </section>
+
+            <div class="ds-fund-landing__layout">
+              <aside class="ds-fund-sidebar" aria-label="Health Fund quick information">
+                <section class="ds-fund-sidebar__section">
+                  <h2>Looking For a Doctor?</h2>
+                  <div><p>We have tens of thousands of excellent primary and specialty doctors in our network. Staying in network always saves you money, and our 5 Star Centers offer great care at the lowest cost to you.</p><a class="ds-fund-sidebar__link" href="#fund-landing-doctor"><span aria-hidden="true"></span>Find A Doctor</a><a class="ds-fund-sidebar__link" href="#fund-landing-five-star"><span aria-hidden="true"></span>Find A 5 Star Center</a></div>
+                </section>
+                <section class="ds-fund-sidebar__section">
+                  <h2>Make An Appointment at UHC.</h2>
+                  <div><a class="ds-fund-sidebar__link" href="#fund-landing-hospitals"><span aria-hidden="true"></span>In Network Hospitals</a><div class="ds-fund-sidebar__qr">QR Code</div><p>There are hundreds of <strong>preferred hospitals</strong> in our network where you always pay a lower copay.</p><p><strong>Nonpreferred hospitals</strong> are in network but may send you a bill for more than your copay. If you get a bill, call <strong>Health Services at 866.230.3225.</strong></p><a class="ds-fund-sidebar__link" href="#fund-landing-preferred"><span aria-hidden="true"></span>Find a Preferred Hospital</a><a class="ds-fund-sidebar__link" href="#fund-landing-nonpreferred"><span aria-hidden="true"></span>Non-preferred Hospital List</a></div>
+                </section>
+                <section class="ds-fund-sidebar__section"><h2>All New York-Presbyterian facilities and their doctors are out of network</h2><div><a class="ds-fund-sidebar__link" href="#fund-landing-faq"><span aria-hidden="true"></span>See FAQ</a></div></section>
+                <section class="ds-fund-sidebar__section"><h2>What about emergency care?</h2><div><p>In an emergency, you can go to any hospital ER and pay the same low copay.</p></div></section>
+                <section class="ds-fund-sidebar__section"><h2>Need help? Member Services is here for you!</h2><div><p>Call Member Services at <strong>800.551.3225</strong>, Monday-Friday, 8:30am-8pm, and Saturday, 9am-5pm.</p><p>You can also chat with them live through the <strong>32BJ Member Portal</strong> or visit their Welcome Center at 25 West 18th Street, 5th Floor, in Manhattan.</p></div></section>
+              </aside>
+
+              <div class="ds-fund-landing__content">
+                <section class="ds-fund-welcome">
+                  <div class="ds-fund-welcome__copy"><h1>Welcome to the 32BJ Health Fund</h1><strong>You work hard, so we work hard for you.</strong><p>32BJ members are at the center of everything we do. We know that healthcare in the US is very expensive, which is why we are always looking for new and better ways to make sure you and your family can get top-quality healthcare that is affordable to you—whenever you need it.</p></div>
+                  <img class="ds-fund-welcome__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-health-fund-welcome-team.png" alt="Three 32BJ Benefit Funds staff members">
+                </section>
+                <section class="ds-fund-mission-grid" aria-label="Health Fund mission, purpose, and vision">
+                  <article class="ds-fund-mission-card"><h2>OUR MISSION</h2><strong>Our mission tells you who we are, what we do—and how.</strong><p>To improve the lives of hard-working people by providing sustained access to affordable, high-quality healthcare</p></article>
+                  <article class="ds-fund-mission-card"><h2>OUR PURPOSE</h2><strong>Our purpose tells you why we do what we do.</strong><p>To maximize the value of our healthcare dollars so that members and employers have the flexibility to allocate resources to other critical needs.</p></article>
+                  <article class="ds-fund-mission-card"><h2>OUR VISION</h2><strong>Our vision tell you where we want to go.</strong><p>To create a more just society by making access to quality health services easy and affordable.</p></article>
+                </section>
+                <section class="ds-fund-portal">
+                  <div><h2>32BJ Member Portal: All your benefits,<br>all in one place</h2><strong>Keeping You Connected</strong><p>Find all your benefits, what they cover, and what your copays are. Find doctors, confirm your 401(k) balance, register for training courses, and much more. See your Summary Plan Description (SPD) on the member portal or this website for complete benefit details.</p><a class="ds-fund-portal__button" href="#fund-landing-portal">Join Now</a></div>
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-member-portal.png" alt="Member using the 32BJ Member Portal">
+                </section>
+                <div class="ds-fund-landing__lower-grid">
+                  <article class="ds-fund-costs">
+                    <h2>High healthcare costs squeeze your paycheck<br>—and what we’re doing about it</h2><p class="ds-fund-costs__eyebrow">32 BJ Is Fighting To</p><h3>Lower Healthcare Costs For You And Your Employer- And Stop The Paycheck Squeeze</h3>
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-healthcare-costs.png" alt="Three illustrations explaining how rising healthcare costs reduce worker compensation">
+                    <p>Your employer contributes to the cost of your health benefits based on the contract they reached with the Union through the collective bargaining process. Employers have to make hard decisions about how they spend their money to run their businesses. If your employer has to keep paying more for your benefits because of rising healthcare costs, they will have less money to pay you each week—and that’s not right.</p>
+                    <p>That’s why we are fighting to lower healthcare costs for you, workers like you, and your employers. The biggest cause of high healthcare costs is out-of-control hospital prices. Hospitals keep getting richer and bigger and more powerful—but they are not spending that money on making sure their patients get better care. That’s also not right. <a href="#fund-landing-costs">Learn more here.</a></p>
+                  </article>
+                  <aside class="ds-fund-resources" aria-label="Health Fund resources">
+                    <section class="ds-fund-resource-card ds-fund-resource-card--benefits"><h2>Know Your<br>Health Benefits</h2><div class="ds-fund-resource-card__icons" aria-hidden="true"><span class="is-health">✚<small>Health</small></span><span class="is-retirement">●<small>Retirement</small></span><span class="is-legal">⚖<small>Legal</small></span><span class="is-training">▣<small>Training</small></span></div><a href="#fund-landing-video">Watch The Video</a></section>
+                    <section class="ds-fund-resource-card"><h2>Health Glossary</h2><a class="ds-fund-resource-card__text-link" href="#fund-landing-glossary"><span aria-hidden="true"></span>Better understand health insurance terms.</a></section>
+                    <section class="ds-fund-resource-card"><h2>Forms</h2><a class="ds-fund-resource-card__text-link" href="#fund-landing-forms"><span aria-hidden="true"></span>Download health and life insurance forms.</a></section>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <footer class="ds-footer ds-footer--wordpress" data-fund="health" data-figma-node="630:4054">
+            <div class="ds-footer__inner">
+              <div class="ds-footer__notices" aria-label="Important notices">
+                <a href="#fund-landing-surprise-bills"><span class="ds-footer__notice-dot" aria-hidden="true"></span>Your rights and protections against surprise medical bills</a>
+                <a href="#fund-landing-transparency"><span class="ds-footer__notice-dot" aria-hidden="true"></span>Anthem transparency in coverage notice</a>
+              </div>
+              <div class="ds-footer__social" aria-label="Social links">
+                <a class="ds-footer__social-icon" href="#fund-landing-facebook" aria-label="32BJ Benefit Funds on Facebook"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-facebook.png" alt=""></a>
+                <a class="ds-footer__social-icon" href="#fund-landing-bluesky" aria-label="32BJ Benefit Funds on Bluesky"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-bluesky.png" alt=""></a>
+                <a class="ds-footer__social-icon" href="#fund-landing-instagram" aria-label="32BJ Benefit Funds on Instagram"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-instagram.svg" alt=""></a>
+                <a class="ds-footer__qr" href="#fund-landing-home" aria-label="Open 32BJ Benefit Funds website"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-footer-qr.png" alt=""></a>
+              </div>
+              <p class="ds-footer__contact"><span>25 West 18th Street, New York, NY 10011-4676</span><span class="ds-footer__separator" aria-hidden="true">|</span><a href="tel:18005513225">Member Services: 800-551-3225</a></p>
+              <nav class="ds-footer__links" aria-label="Footer navigation"><a href="#fund-landing-email">Email Us</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#fund-landing-directions">Get Directions</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#fund-landing-terms">Terms of Use</a><span class="ds-footer__separator" aria-hidden="true">|</span><a href="#fund-landing-privacy">Privacy Policy</a></nav>
+            </div>
+          </footer>
+        </div>
+        <!-- 32BJ-SNIPPET fund-landing-page END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="homepage">
+      <header>
+        <h2>32BJ Benefit Funds homepage</h2>
+        <p>The approved homepage pattern from Figma, separate from the Health Fund landing page.</p>
+      </header>
+      <div class="catalog-preview catalog-preview--full">
+        <!-- 32BJ-SNIPPET homepage START -->
+        <div class="ds-scope ds-homepage" data-fund="health" data-figma-node="1373:8715">
+          <header class="ds-homepage-header" data-figma-node="1373:8716">
+            <div class="ds-homepage-header__utility"><a class="ds-homepage-header__language" href="#wp-language">Language <span aria-hidden="true">›</span></a></div>
+            <div class="ds-homepage-header__blue">
+              <div class="ds-homepage-header__brand-row">
+                <a class="ds-homepage-header__brand" href="#wp-homepage-main" aria-label="32BJ Benefit Funds home"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-benefit-funds-logo.svg" alt=""><span>32BJ Benefit Funds</span></a>
+                <form class="ds-homepage-header__search ds-homepage-header__search--desktop" role="search" action="/"><label class="sr-only" for="wp-home-search">Search 32BJ Benefit Funds</label><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt=""><input id="wp-home-search" name="s" type="search" placeholder="Find What You Need"></form>
+                <div class="ds-homepage-header__mobile-actions"><button type="button" data-ds-toggle="search" aria-expanded="false" aria-controls="wp-home-mobile-search"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt=""><span class="sr-only">Search</span></button><button type="button" data-ds-toggle="navigation" aria-expanded="false" aria-controls="wp-home-menu">Menu</button></div>
+              </div>
+              <div id="wp-home-mobile-search" class="ds-homepage-header__mobile-search" hidden><form class="ds-homepage-header__search" role="search" action="/"><label class="sr-only" for="wp-home-mobile-search-field">Search 32BJ Benefit Funds</label><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-search-icon.png" alt=""><input id="wp-home-mobile-search-field" name="s" type="search" placeholder="Find What You Need"></form></div>
+              <nav id="wp-home-menu" class="ds-homepage-header__nav" aria-label="Homepage navigation" hidden><a href="#wp-homepage-main">home</a><a href="#wp-health">Health Plans</a><a href="#wp-centers">5 Star Centers</a><a href="#wp-surgery">Lantern Surgery Care</a><a href="#wp-reproductive">Reproductive Health</a><a href="#wp-behavioral">Behavioral Health</a><a href="#wp-benefits">Other Benefits</a><a href="#wp-forms">Forms</a></nav>
+            </div>
+          </header>
+          <main id="wp-homepage-main" class="ds-homepage__main">
+            <h1 class="sr-only">32BJ Benefit Funds</h1>
+            <section class="ds-homepage-hero-section" data-figma-node="1373:8717" aria-label="Featured information">
+              <section class="ds-carousel" data-ds-carousel data-ds-active-slide="0" role="region" aria-roledescription="carousel" aria-label="Featured information">
+                <div class="ds-carousel__desktop"><div class="ds-carousel__frame">
+                  <div data-ds-carousel-slide><img class="ds-carousel__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-hero-banner.png" alt="Don't pay more than you should"></div>
+                  <div data-ds-carousel-slide hidden><img class="ds-carousel__image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-hero-banner.png" alt="Don't pay more than you should"></div>
+                  <button class="ds-carousel__arrow ds-carousel__arrow--prev" type="button" data-ds-carousel-action="previous" aria-label="Previous slide"><span aria-hidden="true">‹</span></button>
+                  <button class="ds-carousel__arrow ds-carousel__arrow--next" type="button" data-ds-carousel-action="next" aria-label="Next slide"><span aria-hidden="true">›</span></button>
+                </div></div>
+                <div class="ds-carousel__mobile" data-figma-node="1715:132"><div class="ds-carousel__mobile-graphic" aria-hidden="true"><span class="ds-carousel__mobile-dollar">$</span><span class="ds-carousel__mobile-slash"></span></div><h2 class="ds-carousel__mobile-title">DON'T PAY MORE THAN YOU SHOULD</h2><p class="ds-carousel__mobile-body">When you go to Northwell Health, NYU Langone, and Westchester Medical Center for care covered by your health plan, you only have to pay your copay. But these hospitals may bill you for more money than you owe.</p><a class="ds-carousel__mobile-link" href="#wp-hospital-billing">Don't pay more than you should. Here's how.</a></div>
+              </section>
+            </section>
+            <section class="ds-homepage-primary" data-figma-node="1373:8718" aria-label="About your benefits">
+              <article class="ds-home-card ds-home-card--member" data-figma-node="1632:438"><div class="ds-home-card__copy"><div class="ds-home-card__content"><h3>Introducing 32BJ Funds Member Portal</h3><strong>Keeping You Connected</strong><p>Everything you need in one place to make the best use of all of your 32BJ Funds Benefits.</p></div><a class="ds-button" href="#wp-portal">Join Now</a></div><div class="ds-home-card__art" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-member-portal.png" alt=""></div></article>
+              <article class="ds-home-card ds-home-card--who" data-figma-node="1632:438"><div class="ds-home-card__copy"><div class="ds-home-card__content"><h3>Who We Are</h3><p>We serve working people and their families with benefits that support their health, security, and future. Our team is proud to make a difference every day.</p></div><a class="ds-button" href="#wp-who">Learn More</a></div><div class="ds-home-card__art" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-who-we-are.png" alt=""></div></article>
+              <article class="ds-homepage-benefits-card" data-figma-node="1374:8850"><h2>What Are My Benefits</h2><p>These benefits were made for you—explore what’s possible.</p><div class="ds-homepage-benefits-card__links"><a href="#wp-health"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-benefit-health.png" alt=""><span>Health</span></a><a href="#wp-retirement"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-benefit-retirement.png" alt=""><span>Retirement</span></a><a href="#wp-legal"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-benefit-legal.png" alt=""><span>Legal</span></a><a href="#wp-training"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-benefit-training.png" alt=""><span>Training</span></a></div></article>
+            </section>
+            <section class="ds-homepage-ltd-section" data-figma-node="1373:8720"><article id="wp-ltd" class="ds-homepage-ltd" data-figma-node="1374:9071"><div class="ds-homepage-ltd__icon" aria-hidden="true">!</div><div class="ds-homepage-ltd__copy"><h2>Long-Term Disability Benefit Increase Effective July 1, 2026.</h2><p>Review the benefit increase, effective date, and important next steps.</p></div><a class="ds-homepage-button" href="#wp-ltd-update">View Update</a></article></section>
+            <section class="ds-homepage-support" data-figma-node="1373:8719" aria-label="Member help and updates">
+              <article class="ds-homepage-help" data-figma-node="1374:9031"><h2>Need Help?</h2><h3>Member Services is Here for You</h3><p>By phone and live chat through the member portal: Monday-Friday, 8:30am-8pm, and Saturday, 9am-5pm.</p><p>In person at the Welcome Center in Manhattan: Monday-Friday, 8:30am-6pm.</p><div class="ds-homepage-help__links"><a href="#wp-email">Email us</a><span aria-hidden="true">|</span><a href="#wp-directions">Get Directions</a></div></article>
+              <article class="ds-homepage-benefit-matters" data-figma-node="1374:9037"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-benefit-matters.png" alt="Benefit Matters"><p>Be in the know! Every bi-monthly issue provides you with updates and information about your benefits.</p><a class="ds-homepage-button" href="#wp-benefit-matters">Read Now</a></article>
+              <article class="ds-homepage-news" data-figma-node="1374:9048"><div class="ds-homepage-news__heading"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><h2>News &amp; Member Alerts</h2></div><ul><li><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><a href="#wp-news">Long-Term Disability changes go into effect July 1.</a></li><li><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><a href="#wp-news">Review important dates and next steps for your LTD benefits.</a></li><li><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><a href="#wp-news">Learn what this update means for your coverage.</a></li><li><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><a href="#wp-news">Contact Member Services if you need help.</a></li><li><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-alert-icon.png" alt=""><a href="#wp-news">Log in to the Member Portal to check your benefits.</a></li></ul></article>
+            </section>
+            <section class="ds-homepage-stories" data-figma-node="1373:8721" aria-label="Stories and seminars">
+              <article class="ds-homepage-staff" data-figma-node="1374:9082"><div class="ds-homepage-staff__copy"><h2>Staff Helping Members</h2><p>From benefits to workplace challenges, our staff are on the front lines helping members navigate it all. Meet the people who care deeply about your success and well-being.</p><a class="ds-homepage-button" href="#wp-staff">Read Their Stories</a></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-staff.png" alt="32BJ Benefit Funds staff helping members"></article>
+              <div class="ds-homepage-seminars"><div class="ds-homepage-seminars__image" data-figma-node="1374:9098"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-seminar.png" alt="Members attending a seminar"></div><article class="ds-homepage-seminars__copy" data-figma-node="1374:9102"><h2>Upcoming Seminars<br>and Workshops</h2><p>Get the most out of your benefits. Join an upcoming session to learn, ask questions, and get support from our team. In-person and virtual options available.</p><a class="ds-homepage-button" href="#wp-seminars">View Schedule</a></article></div>
+            </section>
+            <section class="ds-homepage-media" data-figma-node="1373:8722" aria-label="Videos, social media, and careers">
+              <article class="ds-homepage-video" data-figma-node="1374:9109"><h2>Watch the Latest from<br>32BJ Funds</h2><p>Watch informational videos about your benefits. Hear fellow 32BJ Members’ stories. Stay informed and learn what's new</p><a class="ds-homepage-button" href="#wp-videos">Watch Now</a></article>
+              <article class="ds-homepage-social" data-figma-node="1374:9118"><h2>Stay Connected with 32BJ Funds</h2><h3>Get the latest updates and info</h3><div class="ds-homepage-social__links" aria-label="Social links"><a href="#wp-facebook" aria-label="32BJ Benefit Funds on Facebook"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-facebook.png" alt=""></a><a href="#wp-bluesky" aria-label="32BJ Benefit Funds on Bluesky"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-bluesky.png" alt=""></a><a href="#wp-instagram" aria-label="32BJ Benefit Funds on Instagram"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-instagram.svg" alt=""></a><a href="#wp-website" aria-label="32BJ Benefit Funds website"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-footer-qr.png" alt=""></a></div></article>
+              <article class="ds-homepage-careers" data-figma-node="1399:12806"><div class="ds-homepage-careers__copy"><h2>Careers at 32BJ Funds</h2><p>Join a team that makes a real difference for working people and their families. Grow your career in a supportive environment where your work truly matters.</p><a class="ds-homepage-button" href="#wp-careers">See Careers</a></div><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-ds-asset="32bj-home-careers.png" alt="32BJ Benefit Funds team member"></article>
+            </section>
+          </main>
+          <footer class="ds-homepage-footer" data-figma-node="1373:8723"><nav class="ds-homepage-footer__primary" aria-label="Footer navigation"><a href="#wp-about">About Us</a><a href="#wp-contact">Contact Us</a><a href="#wp-sitemap">Site Map</a><a href="#wp-terms">Terms of Use</a><a href="#wp-privacy">Privacy Policy</a><a href="#wp-seiu">32BJ SEIU</a></nav><nav class="ds-homepage-footer__secondary" aria-label="Legal navigation"><a href="#wp-terms">Terms of Use</a><a href="#wp-privacy">Privacy Policy</a></nav></footer>
+        </div>
+        <!-- 32BJ-SNIPPET homepage END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="form-page">
+      <header><h2>Form page</h2><p>Interactive structure example with client-side validation. The preview never sends or stores entries.</p></header>
+      <div class="catalog-preview catalog-preview--full">
+        <!-- 32BJ-SNIPPET form-page START -->
+        <div class="ds-scope ds-page-patterns ds-form-page" data-fund="health" data-figma-node="1685:162">
+          <div class="ds-page-patterns__surface">
+            <header class="ds-page-patterns__intro"><p class="ds-page-patterns__eyebrow">Form page example</p><h1>Ask a question</h1><p class="ds-page-patterns__lede">Use this example to review the field order, validation, consent, and submission states.</p></header>
+            <p class="ds-page-patterns__note">Demonstration only. Do not enter personal or medical information. Nothing you enter here is sent or saved.</p>
+            <form class="ds-form-page__form" data-ds-demo-form novalidate>
+              <div class="ds-form-page__errors" id="wp-form-errors" role="alert" aria-label="Check these fields" hidden><strong>Check these fields</strong><ul></ul></div>
+              <fieldset class="ds-field-group" aria-describedby="wp-form-question-help"><legend>Your question</legend><p class="ds-field-group__help" id="wp-form-question-help">Fields marked * are required.</p><div class="ds-field-group__content">
+                <div class="ds-form-page__row">
+                  <label class="ds-field ds-field--default" for="wp-form-name"><span class="ds-field__label">Name *</span><input class="ds-input" id="wp-form-name" name="name" type="text" autocomplete="name" required data-ds-required data-ds-error="wp-form-name-error" data-ds-message="Enter a name." aria-describedby="wp-form-name-error"><span class="ds-field__hint" id="wp-form-name-error" hidden>Enter a name.</span></label>
+                  <label class="ds-field ds-field--default" for="wp-form-topic"><span class="ds-field__label">Topic *</span><select class="ds-input" id="wp-form-topic" name="topic" required data-ds-required data-ds-error="wp-form-topic-error" data-ds-message="Choose a topic." aria-describedby="wp-form-topic-error"><option value="">Choose a topic</option><option value="benefits">Benefits</option><option value="forms">Forms</option><option value="other">Other</option></select><span class="ds-field__hint" id="wp-form-topic-error" hidden>Choose a topic.</span></label>
+                </div>
+                <label class="ds-field ds-field--textarea ds-field--default" for="wp-form-question"><span class="ds-field__label">Your question *</span><textarea class="ds-textarea" id="wp-form-question" name="question" maxlength="2000" required data-ds-required data-ds-error="wp-form-question-error" data-ds-message="Enter a question." data-ds-count="wp-form-question-counter" aria-describedby="wp-form-question-error wp-form-question-help-text wp-form-question-counter"></textarea><span class="ds-textarea__meta"><span><span class="ds-field__hint" id="wp-form-question-help-text">Do not include sensitive medical information.</span><span class="ds-field__hint ds-field__hint--error" id="wp-form-question-error" hidden>Enter a question.</span></span><span id="wp-form-question-counter" aria-live="polite">0 / 2000</span></span></label>
+              </div></fieldset>
+              <fieldset class="ds-field-group" aria-describedby="wp-form-reply-help wp-form-reply-error"><legend>Reply method *</legend><p class="ds-field-group__help" id="wp-form-reply-help">Choose one option.</p><p class="ds-form-page__field-error" id="wp-form-reply-error" hidden>Choose a reply method.</p><div class="ds-field-group__content ds-form-page__choices"><label class="ds-choice"><input id="wp-form-reply" type="radio" name="reply" value="email" data-ds-required data-ds-error="wp-form-reply-error" data-ds-message="Choose a reply method."><span>Email</span></label><label class="ds-choice"><input type="radio" name="reply" value="phone"><span>Phone</span></label></div></fieldset>
+              <div class="ds-form-page__consent"><label class="ds-choice ds-choice--checkbox"><input id="wp-form-consent" type="checkbox" name="consent" required data-ds-required data-ds-error="wp-form-consent-error" data-ds-message="Confirm the example privacy notice." aria-describedby="wp-form-consent-error"><span><strong>I have read the example privacy notice *</strong><small>Replace this wording and link with approved policy content.</small></span></label><p class="ds-form-page__field-error" id="wp-form-consent-error" hidden>Confirm the example privacy notice.</p></div>
+              <div class="ds-form-page__actions"><button class="ds-button ds-button--primary" data-fund="health" type="submit" data-ds-demo-submit disabled>Submit example</button><p>Demonstration only. No data is sent.</p></div>
+            </form>
+            <div class="ds-form-page__success" id="wp-form-success" role="status" tabindex="-1" hidden><h2>Example complete</h2><p>This shows the confirmation state. Your information was not sent.</p><button type="button" class="ds-button ds-button--secondary" data-fund="health" data-ds-form-restart>Start again</button></div>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET form-page END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="content-detail-page">
+      <header><h2>Content + Detail page</h2><p>Illustrative page structure. Replace all sample guidance, document URLs, and contact details with approved content.</p></header>
+      <div class="catalog-preview catalog-preview--full">
+        <!-- 32BJ-SNIPPET content-detail-page START -->
+        <div class="ds-scope ds-page-patterns ds-content-detail" data-fund="health">
+          <div class="ds-page-patterns__surface">
+            <header class="ds-page-patterns__intro" id="wp-detail-top"><p class="ds-page-patterns__eyebrow">Content + detail example</p><h1>Your health plan</h1><p class="ds-page-patterns__lede">Find the information you need, review related documents, and contact Member Services for help.</p></header>
+            <p class="ds-page-patterns__note">Structure example. Replace this guidance with approved plan information and working links before publishing.</p>
+            <div class="ds-page-patterns__detail">
+              <aside class="ds-page-patterns__navigation"><nav class="ds-toc" aria-labelledby="wp-detail-toc-title"><h2 id="wp-detail-toc-title">On this page</h2><ol><li><a href="#wp-detail-eligibility">Eligibility</a></li><li><a href="#wp-detail-coverage">What is covered</a></li><li><a href="#wp-detail-next-steps">How to use your benefits</a></li><li><a href="#wp-detail-documents">Documents and forms</a></li><li><a href="#wp-detail-help">Get help</a></li></ol></nav></aside>
+              <div class="ds-page-patterns__article" aria-label="Health plan information example">
+                <section class="ds-page-patterns__section" id="wp-detail-eligibility" tabindex="-1" aria-labelledby="wp-detail-eligibility-heading"><h2 id="wp-detail-eligibility-heading">Eligibility</h2><p>Explain who can use this benefit and how a member can confirm their eligibility. Add the approved requirements and exceptions for this plan.</p></section>
+                <section class="ds-page-patterns__section" id="wp-detail-coverage" tabindex="-1" aria-labelledby="wp-detail-coverage-heading"><h2 id="wp-detail-coverage-heading">What is covered</h2><p>Group covered services under clear headings. Place limits and exceptions beside the relevant information, with a link to the full plan document.</p></section>
+                <section class="ds-page-patterns__section" id="wp-detail-next-steps" tabindex="-1" aria-labelledby="wp-detail-next-steps-heading"><h2 id="wp-detail-next-steps-heading">How to use your benefits</h2><p>Describe the steps a member needs to take, including where to check plan details and whom to contact with questions.</p></section>
+                <section class="ds-page-patterns__section" id="wp-detail-documents" tabindex="-1" aria-labelledby="wp-detail-documents-heading"><h2 id="wp-detail-documents-heading">Documents and forms</h2><p>Add current files and destinations here. Identify the format and language of each document.</p><div class="ds-content-detail__resources"><a class="ds-document-link ds-document-link--health-form" href="#replace-with-approved-form" aria-label="Form: Plan form example. PDF · English"><span class="ds-document-link__type">Form</span><strong>Plan form example</strong><span class="sr-only">PDF · English</span></a><a class="ds-resource" href="#replace-with-approved-resource"><span><strong>Plan information example</strong><small>Read the current plan details</small></span><span aria-hidden="true">→</span></a></div></section>
+                <section class="ds-page-patterns__section" id="wp-detail-help" tabindex="-1" aria-labelledby="wp-detail-help-heading"><h2 id="wp-detail-help-heading">Get help</h2><p>Confirm the contact details and available services for this page before publishing.</p><section class="ds-member-services" data-fund="health"><h2>Need help? Member Services is here for you.</h2><a class="ds-member-services__phone" href="tel:+18005513225">800-551-3225</a><p>Monday-Friday, 8:30am-8pm · Saturday, 9am-5pm</p><p>Welcome Center · 25 West 18th Street, 5th Floor, Manhattan</p><div class="ds-member-services__actions"><a class="ds-button ds-button--primary" data-fund="health" href="tel:+18005513225">Call Member Services</a><a class="ds-button ds-button--primary" data-fund="health" href="https://www.32bjmemberportal.org/">Live Chat</a><a class="ds-button ds-button--primary" data-fund="health" href="https://32bjfunds.org/contact-us">Get Directions</a></div></section></section>
+                <a class="ds-page-patterns__back" href="#wp-detail-top">Back to top</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 32BJ-SNIPPET content-detail-page END -->
+      </div>
+    </article>
+
+    <article class="catalog-item" id="long-form">
+      <header>
+        <h2>Long-form page with table of contents</h2>
+        <p>Reusable content-page composition with anchored section navigation.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET long-form-table-of-contents START -->
+        <div class="ds-scope ds-long-form-pattern">
+          <nav class="ds-toc" aria-labelledby="wordpress-toc-title"><h2 id="wordpress-toc-title">On this page</h2><ol><li><a href="#eligibility">Eligibility</a></li><li><a href="#coverage">Coverage</a></li><li><a href="#documents">Documents</a></li></ol></nav>
+          <article>
+            <header><p class="ds-benefit-results__eyebrow">Health Fund</p><h1>Plan information</h1><p class="ds-long-form-pattern__lede">Use this page pattern for detailed member information that needs clear sections and direct navigation.</p></header>
+            <section id="eligibility"><h2>Eligibility</h2><p>Explain who is eligible, when coverage begins, and where a member can confirm status.</p></section>
+            <section id="coverage"><h2>Coverage</h2><p>Describe the benefit in direct language and link to the controlling plan documents.</p></section>
+            <section id="documents"><h2>Documents</h2><p>Provide the current documents, forms, and contact information.</p></section>
+          </article>
+        </div>
+        <!-- 32BJ-SNIPPET long-form-table-of-contents END -->
+      </div>
+    </article>
+  </main>
+
+  <script src="./assets/32bj-design-system.js" defer></script>
+</body>
+</html>
