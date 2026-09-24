@@ -106,21 +106,6 @@
     renderCarousel(carousel, index + direction);
   }
 
-  function toggleVideo(button) {
-    var player = button.closest('.ds-video__player');
-    if (!player) return;
-    var playing = player.getAttribute('data-playing') === 'true';
-    var next = !playing;
-    player.setAttribute('data-playing', next ? 'true' : 'false');
-    button.setAttribute('aria-pressed', next ? 'true' : 'false');
-
-    var label = button.querySelector('[data-ds-video-label]');
-    if (label) label.textContent = next ? 'Pause video' : 'Play video';
-
-    var icon = button.querySelector('[aria-hidden="true"]');
-    if (icon) icon.textContent = next ? '||' : '>';
-  }
-
   function updateCounter(textarea) {
     var counterId = textarea.getAttribute('data-ds-count');
     if (!counterId) return;
@@ -196,11 +181,6 @@
       return;
     }
 
-    var videoToggle = event.target.closest('[data-ds-video-toggle]');
-    if (videoToggle) {
-      event.preventDefault();
-      toggleVideo(videoToggle);
-    }
   });
 
   document.addEventListener('submit', function (event) {

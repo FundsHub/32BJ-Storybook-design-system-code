@@ -61,6 +61,7 @@ const imageAssets = [
   '32bj-home-staff.png',
   '32bj-home-seminar.png',
   '32bj-home-careers.png',
+  'training-video-poster.png',
   '32bj-leadership-steve-jenkins.png'
 ];
 

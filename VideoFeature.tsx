@@ -1,42 +1,48 @@
-import { useId, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 
 type Props = {
   title: string;
   summary?: string;
-  duration?: string;
+  posterSrc?: string;
+  videoSrc?: string;
   transcriptHref?: string;
-  hasCaptions?: boolean;
+  fund?: 'training' | 'health' | 'retirement' | 'legal';
 };
 
 export function VideoFeature({
   title,
   summary,
-  duration = '2:30',
-  transcriptHref = '#transcript',
-  hasCaptions = true
+  posterSrc,
+  videoSrc,
+  transcriptHref,
+  fund = 'training'
 }: Props) {
-  const [playing, setPlaying] = useState(false);
   const titleId = useId();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  async function play() {
+    try { await videoRef.current?.play(); } catch { setPlaying(false); }
+  }
 
   return (
-    <article className="ds-video" aria-labelledby={titleId}>
-      <div className="ds-video__player" data-playing={playing}>
-        <span className="ds-video__brand" aria-hidden="true">32BJ Funds</span>
-        <button type="button" aria-pressed={playing} onClick={() => setPlaying((value) => !value)}>
-          <span aria-hidden="true">{playing ? 'Ⅱ' : '▶'}</span>
-          {playing ? 'Pause video' : 'Play video'}
-        </button>
-        <span className="ds-video__duration">{duration}</span>
+    <article className={`ds-video ds-video--${fund}`} aria-labelledby={titleId} data-figma-node="930:5567">
+      <h2 id={titleId}>{title}</h2>
+      {summary && <p className="ds-video__summary">{summary}</p>}
+      <div className="ds-video__player">
+        {videoSrc ? (
+          <video ref={videoRef} poster={posterSrc} controls={playing} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label={title}>
+            <source src={videoSrc} />
+            Your browser does not support video playback.
+          </video>
+        ) : posterSrc ? <img src={posterSrc} alt="" /> : <span className="ds-video__placeholder">Video poster goes here</span>}
+        {videoSrc && !playing && (
+          <button type="button" className="ds-video__play" onClick={play} aria-label={`Play ${title}`}>
+            <span aria-hidden="true">▶</span>
+          </button>
+        )}
       </div>
-      <div className="ds-video__copy">
-        <div className="ds-video__meta">
-          <span>Video</span>
-          {hasCaptions && <span>CC</span>}
-        </div>
-        <h2 id={titleId}>{title}</h2>
-        {summary && <p>{summary}</p>}
-        <a href={transcriptHref}>Read transcript</a>
-      </div>
+      {transcriptHref && <a className="ds-video__transcript" href={transcriptHref}>Read transcript</a>}
     </article>
   );
 }
