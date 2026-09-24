@@ -246,7 +246,7 @@
 
 .ds-fund-sidebar > .ds-fund-sidebar__section:first-child > h2 {
   background-color: #2077bc;
-  background-image: linear-gradient(115deg, #69c2ff 0%, #318fd6 52%, #145a9e 100%);
+  background-image: linear-gradient(180deg, #69c2ff 0%, #318fd6 52%, #145a9e 100%);
 }
 
 .ds-fund-sidebar__section > div {
