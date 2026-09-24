@@ -4,6 +4,7 @@
   min-width: 0;
   margin: 0 auto;
   overflow: hidden;
+  container: fund-landing / inline-size;
   background: var(--32bj-page, #f3f4f6);
   color: var(--32bj-muted-source, #86868b);
   font-family: var(--32bj-font-body, 'Rubik', Arial, sans-serif);
@@ -207,7 +208,7 @@
 
 .ds-fund-landing__layout {
   display: grid;
-  grid-template-columns: 247px minmax(0, 823px);
+  grid-template-columns: minmax(180px, 247px) minmax(0, 1fr);
   align-items: start;
   gap: 33px;
 }
@@ -453,7 +454,7 @@
 
 .ds-fund-landing__lower-grid {
   display: grid;
-  grid-template-columns: minmax(0, 538px) 265px;
+  grid-template-columns: minmax(0, 538px) minmax(200px, 265px);
   align-items: start;
   gap: 20px;
 }
@@ -971,4 +972,65 @@
 .ds-fund-landing--mobile .ds-fund-costs {
   min-height: 0;
   border-radius: 24px;
+}
+
+/* Storybook Docs embeds this page in a narrower canvas than the browser window.
+   Respond to the component's available width so the right rail cannot be clipped. */
+@container fund-landing (max-width: 1050px) {
+  .ds-fund-page-header__nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .ds-fund-landing__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-fund-landing__content {
+    min-width: 0;
+  }
+  .ds-fund-sidebar {
+    width: 100%;
+  }
+  .ds-fund-landing__lower-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(200px, 1fr);
+  }
+}
+
+@container fund-landing (max-width: 850px) {
+  .ds-fund-page-header__blue { padding-inline: 24px; }
+  .ds-fund-page-header__brand { font-size: 24px; }
+  .ds-fund-page-header__search { width: min(40%, 360px); }
+  .ds-fund-page-header__nav { padding-left: 0; }
+  .ds-fund-landing__canvas { padding: 20px 24px 40px; }
+  .ds-fund-welcome,
+  .ds-fund-portal,
+  .ds-fund-landing__lower-grid {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+  .ds-fund-welcome__image { width: 100%; height: auto; max-height: 300px; object-fit: contain; }
+  .ds-fund-portal > img { width: 190px; height: auto; justify-self: end; }
+  .ds-fund-costs { min-height: 0; }
+  .ds-fund-mission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@container fund-landing (max-width: 560px) {
+  .ds-fund-page-header__announcement { padding: 8px 16px; justify-content: flex-start; }
+  .ds-fund-page-header__announcement .ds-fund-page-header__language { display: none; }
+  .ds-fund-page-header__blue { padding: 8px 16px 12px; }
+  .ds-fund-page-header__brand { font-size: 19px; }
+  .ds-fund-page-header__brand img { width: 44px; height: 54px; }
+  .ds-fund-page-header__search--desktop { display: none; }
+  .ds-fund-page-header__mobile-actions { display: flex; }
+  .ds-fund-page-header__mobile-actions button { min-width: 44px; min-height: 44px; border: 0; background: transparent; color: #fff; }
+  .ds-fund-page-header__mobile-actions img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+  .ds-fund-page-header__nav { display: none; }
+  .ds-fund-page-header__nav:not([hidden]) { display: grid; gap: 0; padding: 0; }
+  .ds-fund-page-header__nav a { min-height: 44px; display: flex; align-items: center; border-bottom: 1px solid rgb(255 255 255 / 28%); white-space: normal; }
+  .ds-fund-landing__canvas { padding: 16px; }
+  .ds-fund-landing__banner { height: 150px; grid-template-columns: 42px 1fr 42px; }
+  .ds-fund-landing__banner p { font-size: 30px; }
+  .ds-fund-mission-grid { grid-template-columns: minmax(0, 1fr); }
+  .ds-fund-welcome__copy { padding: 24px; }
+  .ds-fund-welcome h1, .ds-fund-welcome p { width: 100%; }
 }
