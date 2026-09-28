@@ -44,6 +44,14 @@ Use the HTML snippets as structure references. Rebuild editable content with nor
 
 Wrap each component or group in `.ds-scope`. This keeps the production styles isolated from the WordPress theme.
 
+
+
+## Benefit Finder handoff for Xavier
+
+Use `snippets/benefit-finder-journey.html` for the question card and `snippets/benefit-finder-results.html` for the sample results layout. The question card links to the results preview in the catalog. These snippets are visual references and do not calculate eligibility or submit member information. Connect approved questions, validation, a real eligibility service, and actual plan destinations before using them as a live finder. Replace the sample results and keep field IDs unique on each WordPress page.
+
+When replacing the plugin ZIP, confirm WordPress replaces the existing plugin. Its CSS and JavaScript URLs use content-based versions so browsers fetch changed assets even when the package version stays the same.
+
 ## Theme integration without the plugin
 
 Enqueue these two files from the theme:
