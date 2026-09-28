@@ -50,6 +50,14 @@
   color: inherit;
 }
 
+.ds-scope a.ds-button {
+  color: var(--fund-on, #fff);
+}
+
+.ds-scope a.ds-button--secondary {
+  color: var(--fund, #0077c8);
+}
+
 .ds-scope.ds-layout-stack,
 .ds-scope .ds-layout-stack {
   display: grid;
