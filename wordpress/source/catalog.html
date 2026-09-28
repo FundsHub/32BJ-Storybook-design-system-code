@@ -542,6 +542,50 @@ These amounts may be adjusted each year by the IRS. Replace this sample with app
       </div>
     </article>
 
+    <article class="catalog-item" id="benefit-finder-journey">
+      <header>
+        <h2>Benefit Finder questions</h2>
+        <p>Illustrative question card. Connect approved questions and a real eligibility service before using it as a live finder.</p>
+      </header>
+      <div class="catalog-preview">
+        <!-- 32BJ-SNIPPET benefit-finder-journey START -->
+        <div class="ds-scope" data-fund="health">
+          <section class="ds-finder-journey" aria-labelledby="wp-finder-title">
+            <div class="ds-finder-journey__header">
+              <p class="ds-benefit-results__eyebrow">Benefit Plan Finder</p>
+              <h1 id="wp-finder-title">Find the benefits available to you</h1>
+              <p>Answer these questions about your current work assignment.</p>
+            </div>
+            <div class="ds-finder-journey__fields">
+              <label class="ds-field" for="wp-finder-location">
+                <span class="ds-field__label">Where do you work?</span>
+                <select class="ds-input" id="wp-finder-location" name="work_location">
+                  <option value="" selected disabled>Select a location</option>
+                  <option value="manhattan">Manhattan</option>
+                  <option value="brooklyn">Brooklyn</option>
+                  <option value="queens">Queens</option>
+                </select>
+              </label>
+              <label class="ds-field" for="wp-finder-employer">
+                <span class="ds-field__label">Who is your employer?</span>
+                <input class="ds-input" id="wp-finder-employer" name="employer" type="text">
+              </label>
+              <fieldset class="ds-field-group ds-finder-journey__work-type">
+                <legend>What type of work do you do?</legend>
+                <div class="ds-field-group__content">
+                  <label class="ds-choice"><input type="radio" name="wp_finder_work_type" value="commercial"><span>Commercial office</span></label>
+                  <label class="ds-choice"><input type="radio" name="wp_finder_work_type" value="residential"><span>Residential building</span></label>
+                  <label class="ds-choice"><input type="radio" name="wp_finder_work_type" value="security"><span>Security</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <a class="ds-button" data-fund="health" href="#benefit-results">View sample results</a>
+          </section>
+        </div>
+        <!-- 32BJ-SNIPPET benefit-finder-journey END -->
+      </div>
+    </article>
+
     <article class="catalog-item" id="benefit-results">
       <header>
         <h2>Benefit Finder results</h2>
